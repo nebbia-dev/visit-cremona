@@ -1,12 +1,15 @@
+export type RichTextBlock = {
+    children?: Array<{
+        text?: string;
+    }>;
+};
+
 export type ExperienceCardData = {
     cheapest?: number;
     connectedProducts?: Array<number | string>;
-    description?: Array<{
-        children?: Array<{
-            text?: string;
-        }>;
-    }>;
+    description?: string | RichTextBlock[];
     documentId?: string;
+    imageUrl?: string;
     locations?: ExperienceLocation[];
     slug?: string;
     tagIds?: number[];
@@ -38,3 +41,20 @@ export type ProductResponse = {
         value?: number;
     };
 };
+
+export function getExperienceDescription(
+    description: ExperienceCardData["description"],
+) {
+    if (typeof description === "string") {
+        return description;
+    }
+
+    if (!Array.isArray(description)) {
+        return "";
+    }
+
+    return description
+        .flatMap((block) => block.children ?? [])
+        .map((child) => child.text ?? "")
+        .join(" ");
+}

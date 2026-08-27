@@ -13,7 +13,7 @@ export default async function Press() {
             { next: { revalidate: 1000 }});
         contentRef = await dataRef.json();
 
-        referral = contentRef.data.filter(el => el.area === 'press')[0];
+        referral = contentRef.data.filter((el: {area?: string}) => el.area === 'press')[0];
 
     } catch(error) {
         console.log(error);

@@ -7,11 +7,38 @@ import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility
 import {useState} from "react";
 import {ComposerLocation} from "@/app/_types/types";
 import L from 'leaflet';
+import type {LatLngTuple} from "leaflet";
 import cyclingMarker from '../../public/icons/cycling-marker.svg';
 import luthieryMarker from '../../public/icons/luthiery-marker.svg';
 import Link from "next/link";
+import {
+    getExperienceDescription,
+    type ExperienceCardData,
+    type ExperienceLocation,
+} from "@/app/lib/domnia-types";
 
-export default function Map({homepage, autoFilter, fullPage, composers, pages} : {homepage:boolean, autoFilter?:undefined|number, fullPage?:undefined|boolean, composers?:undefined|ComposerLocation[], pages:any}) {
+type MappableExperience = ExperienceCardData & {
+    locations: [
+        ExperienceLocation & {lat: number; lng: number},
+        ...ExperienceLocation[],
+    ];
+};
+
+type MapProps = {
+    homepage: boolean;
+    autoFilter?: number;
+    fullPage?: boolean;
+    composers?: ComposerLocation[];
+    pages?: ExperienceCardData[];
+};
+
+function hasMapLocation(experience: ExperienceCardData): experience is MappableExperience {
+    const location = experience.locations?.[0];
+
+    return typeof location?.lat === "number" && typeof location.lng === "number";
+}
+
+export default function Map({homepage, autoFilter = 0, fullPage, composers, pages = []} : MapProps) {
     const [filter, setFilter] = useState<string>('all');
     const cyclingIcon = new L.Icon({
         iconUrl: cyclingMarker.src,
@@ -19,16 +46,28 @@ export default function Map({homepage, autoFilter, fullPage, composers, pages} :
     const luthieryIcon = new L.Icon({
         iconUrl: luthieryMarker.src,
     });
+    const cyclingExperiences = pages.filter(
+        (experience): experience is MappableExperience =>
+            experience.tagIds?.includes(3) === true && hasMapLocation(experience),
+    );
+    const luthieryExperiences = pages.filter(
+        (experience): experience is MappableExperience =>
+            experience.tagIds?.includes(2) === true && hasMapLocation(experience),
+    );
 
-    function setCoordinates(composers:undefined|ComposerLocation[], pages:any, filter:string, autoFilter:number) {
-        if(composers && composers[0].name.includes('Paderno')) {
+    function setCoordinates(): LatLngTuple {
+        if(composers?.[0]?.name.includes('Paderno')) {
             return [45.23906740340918, 9.928271781708482];
         } else if(filter === 'cycling' || autoFilter === 1) {
-            const c = pages.filter((el:any) => el.tagIds.includes(3))[0].locations;
-            return [c[0].lat, c[0].lng];
+            const location = cyclingExperiences[0]?.locations[0];
+            if (location) {
+                return [location.lat, location.lng];
+            }
         } else if(filter === 'luthiery' || autoFilter === 2) {
-            const c = pages.filter((el:any) => el.tagIds.includes(2))[0].locations;
-            return [c[0].lat, c[0].lng];
+            const location = luthieryExperiences[0]?.locations[0];
+            if (location) {
+                return [location.lat, location.lng];
+            }
         }
         // Cremona default
         return [45.136887, 10.028458];
@@ -64,27 +103,27 @@ export default function Map({homepage, autoFilter, fullPage, composers, pages} :
                 </ul>
             </div>}
             <MapContainer className={`${homepage || fullPage ? 'h-[600px]' : 'h-[532px] md:w-[800px]'} w-full rounded-xl z-100`}
-                          center={setCoordinates(composers, pages, filter, autoFilter)}
+                          center={setCoordinates()}
                           zoom={composers ? 14 : 12}
                           scrollWheelZoom={false}>
                 <TileLayer
                     attribution="Google Maps"
                     url="https://www.google.cn/maps/vt?lyrs=m@189&gl=cn&x={x}&y={y}&z={z}"
                 />
-                {((filter === 'all' && autoFilter === 0) || filter === 'cycling' || autoFilter === 1) && pages.filter((el:any) => el.tagIds.includes(3)).map(el => {
+                {((filter === 'all' && autoFilter === 0) || filter === 'cycling' || autoFilter === 1) && cyclingExperiences.map(el => {
                     return(
                         <Marker key={el.documentId} position={[el.locations[0].lat, el.locations[0].lng]} icon={cyclingIcon}>
                             <Popup className="border border-orange-500 rounded-xl">
                                 <Image className="rounded-t-xl w-full h-[136px] object-cover" width={200} height={100} src={el.imageUrl ? process.env.NEXT_PUBLIC_BASE_URL + el.imageUrl :`/images/experiences/violin1.webp`} alt="Immagine esemplificativa del luogo"/>
                                 <div className="px-4 pt-4 pb-2">
                                     <h4 className="font-bold">{el.title}</h4>
-                                    <p className="line-clamp-6">{el.description.replace(/<\/?[^>]+(>|$)/g, "")}</p>
+                                    <p className="line-clamp-6">{getExperienceDescription(el.description).replace(/<\/?[^>]+(>|$)/g, "")}</p>
                                     <div className="flex justify-between items-center">
                                         <p className="font-bold">{
                                             new Intl.NumberFormat("de-DE", {
                                                 style: "currency",
                                                 currency: "EUR"
-                                            }).format(el.cheapest)
+                                            }).format(el.cheapest ?? 0)
                                         }</p>
                                         <a aria-label="Vai alla pagina di acquisto del biglietto per questa esperienza" href={`https://multishop-cremona.collaudo.domniapass.com/products/${el.slug}`} className="text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full py-2 px-3">Scopri</a>
                                     </div>
@@ -94,20 +133,20 @@ export default function Map({homepage, autoFilter, fullPage, composers, pages} :
                     )
                 })}
 
-                {((filter === 'all' && autoFilter === 0) || filter === 'luthiery' || autoFilter === 2) && pages.filter((el:any) => el.tagIds.includes(2)).map(el => {
+                {((filter === 'all' && autoFilter === 0) || filter === 'luthiery' || autoFilter === 2) && luthieryExperiences.map(el => {
                     return(
                         <Marker key={el.documentId} position={[el.locations[0].lat, el.locations[0].lng]} icon={luthieryIcon}>
                             <Popup className="border border-orange-500 rounded-xl">
                                 <Image className="rounded-t-xl w-full h-[136px] object-cover" width={200} height={100} src={el.imageUrl ? process.env.NEXT_PUBLIC_BASE_URL + el.imageUrl :`/images/experiences/violin1.webp`} alt="Immagine esemplificativa del luogo"/>
                                 <div className="px-4 pt-4 pb-2">
                                     <h4 className="font-bold">{el.title}</h4>
-                                    <p className="line-clamp-6">{el.description.replace(/<\/?[^>]+(>|$)/g, "")}</p>
+                                    <p className="line-clamp-6">{getExperienceDescription(el.description).replace(/<\/?[^>]+(>|$)/g, "")}</p>
                                     <div className="flex justify-between items-center">
                                         <p className="font-bold">{
                                             new Intl.NumberFormat("de-DE", {
                                                 style: "currency",
                                                 currency: "EUR"
-                                            }).format(el.cheapest)
+                                            }).format(el.cheapest ?? 0)
                                         }</p>
                                         <a aria-label="Vai alla pagina di acquisto del biglietto per questa esperienza" href={`https://multishop-cremona.collaudo.domniapass.com/products/${el.slug}`}
                                               className="text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full py-2 px-3">Scopri</a>

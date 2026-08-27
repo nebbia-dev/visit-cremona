@@ -10,7 +10,7 @@ type FilteredExperience = ExperienceCardData & {
 };
 
 export default function SearchAllExperiences({pages}:{pages:ExperienceCardData[]}) {
-    const filters = useFilterStore((state: any) => state.filters);
+    const filters = useFilterStore((state) => state.filters);
     const [filteredExperiences, setFilteredExperiences] = useState<FilteredExperience[]>();
     useEffect(() => {
         setFilteredExperiences(pages)
@@ -19,7 +19,7 @@ export default function SearchAllExperiences({pages}:{pages:ExperienceCardData[]
     async function applyFilters() {
 
         let filtered: FilteredExperience[] = pages.slice();
-        const datesFilter = [];
+        const datesFilter: FilteredExperience[] = [];
 
         switch(filters.type) {
             case 'unique':
@@ -81,18 +81,23 @@ export default function SearchAllExperiences({pages}:{pages:ExperienceCardData[]
 
                     for(const experience of filtered) {
                         if(experience.products && experience.products.length > 0) {
-                            const startDate = new Date(experience.products[0].base_price?.start_date).getTime();
-                            const endDate = new Date(experience.products[0].base_price?.end_date).getTime();
-                            const startFilter = new Date(filters.start).getTime();
-                            const endFilter = new Date(filters.end).getTime();
+                            const basePrice = experience.products[0].base_price;
+                            const startDate = basePrice?.start_date
+                                ? new Date(basePrice.start_date).getTime()
+                                : Number.NaN;
+                            const endDate = basePrice?.end_date
+                                ? new Date(basePrice.end_date).getTime()
+                                : Number.NaN;
+                            const startFilter = filters.start?.getTime();
+                            const endFilter = filters.end?.getTime();
 
-                            if(filters.start && !filters.end) {
+                            if(startFilter !== undefined && endFilter === undefined) {
                                 if(startDate >= startFilter) {
                                     datesFilter.push(experience);
                                 } else if(startDate !== endDate && startDate < startFilter && endDate >= startFilter) {
                                     datesFilter.push(experience);
                                 }
-                            } else if(filters.start && filters.end) {
+                            } else if(startFilter !== undefined && endFilter !== undefined) {
                                 if(endDate >= startFilter && startDate <= endFilter) {
                                     datesFilter.push(experience);
                                 }

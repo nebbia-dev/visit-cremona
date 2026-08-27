@@ -1,5 +1,6 @@
 import {getExperiences} from "@/app/lib/domnia-experiences";
 import Image from "next/image";
+import {getExperienceDescription} from "@/app/lib/domnia-types";
 
 export default async function AccessibleExperiences() {
     let contentExpImages;
@@ -48,6 +49,7 @@ export default async function AccessibleExperiences() {
                 if(el.title?.includes('Card')) {
                     return;
                 }
+                const tagIds = el.tagIds ?? [];
                     return (
                     <div className="mt-12" key={el.documentId}>
                         <Image className="rounded-xl w-full h-[136px] object-cover" width={200} height={100}
@@ -57,17 +59,17 @@ export default async function AccessibleExperiences() {
                             <h4 className="font-bold h-[32px] mt-2">{el.title}</h4>
                             <div>
                                 <p className="text-sm">
-                                    {el.description.replace(/<\/?[^>]+(>|$)/g, "").replaceAll('&nbsp;', ' ')}
+                                    {getExperienceDescription(el.description).replace(/<\/?[^>]+(>|$)/g, "").replaceAll('&nbsp;', ' ')}
                                 </p>
                             </div>
                             <div
                                 className="w-full flex justify-between items-center mt-4 text-sm">
-                                {el.tagIds.length > 0 &&
+                                {tagIds.length > 0 &&
                                     <div className="flex items-center gap-4">
                                         <p>Tag: </p>
                                         <ul className="flex items-center gap-1">
                                             {
-                                                el.tagIds.map(id => {
+                                                tagIds.map(id => {
                                                     return (
                                                         <li key={el.documentId + '_' + id}>
                                                             | {setTags(id)}

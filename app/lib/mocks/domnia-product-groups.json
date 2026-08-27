@@ -1,0 +1,211 @@
+{
+  "data": [
+    {
+      "documentId": "mock-classic-cycling-1",
+      "slug": "tour-classico-parco-po",
+      "title": "Tour classico del Parco del Po",
+      "description": [
+        {
+          "children": [
+            {
+              "text": "Un itinerario tra argini, campagna e piccoli borghi del territorio cremonese."
+            }
+          ]
+        }
+      ],
+      "tagIds": [4, 3],
+      "connectedProducts": [],
+      "cheapest": 35,
+      "locations": [
+        {
+          "lat": 45.1332,
+          "lng": 10.0227
+        }
+      ]
+    },
+    {
+      "documentId": "mock-classic-luthiery-1",
+      "slug": "botteghe-classiche-liuteria",
+      "title": "Botteghe classiche di liuteria",
+      "description": [
+        {
+          "children": [
+            {
+              "text": "Un percorso guidato tra tradizione artigiana, strumenti storici e maestri liutai."
+            }
+          ]
+        }
+      ],
+      "tagIds": [4, 2],
+      "connectedProducts": [],
+      "cheapest": 28,
+      "locations": [
+        {
+          "lat": 45.1369,
+          "lng": 10.0285
+        }
+      ]
+    },
+    {
+      "documentId": "mock-classic-1",
+      "slug": "cremona-classica-da-scoprire",
+      "title": "Cremona classica da scoprire",
+      "description": [
+        {
+          "children": [
+            {
+              "text": "Un'esperienza introduttiva pensata per chi vuole conoscere i luoghi simbolo della citta."
+            }
+          ]
+        }
+      ],
+      "tagIds": [4],
+      "connectedProducts": [],
+      "cheapest": 22,
+      "locations": [
+        {
+          "lat": 45.1348,
+          "lng": 10.0311
+        }
+      ]
+    },
+    {
+      "documentId": "mock-contemporary-cycling-1",
+      "slug": "ebike-contemporary-cremona",
+      "title": "Cremona e-bike experience",
+      "description": [
+        {
+          "children": [
+            {
+              "text": "Un'esperienza dinamica in bicicletta elettrica tra percorsi verdi e soste panoramiche."
+            }
+          ]
+        }
+      ],
+      "tagIds": [5, 3],
+      "connectedProducts": [],
+      "cheapest": 49,
+      "locations": [
+        {
+          "lat": 45.1497,
+          "lng": 10.0174
+        }
+      ]
+    },
+    {
+      "documentId": "mock-contemporary-luthiery-1",
+      "slug": "suoni-contemporary-liuteria",
+      "title": "Suoni contemporanei in liuteria",
+      "description": [
+        {
+          "children": [
+            {
+              "text": "Laboratori, ascolti e sperimentazioni che raccontano il lato contemporaneo della musica."
+            }
+          ]
+        }
+      ],
+      "tagIds": [5, 2],
+      "connectedProducts": [],
+      "cheapest": 32,
+      "locations": [
+        {
+          "lat": 45.1418,
+          "lng": 10.0219
+        }
+      ]
+    },
+    {
+      "documentId": "mock-contemporary-1",
+      "slug": "cremona-contemporary-vibes",
+      "title": "Cremona contemporary vibes",
+      "description": [
+        {
+          "children": [
+            {
+              "text": "Una proposta attuale tra cultura, creativita e nuove forme di racconto del territorio."
+            }
+          ]
+        }
+      ],
+      "tagIds": [5],
+      "connectedProducts": [],
+      "cheapest": 26,
+      "locations": [
+        {
+          "lat": 45.1275,
+          "lng": 10.0421
+        }
+      ]
+    },
+    {
+      "documentId": "mock-unique-cycling-1",
+      "slug": "sunset-bike-unique-cremona",
+      "title": "Sunset bike ride sul Po",
+      "description": [
+        {
+          "children": [
+            {
+              "text": "Un percorso speciale al tramonto pensato per vivere il territorio con uno sguardo diverso."
+            }
+          ]
+        }
+      ],
+      "tagIds": [6, 3],
+      "connectedProducts": [],
+      "cheapest": 55,
+      "locations": [
+        {
+          "lat": 45.1455,
+          "lng": 10.0078
+        }
+      ]
+    },
+    {
+      "documentId": "mock-unique-luthiery-1",
+      "slug": "atelier-unique-liuteria",
+      "title": "Atelier esclusivo di liuteria",
+      "description": [
+        {
+          "children": [
+            {
+              "text": "Un incontro riservato con i protagonisti della liuteria tra dettagli, materiali e ascolto."
+            }
+          ]
+        }
+      ],
+      "tagIds": [6, 2],
+      "connectedProducts": [],
+      "cheapest": 60,
+      "locations": [
+        {
+          "lat": 45.1386,
+          "lng": 10.0248
+        }
+      ]
+    },
+    {
+      "documentId": "mock-unique-1",
+      "slug": "cremona-unique-signature",
+      "title": "Esperienza signature Cremona",
+      "description": [
+        {
+          "children": [
+            {
+              "text": "Una proposta speciale pensata come vetrina temporanea finche il catalogo Domnia non torna disponibile."
+            }
+          ]
+        }
+      ],
+      "tagIds": [6],
+      "connectedProducts": [],
+      "cheapest": 48,
+      "locations": [
+        {
+          "lat": 45.1321,
+          "lng": 10.0159
+        }
+      ]
+    }
+  ]
+}

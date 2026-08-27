@@ -1,26 +1,50 @@
 import Markdown from "react-markdown";
 import Image from "next/image";
 import NewsCard from "@/app/_components/NewsCard";
+import {notFound} from "next/navigation";
+
+type NewsTag = {
+    id: number;
+    nome: string;
+};
+
+type NewsItem = {
+    contenuto: string;
+    documentId: string;
+    immagine: {
+        alternativeText: string;
+        url: string;
+    };
+    tags: NewsTag[];
+    titolo: string;
+};
+
+type NewsDetailResponse = {data: NewsItem};
+type NewsListResponse = {data: NewsItem[]};
+
 export default async function News({params}: { params: Promise<{ slug: string }> }) {
-    let content, contentNews;
-    const relatedNews = [];
-    const relatedIds = [];
+    let content: NewsDetailResponse | undefined;
+    let contentNews: NewsListResponse | undefined;
+    const relatedNews: NewsItem[] = [];
+    const relatedIds: string[] = [];
     try {
         const { slug } = await params;
         let data = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/news/'+ slug +'?populate=*',
             { next: { revalidate: 1000 }});
-        content = await data.json();
+        const currentNews = await data.json() as NewsDetailResponse;
+        content = currentNews;
 
         let dataNews = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/news?populate=*',
             { next: { revalidate: 1000 }});
-        contentNews = await dataNews.json();
+        const allNews = await dataNews.json() as NewsListResponse;
+        contentNews = allNews;
 
-        content.data.tags.forEach((tag:any) => {
-            contentNews.data.forEach((el:any, i:number) => {
-                el.tags.forEach((news:any) => {
-                    if(news.id === tag.id && (relatedIds.indexOf(contentNews.data[i].documentId) === -1 && contentNews.data[i].documentId !== content.data.documentId)) {
-                        relatedNews.push(contentNews.data[i]);
-                        relatedIds.push(contentNews.data[i].documentId);
+        currentNews.data.tags.forEach((tag) => {
+            allNews.data.forEach((el, i) => {
+                el.tags.forEach((news) => {
+                    if(news.id === tag.id && (relatedIds.indexOf(allNews.data[i].documentId) === -1 && allNews.data[i].documentId !== currentNews.data.documentId)) {
+                        relatedNews.push(allNews.data[i]);
+                        relatedIds.push(allNews.data[i].documentId);
                     }
                 })
             })
@@ -28,6 +52,10 @@ export default async function News({params}: { params: Promise<{ slug: string }>
 
     } catch(error) {
         console.log(error);
+    }
+
+    if (!content || !contentNews) {
+        notFound();
     }
 
 

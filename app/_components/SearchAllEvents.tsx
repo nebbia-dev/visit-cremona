@@ -3,40 +3,54 @@ import {useEffect, useState} from "react";
 import {useFilterStore} from "@/app/_stores/filter";
 import FilterEvents from "@/app/_components/FilterEvents";
 import Event from "@/app/_components/Event";
+import type {EdtEvent} from "@/app/lib/edt-events";
 
-export default function SearchAllEvents({events}:{events:any}) {
+function getTimestamp(value?: string) {
+    return value ? new Date(value).getTime() : Number.NaN;
+}
+
+export default function SearchAllEvents({events}:{events:EdtEvent[]}) {
     const filters = useFilterStore((state) => state.filters);
-    const [filteredEvents, setFilteredEvents] = useState();
+    const [filteredEvents, setFilteredEvents] = useState<EdtEvent[]>();
     useEffect(() => {
-        const filtered = events.filter(el => (new Date()).getTime() < (new Date(el.dates.endDate)).getTime())
+        const filtered = events.filter(
+            (event) => Date.now() < getTimestamp(event.dates?.endDate),
+        );
         setFilteredEvents(filtered)
-    }, [])
+    }, [events])
 
     function applyFilters() {
 
-        let filtered;
+        let filtered = events.slice();
+        const startFilter = filters.start?.getTime();
+        const endFilter = filters.end?.getTime();
 
-        if(filters.start) {
+        if(startFilter !== undefined) {
+                filtered = events.filter(event => {
+                    const startDate = getTimestamp(event.dates?.startDate);
+                    const endDate = getTimestamp(event.dates?.endDate);
 
-                filtered = events.filter(el => {
-                    if((new Date(el.dates.startDate)).getTime() === (new Date(el.dates.endDate)).getTime()) {
-                        return (new Date(el.dates.startDate)).getTime() >= (new Date(filters.start)).getTime()
+                    if(startDate === endDate) {
+                        return startDate >= startFilter
                     } else {
-                        return (new Date(el.dates.endDate)).getTime() >= (new Date(filters.start)).getTime();
+                        return endDate >= startFilter;
                     }
                 });
         }
 
-        if(filters.start && filters.end) {
-            filtered = filtered.filter(el => {
-                return (new Date(el.dates.endDate)).getTime() >= (new Date(filters.end).getTime());
+        if(startFilter !== undefined && endFilter !== undefined) {
+            filtered = filtered.filter(event => {
+                return getTimestamp(event.dates?.endDate) >= endFilter;
             });
-        } else if (filters.end) {
-                filtered = events.filter(el => {
-                    if((new Date(el.dates.startDate)).getTime() === (new Date(el.dates.endDate)).getTime()) {
-                        return (new Date(el.dates.endDate)).getTime() <= (new Date(filters.end).getTime())
+        } else if (endFilter !== undefined) {
+                filtered = events.filter(event => {
+                    const startDate = getTimestamp(event.dates?.startDate);
+                    const endDate = getTimestamp(event.dates?.endDate);
+
+                    if(startDate === endDate) {
+                        return endDate <= endFilter
                     } else {
-                        return (new Date(el.dates.startDate)).getTime() <= (new Date(filters.end).getTime());
+                        return startDate <= endFilter;
                     }
                 });
         }

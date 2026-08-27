@@ -1,6 +1,8 @@
 import Image from "next/image";
 
-export default function TalesLogo({theme} : {theme:string}) {
+type TaleTheme = "cycling" | "luthiery";
+
+export default function TalesLogo({theme} : {theme:TaleTheme}) {
 
     const themes = {
      cycling:

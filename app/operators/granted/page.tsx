@@ -14,7 +14,7 @@ export default async function Operators() {
             { next: { revalidate: 1000 }});
         contentRef = await dataRef.json();
 
-        referral = contentRef.data.filter(el => el.area === 'operators')[0];
+        referral = contentRef.data.filter((el: {area?: string}) => el.area === 'operators')[0];
 
         let dataExpImages = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/experiences-images?populate=*',
             { next: { revalidate: 1000 }});

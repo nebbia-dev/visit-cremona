@@ -3,13 +3,16 @@ import {useEffect, useState} from "react";
 import Filter from "@/app/_components/Filter";
 import SingleExperienceCard from "@/app/_components/SingleExperienceCard";
 import {useFilterStore} from "@/app/_stores/filter";
+import type {ExperienceCardData} from "@/app/lib/domnia-types";
 
-export default function SearchTaggedExperiences({pages, type}:{pages:any, type:string}) {
+type ExperienceType = "classic" | "contemporary" | "unique";
+
+export default function SearchTaggedExperiences({pages, type}:{pages:ExperienceCardData[], type:ExperienceType}) {
 
     const filters = useFilterStore((state) => state.filters);
-    const [filteredExperiences, setFilteredExperiences] = useState();
+    const [filteredExperiences, setFilteredExperiences] = useState<ExperienceCardData[]>();
 
-    let expToDisplay;
+    let expToDisplay: number;
     switch(type) {
         case 'classic':
             expToDisplay = 4;
@@ -25,8 +28,8 @@ export default function SearchTaggedExperiences({pages, type}:{pages:any, type:s
     }
 
     useEffect(() => {
-        setFilteredExperiences(pages.filter((el:any) => el.tagIds.includes(expToDisplay)))
-    }, [])
+        setFilteredExperiences(pages.filter((el) => el.tagIds?.includes(expToDisplay)))
+    }, [expToDisplay, pages])
 
     function applyFilters() {
 
@@ -34,10 +37,10 @@ export default function SearchTaggedExperiences({pages, type}:{pages:any, type:s
 
         switch(filters.category) {
             case 'cycling':
-                filtered = filtered.filter((el:any) => el.tagIds.includes(3) && el.tagIds.includes(expToDisplay));
+                filtered = filtered.filter((el) => el.tagIds?.includes(3) && el.tagIds.includes(expToDisplay));
                 break;
             case 'luthiery':
-                filtered = filtered.filter((el:any) => el.tagIds.includes(2) && el.tagIds.includes(expToDisplay));
+                filtered = filtered.filter((el) => el.tagIds?.includes(2) && el.tagIds.includes(expToDisplay));
                 break;
             default:
         }
