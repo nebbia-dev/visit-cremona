@@ -4,6 +4,7 @@ import {
     ensureDomniaSession,
     getDomniaSessionCookies,
 } from '@/app/lib/domnia-auth';
+import {getPublicUrl} from '@/app/lib/public-url';
 
 export const dynamic = 'force-dynamic';
 
@@ -21,7 +22,7 @@ export async function GET(request: NextRequest) {
             request.nextUrl.searchParams.get('returnTo'),
         );
         const { session, shouldPersist } = await ensureDomniaSession();
-        const response = NextResponse.redirect(new URL(returnTo, request.url));
+        const response = NextResponse.redirect(getPublicUrl(request, returnTo));
 
         if (shouldPersist && session.refreshToken && session.refreshExpiresAt) {
             const cookies = await getDomniaSessionCookies({
