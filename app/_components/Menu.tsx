@@ -3,7 +3,6 @@ import Link from "next/link";
 import {Hamburger} from "@/app/_components/_icons/Hamburger";
 import {type FocusEvent, useEffect, useState} from "react";
 import {Close} from "@/app/_components/_icons/Close";
-import Image from "next/image";
 import {useUsageStore} from "@/app/_stores/usage";
 import {Usage} from "@/app/_types/types";
 
@@ -108,7 +107,7 @@ export default function Menu({links} : {links:any}) {
                         aria-label="Torna alla home"
                         onClick={() => toggleMenu('close')}
                     >
-                        <Image
+                        <img
                             aria-hidden={true}
                             src='/logo.webp'
                             alt="Logo di Visit Cremona"
@@ -136,7 +135,7 @@ export default function Menu({links} : {links:any}) {
                                 aria-hidden={true}
                             />
                         </button>
-                        <Image src="/images/it.png" className="hidden md:block rounded-full w-6 h-6" alt="Bandiera italiana" width={64} height={64}/>
+                        <img src="/images/it.png" className="hidden md:block rounded-full w-6 h-6" alt="Bandiera italiana" width={64} height={64}/>
                     </div>
                 </div>
             </header>
@@ -151,7 +150,7 @@ export default function Menu({links} : {links:any}) {
                 id="mainMenu"
                 className={`${showMenu === 'open' ? 'appear' : showMenu === 'close' ? 'disappear' : 'w-0'} max-w-[350px] h-screen fixed bg-white z-200 right-0 top-0`}>
                 <div className="w-full px-8 pb-2 md:pb-8 pt-4 flex items-center justify-between">
-                    <Image
+                    <img
                         src='/logo-only-icon.png'
                         alt="Logo di Visit Cremona"
                         width={500}
@@ -173,7 +172,7 @@ export default function Menu({links} : {links:any}) {
 
                 <div className="md:hidden block flex w-full items-center justify-end px-8 pb-4 gap-4">
                     {/*<Cart className="cursor-pointer w-8 h-8"/>*/}
-                    <Image src="/images/it.png" className="rounded-full w-6 h-6" alt="Bandiera italiana" width={64} height={64}/>
+                    <img src="/images/it.png" className="rounded-full w-6 h-6" alt="Bandiera italiana" width={64} height={64}/>
                 </div>
 
                 <div className="border-t border-black/50 w-[90%] mx-auto text-black/50 pt-3 overflow-y-auto h-[calc(100vh-212px)] md:h-[calc(100vh-148px)]">

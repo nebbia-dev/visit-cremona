@@ -4,7 +4,6 @@ import Routes from "@/app/_components/Routes";
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
-import Image from "next/image";
 import {Plus} from "@/app/_components/_icons/Plus";
 
 export default async function Plan() {
@@ -40,7 +39,7 @@ export default async function Plan() {
                     >
                         <div className="flex gap-4 items-center my-4">
                             <div className="w-12">
-                                <Image
+                                <img
                                     src='/icons/by-car.svg' alt="icona automobile" width={64} height={64}
                                     className="w-full"
                                 />
@@ -67,7 +66,7 @@ export default async function Plan() {
                     >
                         <div className="flex gap-4 items-center my-4">
                             <div className="w-12">
-                                <Image
+                                <img
                                     src='/icons/by-plane.svg' alt="icona aereo" width={64} height={64}
                                     className="w-full"
                                 />
@@ -92,7 +91,7 @@ export default async function Plan() {
                     >
                         <div className="flex gap-4 items-center my-2">
                             <div className="w-12">
-                                <Image
+                                <img
                                     src='/icons/highway.svg' alt="icona autodtrada" width={64} height={64}
                                     className="w-full"
                                 />
@@ -125,7 +124,7 @@ export default async function Plan() {
                     >
                         <div className="flex gap-4 items-center my-4">
                             <div className="w-12">
-                                <Image
+                                <img
                                     src='/icons/by-bus.svg' alt="icona bus" width={64} height={64}
                                     className="w-full"
                                 />
@@ -150,7 +149,7 @@ export default async function Plan() {
                     >
                         <div className="flex gap-4 items-center my-2">
                             <div className="w-12">
-                                <Image
+                                <img
                                     src='/icons/info.svg' alt="icona info" width={64} height={64}
                                     className="w-full"
                                 />
@@ -186,7 +185,7 @@ export default async function Plan() {
                     >
                         <div className="flex gap-4 items-center my-4">
                             <div className="w-12">
-                                <Image
+                                <img
                                     src='/icons/where-sleep.svg' alt="icona bus" width={64} height={64}
                                     className="w-full"
                                 />
@@ -196,8 +195,7 @@ export default async function Plan() {
                     </AccordionSummary>
                     <AccordionDetails>
                         <div className="p-4 w-fit">
-                            <p>Per consultare tutte le strutture dove dormire clicca al seguente
-                                <a target="_blank" rel="noopener noreferrer" href="https://www.turismocremona.it/it/dove-dormire"
+                            <p>Per consultare tutte le strutture dove dormire clicca al seguente <a target="_blank" rel="noopener noreferrer" href="https://www.turismocremona.it/it/dove-dormire"
                                    className="underline">link</a>
                             </p>
                         </div>

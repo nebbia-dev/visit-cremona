@@ -40,7 +40,7 @@ export default function SearchAllEvents({events}:{events:EdtEvent[]}) {
 
         if(startFilter !== undefined && endFilter !== undefined) {
             filtered = filtered.filter(event => {
-                return getTimestamp(event.dates?.endDate) >= endFilter;
+                return getTimestamp(event.dates?.startDate) <= endFilter;
             });
         } else if (endFilter !== undefined) {
                 filtered = events.filter(event => {

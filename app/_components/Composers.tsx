@@ -1,7 +1,6 @@
 'use client'
 
 import {useEffect} from "react";
-import Image from "next/image";
 import Markdown from "react-markdown";
 import {Close} from "@/app/_components/_icons/Close";
 import LocalMap from "@/app/_components/LocalMap";
@@ -110,7 +109,7 @@ export default function Composers({info}: {info:any}) {
                 id="composersList" className="mb-4">
                 <ul className="flex flex-col md:flex-row items-center gap-4 md:gap-[2%]">
                     <li className="h-[500px] w-full md:w-[32%] relative">
-                        <Image width={300} height={300}
+                        <img width={300} height={300}
                                src={process.env.NEXT_PUBLIC_BASE_URL + info['compositore_1'][0].immagine.url}
                                alt={info['compositore_1'][0].immagine.alternativeText}
                                className="w-full h-full object-cover rounded-xl"
@@ -130,7 +129,7 @@ export default function Composers({info}: {info:any}) {
                     </li>
 
                     <li className="h-[500px] w-full md:w-[32%] relative">
-                        <Image width={300} height={300}
+                        <img width={300} height={300}
                                src={process.env.NEXT_PUBLIC_BASE_URL + info['compositore_2'][0].immagine.url}
                                alt={info['compositore_2'][0].immagine.alternativeText}
                                className="w-full h-full object-cover rounded-xl"
@@ -150,7 +149,7 @@ export default function Composers({info}: {info:any}) {
                     </li>
 
                     <li className="h-[500px] w-full md:w-[32%] relative">
-                        <Image width={300} height={300}
+                        <img width={300} height={300}
                                src={process.env.NEXT_PUBLIC_BASE_URL + info['compositore_3'][0].immagine.url}
                                alt={info['compositore_3'][0].immagine.alternativeText}
                                className="w-full h-full object-cover rounded-xl"

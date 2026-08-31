@@ -1,4 +1,3 @@
-import Image from "next/image";
 
 type TaleTheme = "cycling" | "luthiery";
 
@@ -21,7 +20,7 @@ export default function TalesLogo({theme} : {theme:TaleTheme}) {
 
     return (
         <div className="flex items-center gap-4">
-            <Image src={`/images/logos/${themes[theme].logo}`} width={300} height={100} alt="logo tema" className="w-auto h-[124px]"/>
+            <img src={`/images/logos/${themes[theme].logo}`} width={300} height={100} alt="logo tema" className="w-auto h-[124px]"/>
             <div className="flex flex-col gap-2">
                 <h3 className="text-3xl">TALES OF <br/>
                     <span className={`font-bold ${themes[theme].color}`}>{themes[theme].title.toUpperCase()}</span>

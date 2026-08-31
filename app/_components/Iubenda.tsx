@@ -5,9 +5,11 @@ export default function Iubenda() {
         <div id="iubenda" className="bg-corpo-blue w-full">
             <div className="w-[90%] flex items-center justify-center gap-2 mx-auto pb-4">
                 <a href="https://www.iubenda.com/privacy-policy/52538338"
+                   target="_blank" rel="noopener noreferrer"
                    className="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe " title="Privacy Policy ">Privacy
                     Policy</a>
                 <a href="https://www.iubenda.com/privacy-policy/52538338/cookie-policy"
+                   target="_blank" rel="noopener noreferrer"
                    className="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe " title="Cookie Policy ">Cookie
                     Policy</a>
                 <Script

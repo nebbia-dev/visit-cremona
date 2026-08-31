@@ -2,7 +2,6 @@
 import {useState} from "react";
 import Link from "next/link";
 import AnimatedHoverButton from "@/app/_components/AnimatedHoverButton";
-import Image from "next/image";
 
 type GalleryImage = {
     url: string,
@@ -58,7 +57,7 @@ export default function Stories({gallery, description} : {description: string, g
                     <button type="button" aria-label="Scorri immagini a sinistra"
                             disabled={disabled} onClick={() => slide('prev')}
                             className="cursor-pointer hidden md:flex items-center justify-center min-w-[36px] w-[128px]">
-                        <Image aria-hidden={true} src="/icons/prev.svg" alt="Freccia a sinistra" width={48} height={48}/>
+                        <img aria-hidden={true} src="/icons/prev.svg" alt="Freccia a sinistra" width={48} height={48}/>
                     </button>
                     <div>
                         <h2 className="font-bold text-3xl">Le storie del territorio</h2>
@@ -73,7 +72,7 @@ export default function Stories({gallery, description} : {description: string, g
                     </div>
                     <button type="button" aria-label="Scorri immagini a destra" disabled={disabled} onClick={() => slide('next')}
                             className="cursor-pointer hidden md:flex items-center justify-center min-w-[36px] w-[128px]">
-                        <Image aria-hidden={true} src="/icons/next.svg" alt="Freccia a destra" width={48} height={48}/>
+                        <img aria-hidden={true} src="/icons/next.svg" alt="Freccia a destra" width={48} height={48}/>
                     </button>
                 </div>
                 <div className="md:hidden block w-[90%] mx-auto h-[400px]">

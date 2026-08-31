@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
 
@@ -6,7 +5,7 @@ export default function NewsCard({el}:{el:any}) {
     return (
         <div className="w-full md:w-[calc(50%-8px)] h-[376px] rounded-xl bg-white relative border border-orange-500">
             <div className="w-full h-[200px]">
-                <Image
+                <img
                     className="w-full h-[200px] object-cover rounded-t-xl"
                     src={process.env.NEXT_PUBLIC_BASE_URL + el.immagine.url}
                     width={200}

@@ -1,4 +1,3 @@
-import Image from "next/image";
 
 export default function ExperienceCard({title, subtitle, description, pic, background} :
 {title:string|undefined, subtitle:string|undefined, description:string|undefined, pic:string[]|undefined, background:string}) {
@@ -23,11 +22,10 @@ export default function ExperienceCard({title, subtitle, description, pic, backg
                 title && description && pic &&
                 <>
                     <div className="w-full h-[250px] relative">
-                        <Image
+                        <img
                             src={pic[0]}
                             alt={pic[1]}
-                            className="object-cover rounded-xl"
-                            fill={true}
+                            className="absolute inset-0 h-full w-full object-cover rounded-xl"
                         />
                     </div>
                     <h4 className="w-full font-bold text-3xl mt-6 break-title">{title}</h4>

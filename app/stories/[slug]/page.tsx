@@ -1,5 +1,4 @@
 import Markdown from "react-markdown";
-import Image from "next/image";
 import SingleExperienceCard from "@/app/_components/SingleExperienceCard";
 import {getExperiences} from "@/app/lib/domnia-experiences";
 export default async function Story({params}: { params: Promise<{ slug: string }> }) {
@@ -40,7 +39,7 @@ export default async function Story({params}: { params: Promise<{ slug: string }
 
                 <div className="flex flex-col md:flex-row gap-16">
                     <div className="w-full md:w-[40%] h-[600px]">
-                        <Image src={process.env.NEXT_PUBLIC_BASE_URL + content.data.immagine.url} alt={content.data.immagine.alternativeText} width={200} height={600}
+                        <img src={process.env.NEXT_PUBLIC_BASE_URL + content.data.immagine.url} alt={content.data.immagine.alternativeText} width={200} height={600}
                         className="w-full h-full object-cover rounded-xl"
                         />
                     </div>

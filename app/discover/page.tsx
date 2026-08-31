@@ -1,4 +1,3 @@
-import Image from "next/image";
 import LocalMap from "@/app/_components/LocalMap";
 import TalesLogo from "@/app/_components/TalesLogo";
 import Link from "next/link";
@@ -29,11 +28,10 @@ export default async function Discover() {
                         <p className="w-full mt-2 pl-1 whitespace-pre-line">{content.data['testo_1']}</p>
                     </div>
                     <div className="w-full h-[500px] md:w-2/4 md:h-auto relative">
-                        <Image
-                            className="object-cover object-center rounded-xl"
+                        <img
+                            className="absolute inset-0 h-full w-full object-cover object-center rounded-xl"
                             src={process.env.NEXT_PUBLIC_BASE_URL + content.data['immagine_1'].url}
                             alt={content.data['immagine_1'].alternativeText}
-                            fill={true}
                         />
                     </div>
                 </div>
@@ -41,11 +39,10 @@ export default async function Discover() {
 
             <section className="flex flex-col md:flex-row gap-20 w-[95vw] md:w-[80vw] mx-auto justify-center px-4 md:px-8 pt-20 pb-24">
                 <div className="w-full h-[500px] md:w-2/4 md:h-auto relative">
-                    <Image
-                        className="object-cover object-center rounded-xl"
+                    <img
+                        className="absolute inset-0 h-full w-full object-cover object-center rounded-xl"
                         src={process.env.NEXT_PUBLIC_BASE_URL + content.data['immagine_2'].url}
                         alt={content.data['immagine_2'].alternativeText}
-                        fill={true}
                     />
                 </div>
                 <div className="flex flex-col gap-2 w-full md:w-2/4">
@@ -63,11 +60,10 @@ export default async function Discover() {
 
                     </div>
                     <div className="w-full h-[500px] md:w-2/4 md:h-auto relative">
-                        <Image
-                            className="object-cover object-center rounded-xl"
+                        <img
+                            className="absolute inset-0 h-full w-full object-cover object-center rounded-xl"
                             src={process.env.NEXT_PUBLIC_BASE_URL + content.data['immagine_3'].url}
                             alt={content.data['immagine_3'].alternativeText}
-                            fill={true}
                         />
                     </div>
                 </div>
@@ -100,7 +96,7 @@ export default async function Discover() {
                                     className="text-sm rounded-xl w-full md:w-[50%] h-fit md:h-[164px] bg-[#918FC7] py-8 md:py-4 px-8 flex items-center justify-center">
                                     {content.data['cycling_testo']}
                                 </div>
-                                <Image className="object-cover rounded-xl w-full md:w-[50%] h-[164px]"
+                                <img className="object-cover rounded-xl w-full md:w-[50%] h-[164px]"
                                        src={process.env.NEXT_PUBLIC_BASE_URL + content.data.immagine_mappa_cycling.url} alt={content.data.immagine_mappa_cycling.alternativeText} width={200} height={100}/>
                             </div>
 
@@ -129,7 +125,7 @@ export default async function Discover() {
                                     className="text-sm rounded-xl w-full md:w-[50%] h-fit md:h-[164px] bg-sky-300 py-4 px-8 flex items-center justify-center">
                                     {content.data['luthiery_testo']}
                                 </div>
-                                <Image className="object-cover rounded-xl w-full md:w-[50%] h-[164px]"
+                                <img className="object-cover rounded-xl w-full md:w-[50%] h-[164px]"
                                        src={process.env.NEXT_PUBLIC_BASE_URL + content.data.immagine_mappa_luthiery.url} alt={content.data.immagine_mappa_luthiery.alternativeText} width={200} height={100}/>
                             </div>
                             <LocalMap homepage={false} autoFilter={2} pages={pages}/>

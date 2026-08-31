@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Footer({links, contacts} : {links:any, contacts:any}) {
     return (
@@ -7,7 +6,7 @@ export default function Footer({links, contacts} : {links:any, contacts:any}) {
             <div className="w-[80vw] flex flex-col lg:flex-row gap-20 items-center lg:items-start mx-auto">
                 <div className="w-[50vw] lg:w-[20vw] flex flex-col items-center justify-center gap-8">
                     <Link href="/" className="w-[90%]">
-                        <Image
+                        <img
                             src='/logo.webp'
                             alt="Logo di Visit Cremona"
                             width={500}
@@ -15,7 +14,7 @@ export default function Footer({links, contacts} : {links:any, contacts:any}) {
                         />
                     </Link>
                     <div className="flex gap-8 w-full items-center justify-center">
-                        <Image
+                        <img
                             src='/icons/InLombardia_white.png'
                             alt="Logo di InLombardia"
                             className="w-[80px]"
@@ -23,7 +22,7 @@ export default function Footer({links, contacts} : {links:any, contacts:any}) {
                             height={500}
                         />
 
-                        <Image
+                        <img
                             src='/icons/E015-Logo_white.png'
                             alt="Logo di E015"
                             className="w-[80px]"
@@ -45,20 +44,20 @@ export default function Footer({links, contacts} : {links:any, contacts:any}) {
                         <ul className="flex gap-4 items-center">
                             <li>
                                 <a aria-label="Vai al profilo Facebook di Visit Cremona" target="_blank" rel="noopener noreferrer" href={links.facebook}>
-                                    <Image aria-hidden={true} src="/icons/hugeicons_facebook-02.webp" alt="facebook logo" width={24}
+                                    <img aria-hidden={true} src="/icons/hugeicons_facebook-02.webp" alt="facebook logo" width={24}
                                            height={24}/>
                                 </a>
                             </li>
                             <li>
                                 <a aria-label="Vai al profilo Instagram di Visit Cremona" target="_blank" rel="noopener noreferrer" href={links.instagram}>
-                                    <Image aria-hidden={true} src="/icons/logo-instagram.webp" alt="instagram logo" width={24}
+                                    <img aria-hidden={true} src="/icons/logo-instagram.webp" alt="instagram logo" width={24}
                                            height={24}/>
                                 </a>
                             </li>
                             {links.whatsapp &&
                                 <li>
                                     <a aria-label="Vai al profilo Whatsapp di Visit Cremona" target="_blank" rel="noopener noreferrer" href={links.whatsapp}>
-                                        <Image aria-hidden={true} src="/icons/hugeicons_facebook-02.webp" alt="facebook logo" width={24}
+                                        <img aria-hidden={true} src="/icons/hugeicons_facebook-02.webp" alt="facebook logo" width={24}
                                                height={24}/>
                                     </a>
                                 </li>
@@ -66,7 +65,7 @@ export default function Footer({links, contacts} : {links:any, contacts:any}) {
                             {links.youtube &&
                                 <li>
                                     <a aria-label="Vai al profilo Youtube di Visit Cremona" target="_blank" rel="noopener noreferrer" href={links.youtube}>
-                                        <Image aria-hidden={true} src="/icons/logo-youtube.svg" alt="instagram logo" width={24}
+                                        <img aria-hidden={true} src="/icons/logo-youtube.svg" alt="instagram logo" width={24}
                                                height={24}/>
                                     </a>
                                 </li>
@@ -77,7 +76,7 @@ export default function Footer({links, contacts} : {links:any, contacts:any}) {
                 <div
                     className="w-full lg:w-[45vw] flex justify-center lg:justify-start gap-6 underline text-corpo-orange">
                     <ul className="flex flex-col gap-6 text-center lg:text-left">
-                        <li><a href="/Visit Cremona_Brand Guide_V6.pdf" download>Guida del brand</a></li>
+                        <li><a href="/Visit Cremona_Brand Guide_V6.pdf" download target="_blank" rel="noopener noreferrer">Guida del brand</a></li>
                         <li><Link href="/accessibility">Dichiarazione di accessibilità</Link></li>
                         <li><a target="_blank" rel="noopener noreferrer" href={links['amministrazione_trasparente']}>Amministrazione
                             trasparente</a></li>

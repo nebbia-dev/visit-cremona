@@ -1,4 +1,3 @@
-import Image from "next/image";
 export default function Event({event}:{event:any}) {
     const title = event?.translations?.it?.title ?? '';
     const description = event?.translations?.it?.description ?? '';
@@ -39,7 +38,7 @@ export default function Event({event}:{event:any}) {
                             <div className="flex flex-col gap-4 my-4 border-b-1 border-orange-800 pb-4">
                                 <div className="flex gap-4 items-center">
                                     <div className="flex items-center justify-center w-[10%]">
-                                        <Image aria-hidden={true} src="/icons/calendar-outline.svg" alt="" width={32} height={32}/>
+                                        <img aria-hidden={true} src="/icons/calendar-outline.svg" alt="" width={32} height={32}/>
                                     </div>
                                     <div className="text-sm flex flex-col w-[90%]">
                                         <p className="md:line-clamp-1">{date}</p>
@@ -47,7 +46,7 @@ export default function Event({event}:{event:any}) {
                                 </div>
                                 <div className="flex gap-4 items-center">
                                     <div className="flex items-center justify-center w-[10%]">
-                                        <Image aria-hidden={true} src="/icons/map-pin.svg" alt="" width={32} height={32}/>
+                                        <img aria-hidden={true} src="/icons/map-pin.svg" alt="" width={32} height={32}/>
                                     </div>
                                     <div className="text-sm flex flex-col w-[90%]">
                                         {address !== ''
@@ -58,7 +57,7 @@ export default function Event({event}:{event:any}) {
                                 </div>
                                 <div className="flex gap-4 items-center">
                                     <div className="flex items-center justify-center w-[10%]">
-                                        <Image aria-hidden={true} src="/icons/call-outline.svg" alt="" width={34} height={34}/>
+                                        <img aria-hidden={true} src="/icons/call-outline.svg" alt="" width={34} height={34}/>
                                     </div>
                                     <div className="text-sm flex flex-col w-[90%]">
                                         {telephone !== ''
@@ -76,7 +75,7 @@ export default function Event({event}:{event:any}) {
                             <div
                                 className="flex gap-4 w-full items-center justify-end text-sm border-t border-orange-800 pt-8">
                                     <a aria-label="Vai alla pagina dell'evento su sito di InLombardia" className="text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full py-2 px-3"
-                               href={link}>Partecipa all&apos;evento &gt;</a>
+                               href={link} target="_blank" rel="noopener noreferrer">Partecipa all&apos;evento &gt;</a>
                             </div>
                         }
                     </div>

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {notFound} from "next/navigation";
 
 import {getExperience} from "@/app/lib/domnia-experiences";
@@ -84,7 +83,7 @@ export default async function UniqueExperience({params}: { params: Promise<{ id:
     return (
         <section className="mt-[79px] fadein-slower">
             <div className="w-full h-[600px]">
-                <Image
+                <img
                     src={imageSource}
                     alt={`Immagine dell'esperienza ${experience.title ?? ""}`}
                     width={600}

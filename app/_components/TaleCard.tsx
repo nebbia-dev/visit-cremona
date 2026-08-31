@@ -1,4 +1,3 @@
-import Image from "next/image";
 
 export default function TaleCard({logo, pic} : {logo:string[]|undefined, pic:string[]|undefined}) {
     return (
@@ -6,19 +5,17 @@ export default function TaleCard({logo, pic} : {logo:string[]|undefined, pic:str
             { logo && pic &&
                 <>
                 <div className="w-full h-[72px] relative">
-                    <Image
-                        className="object-contain max-h-[72px]"
+                    <img
+                        className="absolute inset-0 h-full w-full object-contain max-h-[72px]"
                         src={logo[0]}
                         alt={logo[1]}
-                        fill={true}
                     />
                 </div>
                 <div className="h-[248px] w-full relative mt-8">
-                    <Image
-                        className="rounded-xl object-cover"
+                    <img
+                        className="absolute inset-0 h-full w-full rounded-xl object-cover"
                         src={pic[0]}
                         alt={pic[1]}
-                        fill={true}
                     />
                 </div>
                 </>

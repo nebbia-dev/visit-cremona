@@ -22,7 +22,7 @@ export default function InfoCard({name, address, phone, email, children, url, ho
                     {hours && <li className="w-full mt-2">
                         <span className="font-semibold">Orari di apertura:</span><br/>
                         {name.includes("Soncino")
-                            ? <a href="/orario-infopoint-1.pdf" download className="underline">{hours}</a>
+                            ? <a href="/orario-infopoint-1.pdf" download target="_blank" rel="noopener noreferrer" className="underline">{hours}</a>
                             : <span>{hours}</span>
                         }
                     </li>}

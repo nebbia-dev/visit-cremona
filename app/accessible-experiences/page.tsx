@@ -1,5 +1,4 @@
 import {getExperiences} from "@/app/lib/domnia-experiences";
-import Image from "next/image";
 import {getExperienceDescription} from "@/app/lib/domnia-types";
 
 export default async function AccessibleExperiences() {
@@ -52,7 +51,7 @@ export default async function AccessibleExperiences() {
                 const tagIds = el.tagIds ?? [];
                     return (
                     <div className="mt-12" key={el.documentId}>
-                        <Image className="rounded-xl w-full h-[136px] object-cover" width={200} height={100}
+                        <img className="rounded-xl w-full h-[136px] object-cover" width={200} height={100}
                                src={el.imageUrl ? process.env.NEXT_PUBLIC_BASE_URL + el.imageUrl : `/images/experiences/violin1.webp`}
                                alt="Immagine dell'esperienza"/>
                         <div className="px-4 pt-4 pb-2">

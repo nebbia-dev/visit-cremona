@@ -1,7 +1,6 @@
 import TalesLogo from "@/app/_components/TalesLogo";
 import Link from "next/link";
 import Markdown from "react-markdown";
-import Image from "next/image";
 import AllExperiences from "@/app/_components/AllExperiences";
 import DiscoverEventsSection from "@/app/_components/DiscoverEventsSection";
 import {getExperiences} from "@/app/lib/domnia-experiences";
@@ -143,7 +142,7 @@ export default async function Cycling() {
                     <h2 className="font-bold text-3xl mb-8">Servizi utili al tuo itinerario in bici</h2>
                     <div className="flex flex-col md:flex-row gap-4">
                         <div className="w-full md:w-2/4">
-                            <Image
+                            <img
                                 className="rounded-xl w-full h-full object-cover"
                                 src={process.env.NEXT_PUBLIC_BASE_URL + content.data.elements.immagine.url}
                                 alt={content.data.elements.immagine.alternativeText} width={200} height={600}/>

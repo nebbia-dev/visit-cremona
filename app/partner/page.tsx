@@ -1,4 +1,3 @@
-import Image from "next/image";
 // import ContactForm from "@/app/_components/ContactForm";
 import Downloads from "@/app/_components/Downloads";
 import ContactForm from "@/app/_components/ContactForm";
@@ -77,7 +76,7 @@ export default async function Who() {
                                   return (
                                       <div className="max-w-[200px] w-auto h-24 relative" key={Math.random()}>
                                           <a href={el[0].link} target="_blank" rel="noopener noreferrer">
-                                              <Image
+                                              <img
                                                   width={200}
                                                   height={100}
                                                   className="rounded-xl"
@@ -90,7 +89,7 @@ export default async function Who() {
                               } else {
                                   return (
                                       <div className="max-w-[200px] w-auto h-24 relative" key={Math.random()}>
-                                          <Image
+                                          <img
                                               width={200}
                                               height={100}
                                               className="rounded-xl"

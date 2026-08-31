@@ -1,4 +1,3 @@
-import Image from "next/image";
 
 export default function VisitCard({title, price, details} : {title:string|undefined, price:number|undefined, details:string[]|undefined}) {
     return(
@@ -46,7 +45,7 @@ export default function VisitCard({title, price, details} : {title:string|undefi
 
                                 return(
                                     <li key={Math.random()} className={`${title === 'Welcome Card' && i > 1 ? 'text-gray-400': 'text-black'} border-t flex gap-4 px-2 py-4 items-center`}>
-                                        <Image aria-hidden={true} width={i === 0 ? 34 : 28} height={i === 0 ? 34 : 28} src={image} alt="" />
+                                        <img aria-hidden={true} width={i === 0 ? 34 : 28} height={i === 0 ? 34 : 28} src={image} alt="" />
                                         <p>{el}</p>
                                     </li>
                                 )
@@ -57,6 +56,7 @@ export default function VisitCard({title, price, details} : {title:string|undefi
             }
             <div className="w-full text-end absolute bottom-8 right-8">
                 <a href={`https://multishop-cremona.collaudo.domniapass.com/it/products/${title === 'Welcome Card' ? 'welcome-card' : 'visit-cremona-card'}`}
+                      target="_blank" rel="noopener noreferrer"
                       className="text-black text-sm transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full px-3 py-2">
                     Acquista &gt;</a>
             </div>

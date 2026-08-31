@@ -1,6 +1,5 @@
 // import TaleCard from "@/app/_components/TaleCard";
 import MemberCard from "@/app/_components/MemberCard";
-import Image from "next/image";
 // import Newsreel from "@/app/_components/Newsreel";
 
 export default async function Who() {
@@ -52,11 +51,10 @@ export default async function Who() {
   return (
       <>
           <div className="w-full h-[80vh] mt-[79px] relative fadein-slower">
-              <Image
-                  className='object-cover'
+              <img
+                  className='absolute inset-0 h-full w-full object-cover'
                   src={process.env.NEXT_PUBLIC_BASE_URL + content.data.hero.url}
                   alt={content.data.hero.alternativeText}
-                  fill={true}
               />
           </div>
 
@@ -83,7 +81,7 @@ export default async function Who() {
                               } else {
                                       return (
                                           <div className="max-w-[200px] w-auto h-24 relative" key={Math.random()}>
-                                              <Image
+                                              <img
                                                   width={200}
                                                   height={100}
                                                   className="rounded-xl"
@@ -98,12 +96,11 @@ export default async function Who() {
                   </div>
               </div>
               <div className="w-full md:w-2/4 h-[500px] md:h-[450px] flex items-center justify-center bg-corpo-blue rounded-xl relative">
-                  <Image src="/logo.webp" alt="visit cremona logo" width={250} height={100}/>
-                  {/*<Image*/}
-                  {/*    className="object-cover rounded-xl"*/}
+                  <img src="/logo.webp" alt="visit cremona logo" width={250} height={100}/>
+                  {/*<img*/}
+                  {/*    className="absolute inset-0 h-full w-full object-cover rounded-xl"*/}
                   {/*    src={process.env.NEXT_PUBLIC_BASE_URL + content.data['sub_hero_immagine'].url}*/}
                   {/*    alt={content.data['sub_hero_immagine'].alternativeText}*/}
-                  {/*    fill={true}*/}
                   {/*/>*/}
               </div>
           </section>
@@ -113,7 +110,7 @@ export default async function Who() {
                   <p className="text-white text-center md:text-left font-bold text-xl whitespace-pre-line">{content.data.motto}</p>
               </div>
               <div className="w-[75vw] mx-auto mt-12 md:mt-8 text-center md:text-right">
-              <a href="/Visit Cremona_Brand Guide_V6.pdf" download
+              <a href="/Visit Cremona_Brand Guide_V6.pdf" download target="_blank" rel="noopener noreferrer"
                  className="cursor-pointer w-[164px] px-4 py-3 text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full text-center">Download</a>
               </div>
 

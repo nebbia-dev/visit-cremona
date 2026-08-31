@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 export default function StoryCard({el}:{el:any}) {
@@ -7,7 +6,7 @@ export default function StoryCard({el}:{el:any}) {
             <div
                 className="h-[350px] rounded-t-xl bg-white border-t border-r border-l border-orange-500 flex flex-col gap-4">
                 <div className="w-full h-[250px]">
-                    <Image
+                    <img
                         className="w-full h-full object-cover rounded-t-xl"
                         src={process.env.NEXT_PUBLIC_BASE_URL + el.immagine.url}
                         width={200}

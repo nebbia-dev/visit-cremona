@@ -1,7 +1,6 @@
 import Carousel from "@/app/_components/Carousel";
 import VisitCard from "@/app/_components/VisitCard";
 import Link from "next/link";
-import Image from "next/image";
 import AnimatedHoverButton from "@/app/_components/AnimatedHoverButton";
 import LocalMap from "@/app/_components/LocalMap";
 import Event from "@/app/_components/Event";
@@ -82,11 +81,10 @@ export default async function Home() {
               </div>
               <div className="w-full h-[400px] md:w-2/4 md:h-auto relative">
                   {content.data['sub_hero_image']
-                      ? <Image
-                          className="object-cover object-left rounded-xl"
+                      ? <img
+                          className="absolute inset-0 h-full w-full object-cover object-left rounded-xl"
                           src={process.env.NEXT_PUBLIC_BASE_URL + content.data['sub_hero_image'].url}
                           alt={content.data['sub_hero_video'].alternativeText}
-                          fill={true}
                           />
                       : content.data['sub_hero_video']
                           ? <iframe title="Video presentazione del progetto Tales of Harmonies" className="rounded-xl" src={content.data['sub_hero_video']} width="100%" height="400"
@@ -109,7 +107,7 @@ export default async function Home() {
                   </div>
                   <div
                       className="hidden min-[1200px]:w-3/4 min-[1200px]:h-[40vh] min-[1200px]:flex min-[1200px]:items-center min-[1200px]:justify-end">
-                      <Image
+                      <img
                           className="w-full"
                           width={500}
                           height={500}
@@ -162,7 +160,7 @@ export default async function Home() {
                       <div className="relative w-full">
                           <div
                               className="absolute rounded-tr-xl rounded-bl-xl font-bold left-[1px] bottom-[1px] p-2 text-sm bg-white">{content.data['esperienze_uniche'][0]['titolo']}</div>
-                          <Image
+                          <img
                               className="border border-orange-500 rounded-xl w-full h-[50vh] object-cover"
                               alt="exp unica"
                               src={process.env.NEXT_PUBLIC_BASE_URL + content.data['esperienze_uniche'][0].immagine.url}
@@ -181,7 +179,7 @@ export default async function Home() {
 
           <section className="w-full bg-alt-blue text-white">
               <div className="flex flex-col items-center gap-8 w-[95vw] md:w-[80vw] mx-auto px-4 md:px-8 pt-20 pb-20">
-                  <Image src="/icons/Lonely Planet Logo.png" alt="lonely planet logo" width={250} height={100}/>
+                  <img src="/icons/Lonely Planet Logo.png" alt="lonely planet logo" width={250} height={100}/>
                   <p className="font-bold text-xl text-center w-[60%]">“Cremona, capitale della liuteria, dove il Torrazzo veglia sulle botteghe artigiane, tra atmosfere sospese nel tempo e un patrimonio culturale straordinario”</p>
                   <a href="https://www.youtube.com/watch?v=tr3nQWO6Jwk" target="_blank" rel="noopener noreferrer" className="cursor-pointer w-[164px] px-4 py-3 text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full text-center">Guarda il video</a>
               </div>
@@ -207,7 +205,7 @@ export default async function Home() {
           {content.data['banner_immagine'].url && content.data['banner_testo'] &&
               <section className="flex flex-col gap-8 w-full justify-center pb-24">
                   <div className="relative w-full h-[400px]">
-                      <Image src={process.env.NEXT_PUBLIC_BASE_URL + content.data['banner_immagine'].url}
+                      <img src={process.env.NEXT_PUBLIC_BASE_URL + content.data['banner_immagine'].url}
                              alt={content.data['banner_immagine'].alternativeText} width={2000} height={300}
                              className="w-full h-full object-cover"
                       />
@@ -242,22 +240,22 @@ export default async function Home() {
                       <div className="flex gap-4 pb-16">
                           {contentLinks.data.facebook &&
                               <a href={contentLinks.data.facebook} target="_blank" rel="noopener noreferrer">
-                                  <Image src="/icons/facebook-blue.svg" alt="facebook logo" width={48} height={48}/>
+                                  <img src="/icons/facebook-blue.svg" alt="facebook logo" width={48} height={48}/>
                               </a>
                           }
                           {contentLinks.data.instagram &&
                               <a href={contentLinks.data.instagram} target="_blank" rel="noopener noreferrer">
-                                  <Image src="/icons/instagram-blue.svg" alt="instagram logo" width={48} height={48}/>
+                                  <img src="/icons/instagram-blue.svg" alt="instagram logo" width={48} height={48}/>
                               </a>
                           }
                           {contentLinks.data.whatsapp &&
                               <a href={contentLinks.data.whatsapp} target="_blank" rel="noopener noreferrer">
-                                  <Image src="/icons/whatsapp-blue.svg" alt="whatsapp logo" width={48} height={48}/>
+                                  <img src="/icons/whatsapp-blue.svg" alt="whatsapp logo" width={48} height={48}/>
                               </a>
                           }
                           {contentLinks.data.youtube &&
                               <a href={contentLinks.data.youtube} target="_blank" rel="noopener noreferrer">
-                                  <Image src="/icons/youtube-blue.svg" alt="youtube logo" width={48} height={48}/>
+                                  <img src="/icons/youtube-blue.svg" alt="youtube logo" width={48} height={48}/>
                               </a>
                           }
                       </div>

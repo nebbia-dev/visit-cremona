@@ -2,7 +2,6 @@
 import React, {useEffect, useState} from "react";
 import NextSlide from "@/app/_components/NextSlide";
 import PrevSlide from "@/app/_components/PrevSlide";
-import Image from "next/image";
 
 export default function Carousel({pics}:{pics:any}) {
 
@@ -47,20 +46,18 @@ export default function Carousel({pics}:{pics:any}) {
                <PrevSlide aria-hidden={true} setSlide={() => setCurrentSlide('sub')}/>
                {pics &&
                    <>
-                       <Image
+                       <img
                            aria-hidden={true}
-                           className='object-cover absolute z-0'
+                           className='absolute inset-0 z-0 h-full w-full object-cover'
                            src={process.env.NEXT_PUBLIC_BASE_URL + pics[placeholder].url}
                            alt={pics[placeholder].alternativeText}
-                           fill={true}
                        />
 
-                       <Image
+                       <img
                            id="slider"
-                           className='object-cover relative z-5'
+                           className='absolute inset-0 z-5 h-full w-full object-cover'
                            src={process.env.NEXT_PUBLIC_BASE_URL + pics[slide].url}
                            alt={pics[slide].alternativeText}
-                           fill={true}
                        />
 
                        {

@@ -1,6 +1,5 @@
 'use client'
 import {MapContainer, Marker, Popup, TileLayer} from "react-leaflet";
-import Image from "next/image";
 import "leaflet/dist/leaflet.css"
 import "leaflet-defaulticon-compatibility"
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css"
@@ -79,7 +78,7 @@ export default function Map({homepage, autoFilter = 0, fullPage, composers, page
             {homepage && <div className="flex items-center gap-4 px-1 md:px-4 mb-4">
                 <ul className="text-sm flex gap-4 flex-wrap md:justify-start justify-center">
                     <li className="flex items-center border bg-gray-500 border-gray-500 text-white rounded-full px-4 py-2">
-                            <Image aria-hidden={true} src="/icons/filter.svg" alt="" width={12} height={12} className="mr-1.5"/>
+                            <img aria-hidden={true} src="/icons/filter.svg" alt="" width={12} height={12} className="mr-1.5"/>
                             Filtri
                     </li>
                     <li>
@@ -114,7 +113,7 @@ export default function Map({homepage, autoFilter = 0, fullPage, composers, page
                     return(
                         <Marker key={el.documentId} position={[el.locations[0].lat, el.locations[0].lng]} icon={cyclingIcon}>
                             <Popup className="border border-orange-500 rounded-xl">
-                                <Image className="rounded-t-xl w-full h-[136px] object-cover" width={200} height={100} src={el.imageUrl ? process.env.NEXT_PUBLIC_BASE_URL + el.imageUrl :`/images/experiences/violin1.webp`} alt="Immagine esemplificativa del luogo"/>
+                                <img className="rounded-t-xl w-full h-[136px] object-cover" width={200} height={100} src={el.imageUrl ? process.env.NEXT_PUBLIC_BASE_URL + el.imageUrl :`/images/experiences/violin1.webp`} alt="Immagine esemplificativa del luogo"/>
                                 <div className="px-4 pt-4 pb-2">
                                     <h4 className="font-bold">{el.title}</h4>
                                     <p className="line-clamp-6">{getExperienceDescription(el.description).replace(/<\/?[^>]+(>|$)/g, "")}</p>
@@ -125,7 +124,7 @@ export default function Map({homepage, autoFilter = 0, fullPage, composers, page
                                                 currency: "EUR"
                                             }).format(el.cheapest ?? 0)
                                         }</p>
-                                        <a aria-label="Vai alla pagina di acquisto del biglietto per questa esperienza" href={`https://multishop-cremona.collaudo.domniapass.com/products/${el.slug}`} className="text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full py-2 px-3">Scopri</a>
+                                        <a aria-label="Vai alla pagina di acquisto del biglietto per questa esperienza" href={`https://multishop-cremona.collaudo.domniapass.com/products/${el.slug}`} target="_blank" rel="noopener noreferrer" className="text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full py-2 px-3">Scopri</a>
                                     </div>
                                 </div>
                             </Popup>
@@ -137,7 +136,7 @@ export default function Map({homepage, autoFilter = 0, fullPage, composers, page
                     return(
                         <Marker key={el.documentId} position={[el.locations[0].lat, el.locations[0].lng]} icon={luthieryIcon}>
                             <Popup className="border border-orange-500 rounded-xl">
-                                <Image className="rounded-t-xl w-full h-[136px] object-cover" width={200} height={100} src={el.imageUrl ? process.env.NEXT_PUBLIC_BASE_URL + el.imageUrl :`/images/experiences/violin1.webp`} alt="Immagine esemplificativa del luogo"/>
+                                <img className="rounded-t-xl w-full h-[136px] object-cover" width={200} height={100} src={el.imageUrl ? process.env.NEXT_PUBLIC_BASE_URL + el.imageUrl :`/images/experiences/violin1.webp`} alt="Immagine esemplificativa del luogo"/>
                                 <div className="px-4 pt-4 pb-2">
                                     <h4 className="font-bold">{el.title}</h4>
                                     <p className="line-clamp-6">{getExperienceDescription(el.description).replace(/<\/?[^>]+(>|$)/g, "")}</p>
@@ -149,6 +148,7 @@ export default function Map({homepage, autoFilter = 0, fullPage, composers, page
                                             }).format(el.cheapest ?? 0)
                                         }</p>
                                         <a aria-label="Vai alla pagina di acquisto del biglietto per questa esperienza" href={`https://multishop-cremona.collaudo.domniapass.com/products/${el.slug}`}
+                                              target="_blank" rel="noopener noreferrer"
                                               className="text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full py-2 px-3">Scopri</a>
                                     </div>
                                 </div>
