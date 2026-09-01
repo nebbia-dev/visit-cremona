@@ -1,5 +1,9 @@
+'use client'
+import {usePathname} from "next/navigation";
 
 export default function VisitCard({title, price, details} : {title:string|undefined, price:number|undefined, details:string[]|undefined}) {
+    const pathname = usePathname();
+
     return(
         <div className={`${title === 'Welcome Card' ? 'bg-pastel-blue border-blue-300' : 'bg-pastel-pink border-red-300'} rounded-xl w-full md:w-[40vw] flex flex-col border p-8 min-h-[40vh] relative`}>
             {
@@ -58,7 +62,7 @@ export default function VisitCard({title, price, details} : {title:string|undefi
                 <a href={`https://multishop-cremona.collaudo.domniapass.com/it/products/${title === 'Welcome Card' ? 'welcome-card' : 'visit-cremona-card'}`}
                       target="_blank" rel="noopener noreferrer"
                       className="text-black text-sm transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full px-3 py-2">
-                    Acquista &gt;</a>
+                    {pathname.includes('/en') ? 'Buy it' : 'Acquista'} &gt;</a>
             </div>
         </div>
     )

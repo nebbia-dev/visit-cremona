@@ -2,6 +2,7 @@
 import {useState} from "react";
 import Link from "next/link";
 import AnimatedHoverButton from "@/app/_components/AnimatedHoverButton";
+import {usePathname} from "next/navigation";
 
 type GalleryImage = {
     url: string,
@@ -9,6 +10,9 @@ type GalleryImage = {
 }
 
 export default function Stories({gallery, description} : {description: string, gallery:any[]}) {
+
+    const pathname = usePathname();
+
     const [disabled, setDisabled] = useState<boolean>(false);
     const [images, setImages] = useState<GalleryImage[]>([
         {url: gallery[0].immagine.url,
@@ -60,13 +64,13 @@ export default function Stories({gallery, description} : {description: string, g
                         <img aria-hidden={true} src="/icons/prev.svg" alt="Freccia a sinistra" width={48} height={48}/>
                     </button>
                     <div>
-                        <h2 className="font-bold text-3xl">Le storie del territorio</h2>
+                        <h2 className="font-bold text-3xl">{pathname.includes('/en') ? 'Local stories' : 'Le storie del territorio'}</h2>
                         <p className="mt-4">
                             {description}
                         </p>
                         <div className="w-full text-right mt-8">
-                            <Link href="/stories" className="font-bold underline relative">
-                                <AnimatedHoverButton content="Vai alle Storie del Territorio"/>
+                            <Link href={`/${pathname.includes('/en') ? 'en' : 'it'}/stories`} className="font-bold underline relative">
+                                <AnimatedHoverButton content={`${pathname.includes('/en') ? 'Go to local stories' : 'Vai alle storie del territorio'}`}/>
                             </Link>
                         </div>
                     </div>

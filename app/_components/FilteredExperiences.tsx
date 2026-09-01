@@ -27,7 +27,7 @@ export default function FilteredExperiences({type, pages}:{type:string, pages:an
                 })
             }
             <div className="w-full text-sm p-4 text-center rounded-xl border border-orange-500">
-                <Link href="/accessible-experiences" className="underline">Consulta tutte le esperienze</Link>
+                <Link href="/it/accessible-experiences" className="underline">Consulta tutte le esperienze</Link>
             </div>
         </div>
     )

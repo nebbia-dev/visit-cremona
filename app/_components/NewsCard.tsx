@@ -21,7 +21,7 @@ export default function NewsCard({el}:{el:any}) {
                 </div>
             </div>
             <Link
-                href={`/news/${el.documentId}`}
+                href={`/it/news/${el.documentId}`}
                 className="absolute bottom-4 text-sm right-4 cursor-pointer mt-4 text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full px-3 py-2"
             >
                 Scopri &gt;

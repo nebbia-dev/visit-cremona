@@ -5,8 +5,11 @@ import {type FocusEvent, useEffect, useState} from "react";
 import {Close} from "@/app/_components/_icons/Close";
 import {useUsageStore} from "@/app/_stores/usage";
 import {Usage} from "@/app/_types/types";
+import {usePathname} from "next/navigation";
 
 export default function Menu({links} : {links:any}) {
+
+    const pathname = usePathname();
 
     const showModal = useUsageStore((state:Usage) => state.showModal);
     const showModalBio = useUsageStore((state:Usage) => state.showModalBio);
@@ -103,7 +106,7 @@ export default function Menu({links} : {links:any}) {
             <header id="header" className="w-full fixed bg-corpo-blue z-110 top-0 h-[79px] z-100">
                 <div className="w-full px-2 md:px-0 md:w-[90%] md:mx-auto h-full p-0.5 text-white flex items-center justify-between">
                     <Link
-                        href="/"
+                        href="/it"
                         aria-label="Torna alla home"
                         onClick={() => toggleMenu('close')}
                     >
@@ -117,8 +120,8 @@ export default function Menu({links} : {links:any}) {
                         />
                     </Link>
                     <div className="flex gap-4 items-center">
-                        <Link href='/experiences' className="hidden md:block text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full px-4 py-3">Esperienze</Link>
-                        <Link href='/events' className="hidden md:block text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full px-5 py-3">Eventi</Link>
+                        <Link href='/it/experiences' className="hidden md:block text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full px-4 py-3">{pathname.includes('/en') ? 'Experiences' : 'Esperienze'}</Link>
+                        <Link href='/it/events' className="hidden md:block text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full px-5 py-3">{pathname.includes('/en') ? 'Events' : 'Eventi'}</Link>
                         {/*<div className="flex relative items-center">*/}
                         {/*    <Search className="text-gray-600 absolute left-[16px] w-5 h-5"/>*/}
                         {/*    <input type="text" placeholder="Cerca eventi o esperienze" className="w-[272px] py-3 pr-8 pl-12 rounded-full bg-white text-black"/>*/}
@@ -179,7 +182,7 @@ export default function Menu({links} : {links:any}) {
                     <ul className="pl-2">
                         <li id="homepageLink" className="py-3" tabIndex={-1}>
                             <Link
-                                href="/"
+                                href="/it"
                                 onClick={() => toggleMenu('close')}
                             >
                                 Homepage
@@ -187,7 +190,7 @@ export default function Menu({links} : {links:any}) {
                         </li>
                         <li className="py-3">
                             <Link
-                                href="/discover"
+                                href="/it/discover"
                                 onClick={() => toggleMenu('close')}
                             >
                                 Scopri il territorio
@@ -195,7 +198,7 @@ export default function Menu({links} : {links:any}) {
                         </li>
                         <li className="py-3">
                             <Link
-                                href="/discover/cycling"
+                                href="/it/discover/cycling"
                                 onClick={() => toggleMenu('close')}
                             >
                                 Cicloturismo
@@ -203,7 +206,7 @@ export default function Menu({links} : {links:any}) {
                         </li>
                         <li className="py-3">
                             <Link
-                                href="/discover/luthiery"
+                                href="/it/discover/luthiery"
                                 onClick={() => toggleMenu('close')}
                             >
                                 Musica e liuteria
@@ -224,7 +227,7 @@ export default function Menu({links} : {links:any}) {
                                 className={`${showExpMenu === 'open' ? 'max-h-[1000px]' : 'max-h-0'} pl-4 transition-all duration-500 overflow-hidden`}>
                                 <li className="py-3">
                                     <Link
-                                        href="/experiences"
+                                        href="/it/experiences"
                                         onClick={() => toggleMenu('close')}
                                     >
                                         Tutte le esperienze
@@ -232,7 +235,7 @@ export default function Menu({links} : {links:any}) {
                                 </li>
                                 <li className="py-3">
                                     <Link
-                                        href="/experiences/classic"
+                                        href="/it/experiences/classic"
                                         onClick={() => toggleMenu('close')}
                                     >
                                         Esperienze Classiche
@@ -240,7 +243,7 @@ export default function Menu({links} : {links:any}) {
                                 </li>
                                 <li className="py-3">
                                     <Link
-                                        href="/experiences/contemporary"
+                                        href="/it/experiences/contemporary"
                                         onClick={() => toggleMenu('close')}
                                     >
                                         Esperienze Contemporanee
@@ -248,7 +251,7 @@ export default function Menu({links} : {links:any}) {
                                 </li>
                                 <li className="py-3">
                                     <Link
-                                        href="/experiences/unique"
+                                        href="/it/experiences/unique"
                                         onClick={() => toggleMenu('close')}
                                     >
                                         Esperienze Uniche
@@ -291,7 +294,7 @@ export default function Menu({links} : {links:any}) {
 
                         <li className="py-3">
                             <Link
-                                href="/plan"
+                                href="/it/plan"
                                 onClick={() => toggleMenu('close')}
                             >
                                 Pianifica il tuo viaggio
@@ -300,7 +303,7 @@ export default function Menu({links} : {links:any}) {
 
                         <li className="py-3">
                             <Link
-                                href="/events"
+                                href="/it/events"
                                 onClick={() => toggleMenu('close')}
                             >
                                 Eventi
@@ -309,7 +312,7 @@ export default function Menu({links} : {links:any}) {
 
                         <li className="py-3">
                             <Link
-                                href="/stories"
+                                href="/it/stories"
                                 onClick={() => toggleMenu('close')}
                             >
                                 Stories
@@ -318,7 +321,7 @@ export default function Menu({links} : {links:any}) {
 
                         <li className="py-3">
                             <Link
-                                href="/partner"
+                                href="/it/partner"
                                 onClick={() => toggleMenu('close')}
                             >
                                 Partner
@@ -326,7 +329,7 @@ export default function Menu({links} : {links:any}) {
                         </li>
                         <li className="py-3">
                             <Link
-                                href="/who"
+                                href="/it/who"
                                 onClick={() => toggleMenu('close')}
                             >
                                 Chi siamo
@@ -334,7 +337,7 @@ export default function Menu({links} : {links:any}) {
                         </li>
                         <li className="py-3">
                             <Link
-                                href="/accessibility"
+                                href="/it/accessibility"
                                 onClick={() => toggleMenu('close')}
                             >
                                 Dichiarazione di accessibilità
@@ -346,7 +349,7 @@ export default function Menu({links} : {links:any}) {
 
                         <li className="py-3">
                             <Link
-                                href="/links"
+                                href="/it/links"
                                 onClick={() => toggleMenu('close')}
                             >
                                 Link utili
@@ -355,7 +358,7 @@ export default function Menu({links} : {links:any}) {
 
                         <li className="py-3">
                             <Link
-                                href="/contact"
+                                href="/it/contact"
                                 onClick={() => toggleMenu('close')}
                             >
                                 Contatti
@@ -364,7 +367,7 @@ export default function Menu({links} : {links:any}) {
 
                         <li className="py-3">
                             <Link
-                                href="/press"
+                                href="/it/press"
                                 onClick={() => toggleMenu('close')}
                             >
                                 Area Stampa
@@ -373,7 +376,7 @@ export default function Menu({links} : {links:any}) {
 
                         <li className="py-3">
                             <Link
-                                href="/operators"
+                                href="/it/operators"
                                 onClick={() => toggleMenu('close')}
                             >
                                 Area Operatori

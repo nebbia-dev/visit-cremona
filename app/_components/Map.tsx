@@ -14,7 +14,8 @@ import {
     getExperienceDescription,
     type ExperienceCardData,
     type ExperienceLocation,
-} from "@/app/lib/domnia-types";
+} from "@/app/_lib/domnia-types";
+import {usePathname} from "next/navigation";
 
 type MappableExperience = ExperienceCardData & {
     locations: [
@@ -38,6 +39,9 @@ function hasMapLocation(experience: ExperienceCardData): experience is MappableE
 }
 
 export default function Map({homepage, autoFilter = 0, fullPage, composers, pages = []} : MapProps) {
+
+    const pathname = usePathname();
+
     const [filter, setFilter] = useState<string>('all');
     const cyclingIcon = new L.Icon({
         iconUrl: cyclingMarker.src,
@@ -79,24 +83,27 @@ export default function Map({homepage, autoFilter = 0, fullPage, composers, page
                 <ul className="text-sm flex gap-4 flex-wrap md:justify-start justify-center">
                     <li className="flex items-center border bg-gray-500 border-gray-500 text-white rounded-full px-4 py-2">
                             <img aria-hidden={true} src="/icons/filter.svg" alt="" width={12} height={12} className="mr-1.5"/>
-                            Filtri
+                        {pathname.includes('/en') ? 'Filters' : 'Filtri'}
                     </li>
                     <li>
                         <button value="cycling" type="button" aria-pressed={filter === 'all'}
                                 className={`${filter === 'all' ? 'bg-soft-orange' : 'border border-gray-300'} cursor-pointer rounded-full px-4 py-2`}
-                                onClick={() => setFilter('all')}>Tutti
+                                onClick={() => setFilter('all')}>
+                            {pathname.includes('/en') ? 'All' : 'Tutti'}
                         </button>
                     </li>
                     <li>
                         <button value="cycling" type="button" aria-pressed={filter === 'cycling'}
                                 className={`${filter === 'cycling' ? 'bg-soft-orange' : 'border border-gray-300'} cursor-pointer rounded-full px-4 py-2`}
-                                onClick={() => setFilter('cycling')}>Cicloturismo
+                                onClick={() => setFilter('cycling')}>
+                            {pathname.includes('/en') ? 'Cycle-tourism' : 'Cicloturismo'}
                         </button>
                     </li>
                     <li>
                         <button value="luthiery" type="button" aria-pressed={filter === 'luthiery'}
                                 className={`${filter === 'luthiery' ? 'bg-soft-orange' : 'border border-gray-300'} cursor-pointer rounded-full px-4 py-2`}
-                                onClick={() => setFilter('luthiery')}>Musica e liuteria
+                                onClick={() => setFilter('luthiery')}>
+                            {pathname.includes('/en') ? 'Music and luthiery' : 'Musica e liuteria'}
                         </button>
                     </li>
                 </ul>
@@ -124,7 +131,12 @@ export default function Map({homepage, autoFilter = 0, fullPage, composers, page
                                                 currency: "EUR"
                                             }).format(el.cheapest ?? 0)
                                         }</p>
-                                        <a aria-label="Vai alla pagina di acquisto del biglietto per questa esperienza" href={`https://multishop-cremona.collaudo.domniapass.com/products/${el.slug}`} target="_blank" rel="noopener noreferrer" className="text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full py-2 px-3">Scopri</a>
+                                        <a aria-label="Vai alla pagina di acquisto del biglietto per questa esperienza"
+                                           href={`https://multishop-cremona.collaudo.domniapass.com/products/${el.slug}`}
+                                           target="_blank" rel="noopener noreferrer"
+                                           className="text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full py-2 px-3">
+                                            {pathname.includes('/en') ? 'Discover' : 'Scopri'}
+                                        </a>
                                     </div>
                                 </div>
                             </Popup>
@@ -149,7 +161,7 @@ export default function Map({homepage, autoFilter = 0, fullPage, composers, page
                                         }</p>
                                         <a aria-label="Vai alla pagina di acquisto del biglietto per questa esperienza" href={`https://multishop-cremona.collaudo.domniapass.com/products/${el.slug}`}
                                               target="_blank" rel="noopener noreferrer"
-                                              className="text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full py-2 px-3">Scopri</a>
+                                              className="text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full py-2 px-3">{pathname.includes('/en') ? 'Discover' : 'Scopri'}</a>
                                     </div>
                                 </div>
                             </Popup>
@@ -171,7 +183,9 @@ export default function Map({homepage, autoFilter = 0, fullPage, composers, page
                 })}
             </MapContainer>
             <div className={`w-full ${autoFilter ? 'hidden' : 'text-right'} p-4`}>
-                <Link href="/accessible-experiences" className="underline">Consulta tutte le esperienze</Link>
+                <Link href={`/${pathname.includes('/en') ? 'en' : 'it'}/accessible-experiences`} className="underline">
+                    {pathname.includes('/en') ? 'Discover all experiences' : 'Consulta tutte le esperienze'}
+                </Link>
             </div>
         </section>
     )

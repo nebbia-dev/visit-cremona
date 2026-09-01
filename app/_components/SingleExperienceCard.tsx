@@ -1,10 +1,14 @@
+'use client'
 import Link from "next/link";
 import {
     getExperienceDescription,
     type ExperienceCardData,
-} from "@/app/lib/domnia-types";
+} from "@/app/_lib/domnia-types";
+import {usePathname} from "next/navigation";
 
 export default function SingleExperienceCard({el, grid, altGrid} : {el:ExperienceCardData, grid:boolean, altGrid?:boolean}) {
+
+    const pathname = usePathname();
 
     const description = getExperienceDescription(el.description)
         .replace(/<\/?[^>]+(>|$)/g, "")
@@ -35,14 +39,14 @@ export default function SingleExperienceCard({el, grid, altGrid} : {el:Experienc
                     }</p>}
                     {tagIds.includes(6)
                         ? <Link
-                             href={`/experiences/unique/${el.documentId}`}
+                             href={`/${pathname.includes('/en') ? 'en' : 'it'}/experiences/unique/${el.documentId}`}
                              className="text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full py-2 px-3">
-                            Scopri
+                            {pathname.includes('/en') ? 'Discover' : 'Scopri'}
                             </Link>
                         : <a target="_blank" rel="noopener noreferrer"
-                             href={`https://multishop-cremona.collaudo.domniapass.com/it/products/${el.slug}`}
+                             href={`https://multishop-cremona.collaudo.domniapass.com/${pathname.includes('/en') ? 'en' : 'it'}/products/${el.slug}`}
                              className="text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full py-2 px-3">
-                            Scopri
+                            {pathname.includes('/en') ? 'Discover' : 'Scopri'}
                         </a>
                     }
                 </div>

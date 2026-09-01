@@ -1,7 +1,7 @@
 'use client'
 import dynamic from "next/dynamic";
 import {ComposerLocation} from "@/app/_types/types";
-import type {ExperienceCardData} from "@/app/lib/domnia-types";
+import type {ExperienceCardData} from "@/app/_lib/domnia-types";
 
 const ImportedMap = dynamic(
     () => import('@/app/_components/Map'),

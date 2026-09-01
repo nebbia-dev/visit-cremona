@@ -1,6 +1,8 @@
+'use client'
 import SingleExperienceCard from "@/app/_components/SingleExperienceCard";
 import Link from "next/link";
 import AnimatedHoverButton from "@/app/_components/AnimatedHoverButton";
+import {usePathname} from "next/navigation";
 
 export default function ExperienceSection({type, name, description, pages}:{type:string, name:string, description:string, pages:any}) {
 
@@ -15,6 +17,8 @@ export default function ExperienceSection({type, name, description, pages}:{type
         default:
             expToDisplay = 1;
     }
+
+    const pathname = usePathname();
 
     return (
         <section className={`w-full ${type === 'classic' ? 'bg-pastel-yellow' : 'bg-pastel-orange'}`}>
@@ -38,8 +42,8 @@ export default function ExperienceSection({type, name, description, pages}:{type
                 </div>
 
                 <div className="w-full text-right mt-4">
-                    <Link href={`/experiences/${type}`} className="font-bold underline relative">
-                        <AnimatedHoverButton content={`Vai alle ${name}`}/>
+                    <Link href={`/it/experiences/${type}`} className="font-bold underline relative">
+                        <AnimatedHoverButton content={`${pathname.includes('/en') ? 'Go to' : 'Vai alle'} ${name}`}/>
                     </Link>
                 </div>
             </div>

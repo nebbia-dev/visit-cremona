@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import Filter from "@/app/_components/Filter";
 import SingleExperienceCard from "@/app/_components/SingleExperienceCard";
 import {useFilterStore} from "@/app/_stores/filter";
-import type {ExperienceCardData, ProductResponse} from "@/app/lib/domnia-types";
+import type {ExperienceCardData, ProductResponse} from "@/app/_lib/domnia-types";
 
 type FilteredExperience = ExperienceCardData & {
     products?: ProductResponse[];

@@ -5,7 +5,7 @@ export default function Footer({links, contacts} : {links:any, contacts:any}) {
         <footer id="footer" className="min-h-[40vh] bg-corpo-blue w-full flex gap-4 py-16 text-white">
             <div className="w-[80vw] flex flex-col lg:flex-row gap-20 items-center lg:items-start mx-auto">
                 <div className="w-[50vw] lg:w-[20vw] flex flex-col items-center justify-center gap-8">
-                    <Link href="/" className="w-[90%]">
+                    <Link href="/it" className="w-[90%]">
                         <img
                             src='/logo.webp'
                             alt="Logo di Visit Cremona"
@@ -77,17 +77,17 @@ export default function Footer({links, contacts} : {links:any, contacts:any}) {
                     className="w-full lg:w-[45vw] flex justify-center lg:justify-start gap-6 underline text-corpo-orange">
                     <ul className="flex flex-col gap-6 text-center lg:text-left">
                         <li><a href="/Visit Cremona_Brand Guide_V6.pdf" download target="_blank" rel="noopener noreferrer">Guida del brand</a></li>
-                        <li><Link href="/accessibility">Dichiarazione di accessibilità</Link></li>
+                        <li><Link href="/it/accessibility">Dichiarazione di accessibilità</Link></li>
                         <li><a target="_blank" rel="noopener noreferrer" href={links['amministrazione_trasparente']}>Amministrazione
                             trasparente</a></li>
-                        <li><Link href="/partner">Partner</Link></li>
+                        <li><Link href="/it/partner">Partner</Link></li>
                         <li><a target="_blank" rel="noopener noreferrer" href={links['osservatorio_cremona']}>Osservatorio Turistico Cremonese</a></li>
                     </ul>
                     <ul className="flex flex-col gap-6 text-center lg:text-left">
-                        <li><Link href="/who">Chi siamo</Link></li>
-                        <li><Link href="/plan">Pianifica il tuo viaggio</Link></li>
-                        <li><Link href="/contact">Richiesta di informazioni</Link></li>
-                        <li><Link href="/newsletter">Iscrizione alla newsletter</Link></li>
+                        <li><Link href="/it/who">Chi siamo</Link></li>
+                        <li><Link href="/it/plan">Pianifica il tuo viaggio</Link></li>
+                        <li><Link href="/it/contact">Richiesta di informazioni</Link></li>
+                        <li><Link href="/it/newsletter">Iscrizione alla newsletter</Link></li>
                     </ul>
                 </div>
             </div>

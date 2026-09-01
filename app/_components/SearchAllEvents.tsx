@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import {useFilterStore} from "@/app/_stores/filter";
 import FilterEvents from "@/app/_components/FilterEvents";
 import Event from "@/app/_components/Event";
-import type {EdtEvent} from "@/app/lib/edt-events";
+import type {EdtEvent} from "@/app/_lib/edt-events";
 
 function getTimestamp(value?: string) {
     return value ? new Date(value).getTime() : Number.NaN;

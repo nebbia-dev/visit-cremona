@@ -19,7 +19,7 @@ export default function StoryCard({el}:{el:any}) {
             </div>
             <div className="p-4 text-right w-full rounded-b-xl bg-white border-b border-r border-l border-orange-500">
                 <Link
-                    href={`/stories/${el.documentId}`}
+                    href={`/it/stories/${el.documentId}`}
                     className="w-fit text-sm cursor-pointer text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full px-3 py-2"
                 >
                     Leggi &gt;
