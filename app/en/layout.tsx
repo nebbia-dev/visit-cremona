@@ -50,11 +50,11 @@ export default async function RootLayout({
         <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-            <Menu links={content.data}/>
+            <Menu links={content.data} lang="en"/>
             <main id="main">
                 {children}
             </main>
-            <Footer links={content.data} contacts={contactsContent.data}/>
+            <Footer links={content.data} contacts={contactsContent.data} lang="en"/>
             <Iubenda/>
             <Script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer />
         </body>

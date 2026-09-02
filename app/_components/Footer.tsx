@@ -1,11 +1,11 @@
 import Link from "next/link";
 
-export default function Footer({links, contacts} : {links:any, contacts:any}) {
+export default function Footer({links, contacts, lang} : {links:any, contacts:any, lang:string|undefined}) {
     return (
         <footer id="footer" className="min-h-[40vh] bg-corpo-blue w-full flex gap-4 py-16 text-white">
             <div className="w-[80vw] flex flex-col lg:flex-row gap-20 items-center lg:items-start mx-auto">
                 <div className="w-[50vw] lg:w-[20vw] flex flex-col items-center justify-center gap-8">
-                    <Link href="/it" className="w-[90%]">
+                    <Link href={`${lang === 'en' ? '/en' : '/it'}`} className="w-[90%]">
                         <img
                             src='/logo.webp'
                             alt="Logo di Visit Cremona"
@@ -32,15 +32,15 @@ export default function Footer({links, contacts} : {links:any, contacts:any}) {
                     </div>
                 </div>
                 <div className="w-full lg:w-[35vw] text-center lg:text-left">
-                    <p className="font-semibold mb-4">Contatti</p>
-                    <p>Sede: {contacts.indirizzo}</p>
+                    <p className="font-semibold mb-4">{lang === 'en' ? 'Contacts' : 'Contatti'}</p>
+                    <p>{lang === 'en' ? 'Offices' : 'Sede'}: {contacts.indirizzo}</p>
                     <p><a className="hover:text-corpo-orange"
                           href={`tel:${contacts.telefono.split(' ').join('')}`}>Tel.: {contacts.telefono}</a></p>
                     <p>REA: {contacts.rea} | P.IVA {contacts.pIva}</p>
                     <p>Cap. Soc. {contacts.capitale_sociale}</p>
                     <p>PEC: {contacts.pec}</p>
                     <div className="mt-3 mb-2 flex gap-4 justify-center lg:justify-start">
-                        Seguici sui social:
+                        {lang === 'en' ? 'Follow us:' : 'Seguici sui social:'}
                         <ul className="flex gap-4 items-center">
                             <li>
                                 <a aria-label="Vai al profilo Facebook di Visit Cremona" target="_blank" rel="noopener noreferrer" href={links.facebook}>
@@ -76,18 +76,18 @@ export default function Footer({links, contacts} : {links:any, contacts:any}) {
                 <div
                     className="w-full lg:w-[45vw] flex justify-center lg:justify-start gap-6 underline text-corpo-orange">
                     <ul className="flex flex-col gap-6 text-center lg:text-left">
-                        <li><a href="/Visit Cremona_Brand Guide_V6.pdf" download target="_blank" rel="noopener noreferrer">Guida del brand</a></li>
-                        <li><Link href="/it/accessibility">Dichiarazione di accessibilità</Link></li>
-                        <li><a target="_blank" rel="noopener noreferrer" href={links['amministrazione_trasparente']}>Amministrazione
-                            trasparente</a></li>
+                        <li><a href="/Visit Cremona_Brand Guide_V6.pdf" download target="_blank" rel="noopener noreferrer">{lang === 'en' ? 'Brand guide' : 'Guida del brand'}</a></li>
+                        <li><Link href={`/${lang === 'en' ? 'en' : 'it'}/accessibility`}>{lang === 'en' ? 'Accesibility declaration' : 'Dichiarazione di accessibilità'}</Link></li>
+                        <li><a target="_blank" rel="noopener noreferrer" href={links['amministrazione_trasparente']}>
+                            {lang === 'en' ? 'Transparent administration' : 'Amministrazione trasparente'}</a></li>
                         <li><Link href="/it/partner">Partner</Link></li>
                         <li><a target="_blank" rel="noopener noreferrer" href={links['osservatorio_cremona']}>Osservatorio Turistico Cremonese</a></li>
                     </ul>
                     <ul className="flex flex-col gap-6 text-center lg:text-left">
-                        <li><Link href="/it/who">Chi siamo</Link></li>
-                        <li><Link href="/it/plan">Pianifica il tuo viaggio</Link></li>
-                        <li><Link href="/it/contact">Richiesta di informazioni</Link></li>
-                        <li><Link href="/it/newsletter">Iscrizione alla newsletter</Link></li>
+                        <li><Link href={`/${lang === 'en' ? 'en' : 'it'}/who`}>{lang === 'en' ? 'Who we are' : 'Chi siamo'}</Link></li>
+                        <li><Link href={`/${lang === 'en' ? 'en' : 'it'}/plan`}>{lang === 'en' ? 'Plan your trip' : 'Pianifica il tuo viaggio'}</Link></li>
+                        <li><Link href={`/${lang === 'en' ? 'en' : 'it'}/contact`}>{lang === 'en' ? 'Information request' : 'Richiesta di informazioni'}</Link></li>
+                        <li><Link href={`/${lang === 'en' ? 'en' : 'it'}/newsletter`}>{lang === 'en' ? 'Newsletter subscription' : 'Iscrizione alla newsletter'}</Link></li>
                     </ul>
                 </div>
             </div>
