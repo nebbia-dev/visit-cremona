@@ -138,7 +138,9 @@ export default function Menu({links, lang} : {links:any, lang?:string}) {
                                 aria-hidden={true}
                             />
                         </button>
-                        <img src="/images/it.png" className="hidden md:block rounded-full w-6 h-6" alt="Bandiera italiana" width={64} height={64}/>
+                        <Link href={lang === 'en' ? '/it' : '/en'}>
+                            <img src={lang === 'en' ? '/images/en.png' : '/images/it.png'} className="cursor-pointer rounded-full w-6 h-6" alt="Bandiera italiana" width={64} height={64}/>
+                        </Link>
                     </div>
                 </div>
             </header>
@@ -174,7 +176,9 @@ export default function Menu({links, lang} : {links:any, lang?:string}) {
                 </div>
 
                 <div className="md:hidden block flex w-full items-center justify-end px-8 pb-4 gap-4">
-                    <img src="/images/it.png" className="rounded-full w-6 h-6" alt="Bandiera italiana" width={64} height={64}/>
+                    <Link href={lang === 'en' ? '/it' : '/en'}>
+                        <img src={lang === 'en' ? '/images/en.png' : '/images/it.png'} className="cursor-pointer rounded-full w-6 h-6" alt="Bandiera italiana" width={64} height={64}/>
+                    </Link>
                 </div>
 
                 <div className="border-t border-black/50 w-[90%] mx-auto text-black/50 pt-3 overflow-y-auto h-[calc(100vh-212px)] md:h-[calc(100vh-148px)]">

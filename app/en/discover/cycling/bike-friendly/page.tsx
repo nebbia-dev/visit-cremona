@@ -17,7 +17,7 @@ export default async function BikeFriendly() {
         <>
             <section className="mt-[79px] fadein-slower">
                 <div className="w-[95vw] md:w-[80vw] mx-auto items-center justify-center px-4 md:px-8 pt-20 pb-24">
-                    <p className="text-sm"><span className="font-semibold">Home / Scopri il territorio / Cicloturismo /</span> Strutture
+                    <p className="text-sm"><span className="font-semibold">Home / Discover the region / Cycle-tourism /</span> Strutture
                         Bike-friendly
                     </p>
                     <h2 className="font-bold text-4xl mt-10 mb-8">Strutture Bike-friendly</h2>
@@ -34,6 +34,7 @@ export default async function BikeFriendly() {
                                     phone={el.telefono}
                                     email={el.email}
                                     url={el.link}
+                                    lang="en"
                                 />
                             )
                         })}

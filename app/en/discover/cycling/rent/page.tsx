@@ -17,7 +17,7 @@ export default async function Rent() {
         <>
             <section className="mt-[79px] fadein-slower">
                 <div className="w-[95vw] md:w-[80vw] mx-auto items-center justify-center px-4 md:px-8 pt-20 pb-24">
-                    <p className="text-sm"><span className="font-semibold">Home / Scopri il territorio / Cicloturismo /</span> Strutture
+                    <p className="text-sm"><span className="font-semibold">Home / Discover the region / Cycle-tourism /</span> Strutture
                         per il noleggio
                     </p>
                     <h2 className="font-bold text-4xl mt-10 mb-8">Vendita, noleggio e riparazione di biciclette</h2>
@@ -33,17 +33,18 @@ export default async function Rent() {
                                 phone={el.telefono}
                                 email={el.email}
                                 url={el.link}
+                                lang="en"
                             >
                                 {el.lun &&
                                     <div className="flex gap-4 w-full">
                                         <ul>
-                                            <li>Lunedi</li>
-                                            <li>Martedi</li>
-                                            <li>Mercoledi</li>
-                                            <li>Giovedi</li>
-                                            <li>Venerdi</li>
-                                            <li>Sabato</li>
-                                            <li>Domenica</li>
+                                            <li>Monday</li>
+                                            <li>Tuesday</li>
+                                            <li>Wednesday</li>
+                                            <li>Thursday</li>
+                                            <li>Friday</li>
+                                            <li>Saturday</li>
+                                            <li>Sunday</li>
                                         </ul>
                                         <ul className="w-full">
                                             <li className="text-ellipsis whitespace-nowrap overflow-x-auto">{el.lun}</li>

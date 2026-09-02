@@ -1,4 +1,4 @@
-export default function InfoCard({name, address, phone, email, children, url, hours, type} : {name:string, address:string, phone:string, email:string, children?:undefined|React.ReactNode, url?:string|undefined, hours?:string|undefined, type?:string|undefined}) {
+export default function InfoCard({name, address, phone, email, children, url, hours, type, lang} : {name:string, address:string, phone:string, email:string, children?:undefined|React.ReactNode, url?:string|undefined, hours?:string|undefined, type?:string|undefined, lang?:string}) {
     return(
         <div className="w-full md:w-[calc(33%-8px)]">
         <div className={`bg-white rounded-t-xl pt-8 px-8 ${children ? 'h-[65vh]' : hours ? 'h-[396px]' : 'h-[300px]' } relative overflow-y-auto`}>
@@ -8,11 +8,11 @@ export default function InfoCard({name, address, phone, email, children, url, ho
                 {children}
                 <ul className="my-4">
                     <li className="w-full mt-2">
-                        <span className="font-semibold">Indirizzo:</span><br/>
+                        <span className="font-semibold">{lang === 'en' ? 'Address:' : 'Indirizzo:'}</span><br/>
                         {address}
                     </li>
                     <li className="mt-2">
-                        <span className="font-semibold">Telefono:</span><br/>
+                        <span className="font-semibold">{lang === 'en' ? 'Phone:' : 'Telefono:'}Telefono:</span><br/>
                         <a href={`tel:+39${phone}`} className="underline">{phone}</a>
                     </li>
                     {email && <li className="w-full mt-2">
@@ -20,7 +20,7 @@ export default function InfoCard({name, address, phone, email, children, url, ho
                         <a href={`mailto:${email}`} className="underline">{email}</a>
                     </li>}
                     {hours && <li className="w-full mt-2">
-                        <span className="font-semibold">Orari di apertura:</span><br/>
+                        <span className="font-semibold">{lang === 'en' ? 'Opening hours' : 'Orari di apertura:'}</span><br/>
                         {name.includes("Soncino")
                             ? <a href="/orario-infopoint-1.pdf" download target="_blank" rel="noopener noreferrer" className="underline">{hours}</a>
                             : <span>{hours}</span>
@@ -32,7 +32,7 @@ export default function InfoCard({name, address, phone, email, children, url, ho
         {url ? <div className="w-full p-8 text-right bg-white rounded-b-xl">
             <a href={url} target="_blank" rel="noopener noreferrer"
                className="text-sm cursor-pointer w-full text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full px-4 py-3">
-                Vail al sito &gt;
+                {lang === 'en' ? 'Go to website' : 'Vail al sito'} &gt;
             </a>
         </div>
             : <div className="w-full p-8 text-right bg-white rounded-b-xl h-[87.99px]"></div>

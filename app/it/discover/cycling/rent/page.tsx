@@ -37,11 +37,11 @@ export default async function Rent() {
                                 {el.lun &&
                                     <div className="flex gap-4 w-full">
                                         <ul>
-                                            <li>Lunedi</li>
-                                            <li>Martedi</li>
-                                            <li>Mercoledi</li>
-                                            <li>Giovedi</li>
-                                            <li>Venerdi</li>
+                                            <li>Lunedì</li>
+                                            <li>Martedì</li>
+                                            <li>Mercoledì</li>
+                                            <li>Giovedì</li>
+                                            <li>Venerdì</li>
                                             <li>Sabato</li>
                                             <li>Domenica</li>
                                         </ul>
