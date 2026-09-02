@@ -10,6 +10,20 @@ function getTimestamp(value?: string) {
     return value ? new Date(value).getTime() : Number.NaN;
 }
 
+function getStartOfDayTimestamp(date: Date) {
+    const startOfDay = new Date(date);
+    startOfDay.setHours(0, 0, 0, 0);
+
+    return startOfDay.getTime();
+}
+
+function getEndOfDayTimestamp(date: Date) {
+    const endOfDay = new Date(date);
+    endOfDay.setHours(23, 59, 59, 999);
+
+    return endOfDay.getTime();
+}
+
 export default function SearchAllEvents({events}:{events:EdtEvent[]}) {
 
     const pathname = usePathname();
@@ -18,47 +32,46 @@ export default function SearchAllEvents({events}:{events:EdtEvent[]}) {
     const filters = useFilterStore((state) => state.filters);
     const [filteredEvents, setFilteredEvents] = useState<EdtEvent[]>();
     useEffect(() => {
-        const filtered = events.filter(
-            (event) => Date.now() < getTimestamp(event.dates?.endDate),
-        );
+        const filtered = events.filter((event) => {
+            const eventEnd = getTimestamp(
+                event.dates?.endDate ?? event.dates?.startDate,
+            );
+
+            return !Number.isNaN(eventEnd) && Date.now() <= eventEnd;
+        });
         setFilteredEvents(filtered)
     }, [events])
 
     function applyFilters() {
 
-        let filtered = events.slice();
-        const startFilter = filters.start?.getTime();
-        const endFilter = filters.end?.getTime();
+        const startFilter = filters.start
+            ? getStartOfDayTimestamp(filters.start)
+            : undefined;
+        const endFilter = filters.end
+            ? getEndOfDayTimestamp(filters.end)
+            : undefined;
 
-        if(startFilter !== undefined) {
-                filtered = events.filter(event => {
-                    const startDate = getTimestamp(event.dates?.startDate);
-                    const endDate = getTimestamp(event.dates?.endDate);
+        const filtered = events.filter((event) => {
+            const eventStart = getTimestamp(event.dates?.startDate);
+            const parsedEventEnd = getTimestamp(event.dates?.endDate);
+            const eventEnd = Number.isNaN(parsedEventEnd)
+                ? eventStart
+                : parsedEventEnd;
 
-                    if(startDate === endDate) {
-                        return startDate >= startFilter
-                    } else {
-                        return endDate >= startFilter;
-                    }
-                });
-        }
+            if (Number.isNaN(eventStart)) {
+                return false;
+            }
 
-        if(startFilter !== undefined && endFilter !== undefined) {
-            filtered = filtered.filter(event => {
-                return getTimestamp(event.dates?.startDate) <= endFilter;
-            });
-        } else if (endFilter !== undefined) {
-                filtered = events.filter(event => {
-                    const startDate = getTimestamp(event.dates?.startDate);
-                    const endDate = getTimestamp(event.dates?.endDate);
+            if (startFilter !== undefined && eventEnd < startFilter) {
+                return false;
+            }
 
-                    if(startDate === endDate) {
-                        return endDate <= endFilter
-                    } else {
-                        return startDate <= endFilter;
-                    }
-                });
-        }
+            if (endFilter !== undefined && eventStart > endFilter) {
+                return false;
+            }
+
+            return true;
+        });
 
         setFilteredEvents(filtered);
     }

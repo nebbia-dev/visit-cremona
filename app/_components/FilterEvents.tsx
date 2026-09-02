@@ -10,8 +10,8 @@ export default function FilterEvents({search} : {search:() => void}) {
     return (
         <div className="w-full flex items-center gap-8">
             <fieldset aria-label="Scegli le date dell'evento" className="w-full flex justify-between gap-4">
-                <Dialog placeholder={`${pathname.includes('/en') ? 'From' : 'Da'}`}/>
-                <Dialog placeholder={`${pathname.includes('/en') ? 'To' : 'Al'}`}/>
+                <Dialog filterKey="start" placeholder={pathname.includes('/en') ? 'From' : 'Da'}/>
+                <Dialog filterKey="end" placeholder={pathname.includes('/en') ? 'To' : 'Al'}/>
             </fieldset>
 
             <button type="button" onClick={search}

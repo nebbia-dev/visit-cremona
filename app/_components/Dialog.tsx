@@ -9,7 +9,12 @@ import {Calendar} from "@/app/_components/_icons/Calendar";
 import {useFilterStore} from "@/app/_stores/filter";
 import {Close} from "@/app/_components/_icons/Close";
 
-export function Dialog({placeholder} : {placeholder:string}) {
+type DialogProps = {
+    filterKey: 'start' | 'end';
+    placeholder: string;
+};
+
+export function Dialog({filterKey, placeholder}: DialogProps) {
 
     const setFilter = useFilterStore((state) => state.setFilter);
 
@@ -50,12 +55,8 @@ export function Dialog({placeholder} : {placeholder:string}) {
         } else {
             setSelectedDate(date);
             setInputValue(format(date, "dd/MM/yyyy"));
-            if(placeholder === 'Dal') {
-                setFilter('start', date)
-            } else {
-                setFilter('end', date)
-            }
         }
+        setFilter(filterKey, date);
         dialogRef.current?.close();
     }
 
@@ -67,8 +68,10 @@ export function Dialog({placeholder} : {placeholder:string}) {
         if (isValid(parsedDate)) {
             setSelectedDate(parsedDate);
             setMonth(parsedDate);
+            setFilter(filterKey, parsedDate);
         } else {
             setSelectedDate(undefined);
+            setFilter(filterKey, undefined);
         }
     }
 
