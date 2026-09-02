@@ -6,7 +6,7 @@ export default async function Operators() {
     let content, contentRef, referral, contentExpImages;
 
     try {
-        let data = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/area-operators/',
+        let data = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/area-operators/?populate=*',
             { next: { revalidate: 1000 }});
         content = await data.json();
 

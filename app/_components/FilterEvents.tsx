@@ -1,6 +1,6 @@
 'use client'
 import {Dialog} from "@/app/_components/Dialog";
-import {useFilterStore} from "@/app/_stores/filter";
+// import {useFilterStore} from "@/app/_stores/filter";
 import {usePathname} from "next/navigation";
 
 export default function FilterEvents({search} : {search:() => void}) {

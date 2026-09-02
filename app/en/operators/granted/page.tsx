@@ -6,9 +6,10 @@ export default async function Operators() {
     let content, contentRef, referral, contentExpImages;
 
     try {
-        let data = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/area-operators/?locale=en',
+        let data = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/area-operators/?locale=en&populate=*',
             { next: { revalidate: 1000 }});
         content = await data.json();
+        console.log(content)
 
         let dataRef = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/referrals/?locale=en',
             { next: { revalidate: 1000 }});
@@ -16,7 +17,7 @@ export default async function Operators() {
 
         referral = contentRef.data.filter((el: {area?: string}) => el.area === 'operators')[0];
 
-        let dataExpImages = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/experiences-images?populate=*&locale=en',
+        let dataExpImages = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/experiences-images?populate=*',
             { next: { revalidate: 1000 }});
         contentExpImages = await dataExpImages.json();
 

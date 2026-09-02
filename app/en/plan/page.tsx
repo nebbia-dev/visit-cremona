@@ -25,7 +25,7 @@ export default async function Plan() {
     return(
         <>
             <div className="w-[95vw] md:w-[80vw] mx-auto mt-[79px] px-4 md:px-0 pt-[69px] mb-12 fadein-slower">
-                <h1 className="font-bold text-4xl mt-8">Pianifica il tuo viaggio</h1>
+                <h1 className="font-bold text-4xl mt-8">Plan your trip</h1>
             </div>
 
             {/*auto*/}

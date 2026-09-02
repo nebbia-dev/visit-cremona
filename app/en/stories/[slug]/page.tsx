@@ -53,7 +53,7 @@ export default async function Story({params}: { params: Promise<{ slug: string }
             </div>
         </section>
             <section className="w-[95vw] md:w-[80vw] mx-auto items-center justify-center px-4 md:px-8 pt-2 md:pt-8 pb-24">
-                <h2 className="font-bold text-4xl mb-8">Esperienze correlate</h2>
+                <h2 className="font-bold text-4xl mb-8">Related experiences</h2>
                 <div className="flex gap-4 flex-wrap">
                     {pages &&
                         pages.map(el => {

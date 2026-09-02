@@ -15,7 +15,7 @@ export default async function Contacts() {
         <>
             <section className="w-[95vw] md:w-[80vw] mx-auto mt-[79px] px-4 md:px-0 pt-[69px] mb-[80px] flex flex-col md:flex-row gap-16 fadein-slower">
                 <div className="w-full md:w-2/4">
-                    <h2 className="font-bold text-4xl">Contatti</h2>
+                    <h2 className="font-bold text-4xl">Contacts</h2>
                     <p className="w-full mt-8 pl-1">Comune di Cremona</p>
                     <p className="w-full pl-1">{content.data.indirizzo}</p>
                     {/*<p className="w-full mt-8 pl-1">Email: <a className="underline" href={`mailto:${content.data.email}`}>{content.data.email}</a></p>*/}
@@ -25,7 +25,7 @@ export default async function Contacts() {
                     <p className="w-full pl-1">PEC: {content.data.pec}</p>
                 </div>
                 <div className="w-full md:w-2/4">
-                <h2 className="font-bold text-4xl">Hai bisogno di più info?</h2>
+                <h2 className="font-bold text-4xl">Need more info?</h2>
                     <ContactForm newsletter={false}/>
                 </div>
             </section>

@@ -15,7 +15,7 @@ export default function Operators() {
     }
     function verify() {
         if(password === '12345') {
-            router.push('/operators/granted')
+            router.push('/it/operators/granted')
         } else {
             setError(true);
             document.getElementById('errors')!.textContent = "Invalid password";
