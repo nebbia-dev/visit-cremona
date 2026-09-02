@@ -19,7 +19,7 @@ export default async function Contacts() {
                     <p className="w-full mt-8 pl-1">Comune di Cremona</p>
                     <p className="w-full pl-1">{content.data.indirizzo}</p>
                     {/*<p className="w-full mt-8 pl-1">Email: <a className="underline" href={`mailto:${content.data.email}`}>{content.data.email}</a></p>*/}
-                    <p className="w-full pl-1 mt-3">Telefono: <a className="underline"
+                    <p className="w-full pl-1 mt-3">Phone: <a className="underline"
                                                             href={`tel:${content.data.telefono.split(' ').join('')}`}>{content.data.telefono}</a>
                     </p>
                     <p className="w-full pl-1">PEC: {content.data.pec}</p>

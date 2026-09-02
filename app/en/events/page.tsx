@@ -3,7 +3,7 @@ import SearchAllEvents from "@/app/_components/SearchAllEvents";
 
 export default async function Events() {
 
-    const data = await getEvents('/en/events');
+    const data = await getEvents('/en/events', {lang: 'en'});
     const sortedEvents = sortEventsByStartDate(data.events ?? []);
 
     return (

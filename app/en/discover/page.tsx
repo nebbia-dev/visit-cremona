@@ -103,7 +103,7 @@ export default async function Discover() {
                             <LocalMap homepage={false} autoFilter={1} pages={pages}/>
 
                             <div className="w-full text-right mt-4">
-                                <Link href="/it/discover/cycling" className="font-bold underline relative">
+                                <Link href="/en/discover/cycling" className="font-bold underline relative">
                                     <AnimatedHoverButton content="Discover Tales of Cycling"/>
                                 </Link>
                             </div>
@@ -117,7 +117,7 @@ export default async function Discover() {
                     </div>
                     <div className="flex gap-4">
 
-                        <FilteredExperiences type="luthiery" pages={pages}/>
+                        <FilteredExperiences type="luthiery" pages={pages} lang="en"/>
 
                         <div className="flex flex-col gap-2 ">
                             <div className="flex md:flex-row flex-col gap-2">
@@ -130,7 +130,7 @@ export default async function Discover() {
                             </div>
                             <LocalMap homepage={false} autoFilter={2} pages={pages}/>
                             <div className="w-full text-right mt-4">
-                                <Link href="/it/discover/luthiery" className="font-bold underline relative">
+                                <Link href="/en/discover/luthiery" className="font-bold underline relative">
                                     <AnimatedHoverButton content="Discover Tales of Music and Luthiery"/>
                                 </Link>
                             </div>

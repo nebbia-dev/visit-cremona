@@ -13,6 +13,7 @@ function getTimestamp(value?: string) {
 export default function SearchAllEvents({events}:{events:EdtEvent[]}) {
 
     const pathname = usePathname();
+    const locale = pathname.startsWith('/en') ? 'en' : 'it';
 
     const filters = useFilterStore((state) => state.filters);
     const [filteredEvents, setFilteredEvents] = useState<EdtEvent[]>();
@@ -76,7 +77,7 @@ export default function SearchAllEvents({events}:{events:EdtEvent[]}) {
                 {filteredEvents
                     ? filteredEvents.map((el) => {
                         return (
-                            <Event key={el.identifier} event={el}/>
+                            <Event key={el.identifier} event={el} locale={locale}/>
                         )
                     })
                     : <div className="h-[300px] w-full flex items-center justify-center">Loading...</div>

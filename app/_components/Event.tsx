@@ -1,9 +1,16 @@
-export default function Event({event}:{event:any}) {
-    const title = event?.translations?.it?.title ?? '';
-    const description = event?.translations?.it?.description ?? '';
-    const imageSource = event?.translations?.it?.images?.[0]?.imageUrl ?? '/images/experiences/violin1.webp';
+import type {EdtEvent} from "@/app/_lib/edt-events";
+
+type EventLocale = 'en' | 'it';
+
+export default function Event({event, locale = 'it'}:{event:EdtEvent, locale?:EventLocale}) {
+    const translation = event?.translations?.[locale]
+        ?? event?.translations?.it
+        ?? event?.translations?.en;
+    const title = translation?.title ?? '';
+    const description = translation?.description ?? '';
+    const imageSource = translation?.images?.[0]?.imageUrl ?? '/images/experiences/violin1.webp';
     const telephone = event?.contacts?.telephone ?? '';
-    const link = event?.translations?.it?.url ?? '';
+    const link = translation?.url ?? '';
     const address = [
               event?.address?.addressPlace,
               event?.address?.streetAddress,
@@ -11,11 +18,12 @@ export default function Event({event}:{event:any}) {
           ]
               .filter(Boolean)
               .join(', ');
-    const date = new Date(event?.dates?.startDate).toLocaleDateString('it-IT', {
+    const dateLocale = locale === 'en' ? 'en-GB' : 'it-IT';
+    const date = new Date(event?.dates?.startDate ?? '').toLocaleDateString(dateLocale, {
         year: "numeric",
         month: "long",
         day: "numeric",
-    }) + (event?.dates?.endDate && event?.dates?.endDate !== event?.dates?.startDate ? ' - ' + new Date(event?.dates?.endDate).toLocaleDateString('it-IT', {
+    }) + (event?.dates?.endDate && event?.dates?.endDate !== event?.dates?.startDate ? ' - ' + new Date(event?.dates?.endDate).toLocaleDateString(dateLocale, {
         year: "numeric",
         month: "long",
         day: "numeric",
@@ -30,7 +38,7 @@ export default function Event({event}:{event:any}) {
             {event &&
                 <div
                     className="w-full rounded-xl border-1 flex md:flex-row flex-col p-4 gap-8 overflow-y-auto md:overflow-y-none md:h-[558px]">
-                    <img src={imageSource} alt={`Copertina dell'evento ${title}`}
+                    <img src={imageSource} alt={locale === 'en' ? `Cover image for ${title}` : `Copertina dell'evento ${title}`}
                            className="rounded-xl w-full md:w-[40%] h-[524px] object-cover"/>
                     <div className="md:w-[55%]">
                         <div className="p-4 md:h-[456px]">
@@ -74,8 +82,8 @@ export default function Event({event}:{event:any}) {
                         { link !== '' &&
                             <div
                                 className="flex gap-4 w-full items-center justify-end text-sm border-t border-orange-800 pt-8">
-                                    <a aria-label="Vai alla pagina dell'evento su sito di InLombardia" className="text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full py-2 px-3"
-                               href={link} target="_blank" rel="noopener noreferrer">Partecipa all&apos;evento &gt;</a>
+                                    <a aria-label={locale === 'en' ? 'Go to the event page on the InLombardia website' : "Vai alla pagina dell'evento sul sito di InLombardia"} className="text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full py-2 px-3"
+                               href={link} target="_blank" rel="noopener noreferrer">{locale === 'en' ? 'Join the event' : "Partecipa all'evento"} &gt;</a>
                             </div>
                         }
                     </div>

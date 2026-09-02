@@ -55,7 +55,10 @@ export default async function Cycling() {
         }
     }
 
-    const dataEvents = await getEvents('/en/discover/cycling', '4');
+    const dataEvents = await getEvents('/en/discover/cycling', {
+        lang: 'en',
+        tag: '4',
+    });
     const sortedEvents = sortEventsByStartDate(dataEvents.events ?? []);
 
     return (

@@ -54,7 +54,7 @@ export default async function Cycling() {
         }
     }
 
-    const dataEvents = await getEvents('/it/discover/cycling', '4');
+    const dataEvents = await getEvents('/it/discover/cycling', {tag: '4'});
     const sortedEvents = sortEventsByStartDate(dataEvents.events ?? []);
 
     return (

@@ -11,7 +11,11 @@ const DEFAULT_TAG = process.env.EDT_DEFAULT_TAG ?? '';
 
 type EdtTranslation = {
     description?: string;
+    images?: Array<{
+        imageUrl?: string;
+    }>;
     title?: string;
+    url?: string;
 };
 
 export type EdtEvent = {
@@ -28,13 +32,17 @@ export type EdtEvent = {
         startDate?: string;
     };
     identifier?: string;
-    translations?: {
-        it?: EdtTranslation;
-    };
+    translations?: Record<string, EdtTranslation | undefined>;
 };
 
 export type EdtEventsResponse = {
     events: EdtEvent[];
+};
+
+type GetEventsOptions = {
+    lang?: string;
+    location?: string;
+    tag?: string;
 };
 
 async function fetchEdtJson<T>(path: string, accessToken: string): Promise<T> {
@@ -65,11 +73,22 @@ export function sortEventsByStartDate(events: EdtEvent[]) {
     );
 }
 
-export async function getEvents(returnTo: string, tag:string = DEFAULT_TAG, location:string = DEFAULT_LOCATION) {
+export async function getEvents(
+    returnTo: string,
+    options: GetEventsOptions = {},
+) {
     const accessToken = await requireEdtAccessToken(returnTo);
+    const params = new URLSearchParams({
+        locations: options.location ?? DEFAULT_LOCATION,
+        tags: options.tag ?? DEFAULT_TAG,
+    });
+
+    if (options.lang) {
+        params.set('lang', options.lang);
+    }
 
     return fetchEdtJson<EdtEventsResponse>(
-        `/event?locations=${encodeURIComponent(location)}&tags=${encodeURIComponent(tag)}`,
+        `/event?${params.toString()}`,
         accessToken,
     );
 }

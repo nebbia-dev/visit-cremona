@@ -46,7 +46,7 @@ export default async function Luthiery() {
         }
     }
 
-    const dataEvents = await getEvents('/it/discover/luthiery', '12');
+    const dataEvents = await getEvents('/it/discover/luthiery', {tag: '12'});
     const sortedEvents = sortEventsByStartDate(dataEvents.events ?? []);
 
     return (

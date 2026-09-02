@@ -60,7 +60,7 @@ export default async function Home() {
         }
     }
 
-    const dataEvents = await getEvents('/en');
+    const dataEvents = await getEvents('/en', {lang: 'en'});
 
   return (
       <>
@@ -194,7 +194,7 @@ export default async function Home() {
                       className="flex flex-col gap-16 w-[95vw] md:w-[80vw] mx-auto justify-center px-4 md:px-8 pb-24 pt-20">
                       <h2 className="font-bold text-4xl w-full text-left break-title">Events</h2>
 
-                      <Event event={dataEvents.events[0]}/>
+                      <Event event={dataEvents.events[0]} locale="en"/>
 
                       <div className="w-full text-right mt-4">
                           <Link href="/en/events" className="font-bold underline relative">

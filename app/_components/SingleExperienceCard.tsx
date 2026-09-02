@@ -31,7 +31,7 @@ export default function SingleExperienceCard({el, grid, altGrid} : {el:Experienc
                     </p>
                 </div>
                 <div className={`w-full flex ${tagIds.includes(6) ? 'justify-end' : 'justify-between'} items-center`}>
-                    {!tagIds.includes(6) && <p className="font-bold">da {
+                    {!tagIds.includes(6) && <p className="font-bold">{pathname.includes('/en') ? 'from' : 'da'} {
                         new Intl.NumberFormat("de-DE", {
                             style: "currency",
                             currency: "EUR"

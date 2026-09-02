@@ -17,6 +17,7 @@ const INITIAL_VISIBLE_EVENTS = 3;
 export default function DiscoverEventsSection({events}:{events: DiscoverEvent[]}) {
 
     const pathname = usePathname();
+    const locale = pathname.startsWith('/en') ? 'en' : 'it';
 
     const [showAllEvents, setShowAllEvents] = useState(false);
 
@@ -43,7 +44,7 @@ export default function DiscoverEventsSection({events}:{events: DiscoverEvent[]}
             <h2 className="font-bold text-4xl mt-8 mb-16">{pathname.includes('/en') ? 'All events' : 'Tutti gli eventi'}</h2>
             <div className="flex gap-4 flex-wrap">
                 {visibleEvents.map((event, index) => (
-                    <Event key={event.identifier ?? index} event={event}/>
+                    <Event key={event.identifier ?? index} event={event} locale={locale}/>
                 ))}
 
                 {!showAllEvents && upcomingEvents.length > INITIAL_VISIBLE_EVENTS &&
