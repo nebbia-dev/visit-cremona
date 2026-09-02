@@ -2,6 +2,7 @@
 
 import {useState} from "react";
 import Event from "@/app/_components/Event";
+import {usePathname} from "next/navigation";
 
 type DiscoverEvent = {
     dates?: {
@@ -14,6 +15,9 @@ type DiscoverEvent = {
 const INITIAL_VISIBLE_EVENTS = 3;
 
 export default function DiscoverEventsSection({events}:{events: DiscoverEvent[]}) {
+
+    const pathname = usePathname();
+
     const [showAllEvents, setShowAllEvents] = useState(false);
 
     const upcomingEvents = events.filter((event) => {
@@ -36,7 +40,7 @@ export default function DiscoverEventsSection({events}:{events: DiscoverEvent[]}
 
     return (
         <section id="allEvents" className="w-[95vw] md:w-[80vw] mx-auto items-center justify-center px-4 md:px-8 pt-16 pb-24">
-            <h2 className="font-bold text-4xl mt-8 mb-16">Tutti gli eventi</h2>
+            <h2 className="font-bold text-4xl mt-8 mb-16">{pathname.includes('/en') ? 'All events' : 'Tutti gli eventi'}</h2>
             <div className="flex gap-4 flex-wrap">
                 {visibleEvents.map((event, index) => (
                     <Event key={event.identifier ?? index} event={event}/>
@@ -49,7 +53,8 @@ export default function DiscoverEventsSection({events}:{events: DiscoverEvent[]}
                             onClick={() => setShowAllEvents(true)}
                             className="cursor-pointer mt-4 text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full px-4 py-3"
                         >
-                            Visualizza tutti gli eventi
+                            {pathname.includes('/en') ? 'Discover all events' : 'Visualizza tutti gli eventi'}
+
                         </button>
                     </div>
                 }
@@ -61,7 +66,8 @@ export default function DiscoverEventsSection({events}:{events: DiscoverEvent[]}
                             onClick={() => setShowAllEvents(false)}
                             className="cursor-pointer mt-4 text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full px-4 py-3"
                         >
-                            Mostra meno
+                            {pathname.includes('/en') ? 'Show less' : 'Mostra meno'}
+
                         </button>
                     </div>
                 }

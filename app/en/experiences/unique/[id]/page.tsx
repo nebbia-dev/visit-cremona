@@ -97,7 +97,7 @@ export default async function UniqueExperience({params}: { params: Promise<{ id:
             </div>
             <div className="w-[95vw] md:w-[80vw] mx-auto items-center justify-center px-4 md:px-8 pt-20 pb-24">
                 <p className="text-sm mb-10">
-                    <span className="font-semibold">Home / Esperienze uniche /</span> {experience.title}
+                    <span className="font-semibold">Home / Unique Experiences /</span> {experience.title}
                 </p>
 
                 <div>
@@ -108,7 +108,7 @@ export default async function UniqueExperience({params}: { params: Promise<{ id:
                             {description}
                         </p>
                     )}
-                    <h2 className='font-bold text-3xl'>Scrivici per organizzare la tua esperienza</h2>
+                    <h2 className='font-bold text-3xl'>Contact us to organize your experience</h2>
                     <ContactForm newsletter={false}/>
                 </div>
             </div>

@@ -16,7 +16,7 @@ export default function SingleExperienceCard({el, grid, altGrid} : {el:Experienc
     const tagIds = el.tagIds ?? [];
 
     return(
-        <div className={`h-[348px] ${grid ? 'md:w-[calc(25%-12px)]' : altGrid ? 'md:w-[calc(33%-14px)]' : ''} border border-orange-500 rounded-xl text-black bg-[#F0F8FF]`}>
+        <div className={`h-[348px] ${grid ? 'md:w-[calc(25%-12px)]' : altGrid ? 'md:w-[calc(33%-14px)]' : 'w-[17.5dvw]'} border border-orange-500 rounded-xl text-black bg-[#F0F8FF]`}>
             <img className="rounded-t-xl w-full h-[136px] object-cover" width={200} height={100} src={el.imageUrl ? process.env.NEXT_PUBLIC_BASE_URL + el.imageUrl :`/images/experiences/violin1.webp`} alt="Immagine dell'esperienza"/>
             <div className="px-4 pt-4 pb-2">
                 <h4 className="font-bold h-[32px]">

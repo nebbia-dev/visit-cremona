@@ -28,19 +28,19 @@ export default async function ContemporaryExperiences() {
                 <div
                     className="flex flex-col gap-12 md:gap-20 w-[95vw] md:w-[80vw] mx-auto justify-center px-4 md:px-8 pt-20 pb-24">
                     <div className="flex flex-col gap-4 w-full">
-                        <p className="text-sm"><span className="font-semibold">Home / Esperienze /</span> Contemporanee</p>
+                        <p className="text-sm"><span className="font-semibold">Home / Experiences /</span> Contemporary</p>
 
                         <div className="flex flex-col md:flex-row gap-12 md:gap-20 my-8">
                             <div className="w-full md:w-[40%]">
-                                <h2 className="font-bold text-4xl break-title">Esperienze Contemporanee</h2>
+                                <h2 className="font-bold text-4xl break-title">Contemporary Experiences</h2>
                             </div>
 
                             <div className="w-full md:w-[60%] pl-2">
-                                <p><span className="font-semibold block pb-2">Proposte tematiche</span>
-                                    Scopri Cremona e il suo territorio attraverso esperienze curiose e particolari.
-                                    Scegli tra degustazioni, visite tematiche, itinerari in bici o in barca, incontri con artigiani e luoghi meno noti.
-                                    Le attività sono organizzate in date precise, consultabili in calendario.
-                                    Scegli quella che fa per te, prenoti e vivi l’esperienza.
+                                <p><span className="font-semibold block pb-2">Themed tours</span>
+                                    Discover Cremona and its surroundings through intriguing and unique experiences.
+                                    Choose from tastings, themed tours, cycling or boat trips, meetings with artisans and lesser-known spots.
+                                    Activities are organized on specific dates, which can be viewed in the calendar.
+                                    Choose the one that suits you, book and enjoy the experience.
                                 </p>
                             </div>
                         </div>

@@ -23,7 +23,7 @@ export default async function Discover() {
             <section className="mt-[79px] bg-alt-blue fadein-slower">
                 <div className="flex flex-col md:flex-row gap-20 w-[95vw] md:w-[80vw] mx-auto justify-center px-4 md:px-8 pt-20 pb-24 text-white">
                     <div className="flex flex-col gap-2 w-full md:w-2/4">
-                        <p className="text-sm"><span className="font-semibold">Home /</span> Scopri il territorio</p>
+                        <p className="text-sm"><span className="font-semibold">Home /</span> Discover the region</p>
                         <h2 className="font-bold text-4xl mt-8">{content.data['titolo_1']}</h2>
                         <p className="w-full mt-2 pl-1 whitespace-pre-line">{content.data['testo_1']}</p>
                     </div>
@@ -71,14 +71,14 @@ export default async function Discover() {
 
             <section>
                 <div className="w-[95vw] md:w-[80vw] mx-auto px-4 md:px-8 pt-20 pb-24">
-                    <h2 className="font-bold text-4xl mt-8">Le Anime del Territorio</h2>
+                    <h2 className="font-bold text-4xl mt-8">The Spirit of the Land</h2>
                     <p className="w-full mt-8 pl-1">
                         {content.data['anime_testo']}
                     </p>
 
                     <div className="mt-12 flex gap-4">
-                        <Link href='#cycling' className="bg-[#918FC7] rounded-full px-4 py-3 text-sm">Cicloturismo</Link>
-                        <Link href='#luthiery' className="bg-sky-300 rounded-full px-4 py-3 text-sm">Musica e liuteria</Link>
+                        <Link href='#cycling' className="bg-[#918FC7] rounded-full px-4 py-3 text-sm">Cycle-tourism</Link>
+                        <Link href='#luthiery' className="bg-sky-300 rounded-full px-4 py-3 text-sm">Music and luthiery</Link>
                     </div>
 
                     {/*Tales of Cycling*/}
@@ -88,7 +88,7 @@ export default async function Discover() {
                     </div>
                     <div className="flex gap-4">
 
-                        <FilteredExperiences type='cycling' pages={pages}/>
+                        <FilteredExperiences type='cycling' pages={pages} lang="en"/>
 
                         <div className="flex flex-col gap-2 ">
                             <div className="flex md:flex-row flex-col gap-2">
@@ -104,7 +104,7 @@ export default async function Discover() {
 
                             <div className="w-full text-right mt-4">
                                 <Link href="/it/discover/cycling" className="font-bold underline relative">
-                                    <AnimatedHoverButton content="Scopri Tales of Cycling"/>
+                                    <AnimatedHoverButton content="Discover Tales of Cycling"/>
                                 </Link>
                             </div>
                         </div>
@@ -131,7 +131,7 @@ export default async function Discover() {
                             <LocalMap homepage={false} autoFilter={2} pages={pages}/>
                             <div className="w-full text-right mt-4">
                                 <Link href="/it/discover/luthiery" className="font-bold underline relative">
-                                    <AnimatedHoverButton content="Scopri Tales of Music and Luthiery"/>
+                                    <AnimatedHoverButton content="Discover Tales of Music and Luthiery"/>
                                 </Link>
                             </div>
                         </div>

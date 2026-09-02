@@ -28,20 +28,21 @@ export default async function UniqueExperiences() {
                 <div
                     className="flex flex-col gap-12 md:gap-20 w-[95vw] md:w-[80vw] mx-auto justify-center px-4 md:px-8 pt-20 pb-24">
                     <div className="flex flex-col gap-4 w-full">
-                        <p className="text-sm"><span className="font-semibold">Home / Esperienze /</span> Uniche</p>
+                        <p className="text-sm"><span className="font-semibold">Home / Experiences /</span> Unique</p>
 
                         <div className="flex flex-col md:flex-row gap-4 my-8">
                             <div className="w-full md:w-2/4">
-                                <h2 className="font-bold text-4xl">Cosa significa <br/>
-                                    <span className="pt-2 inline-block">Esperienze Uniche</span>
+                                <h2 className="font-bold text-4xl">What Unique<br/>
+                                    <span className="pt-2 inline-block">Experiences means</span>
                                 </h2>
                             </div>
 
                             <div className="w-full md:w-2/4 mt-12 md:mt-0">
-                                <p><span className="font-semibold block pb-2">Proposte su misura</span>
-                                    Se cerchi qualcosa di speciale, qui trovi il lato più autentico del territorio.
-                                    Sono esperienze che uniscono storia e arte, musica e gastronomia, natura e paesaggio. Ogni proposta è pensata per farti entrare davvero nell’atmosfera cremonese, con dettagli curati e incontri autentici.
-                                    Porti a casa un ricordo pieno, non solo una visita.
+                                <p><span className="font-semibold block pb-2">Tailor-made proposals</span>
+                                    If you’re looking for something special, here you’ll find the most authentic side of the region.
+                                    These are experiences that combine history and art, music and gastronomy, nature and landscape.
+                                    Each proposal is designed to truly immerse you in the Cremonese atmosphere, with attention to detail and authentic encounters.
+                                    You’ll take home a lasting memory, not just a visit.
 
                                 </p>
                             </div>

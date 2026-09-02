@@ -62,7 +62,7 @@ export default async function Cycling() {
         <>
             <section className="mt-[79px] fadein-slower">
                 <div className="w-[95vw] md:w-[80vw] mx-auto items-center justify-center px-4 md:px-8 pt-20 pb-12 md:pb-24">
-                    <p className="text-sm mb-20"><span className="font-semibold">Home / Scopri il territorio / </span>Cicloturismo
+                    <p className="text-sm mb-20"><span className="font-semibold">Home / Discover the region / </span>Cycle-tourism
                     </p>
                     <div
                         className="flex flex-col md:flex-row gap-20">
@@ -121,7 +121,7 @@ export default async function Cycling() {
                                     <div className="w-full text-right py-3 px-4">
                                         <Link
                                             className="text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full px-3 py-2 text-sm"
-                                            href={`/it/discover/cycling/${el.documentId}`}
+                                            href={`/en/discover/cycling/${el.documentId}`}
                                         >
                                             Guarda l&apos;itinerario
                                         </Link>
@@ -157,8 +157,8 @@ export default async function Cycling() {
                                     Qui trovi anche l’elenco delle ciclofficine dove poter riparare il tuo mezzo a due ruote.
                                     Vedi l’elenco completo dei servizi per ciclismo e cicloturismo in provincia di Cremona:
 
-                                    <Link href="/it/discover/cycling/rent"
-                                          className="block font-bold text-corpo-orange underline pt-4">Clicca qui &gt;</Link>
+                                    <Link href="/en/discover/cycling/rent"
+                                          className="block font-bold text-corpo-orange underline pt-4">Click here &gt;</Link>
                                 </p>
                             </div>
 
@@ -166,8 +166,8 @@ export default async function Cycling() {
                                 <p><span className="font-semibold block pb-2">Ricettività per il cicloturismo</span>
                                     Queste strutture offrono ai clienti uno spazio sicuro per le biciclette, attrezzi per la manutenzione di base e un’attenzione particolare per chi va sulle due ruote.
                                     Scopri la lista delle strutture bike-friendly presenti sul territorio:
-                                    <Link href="/it/discover/cycling/bike-friendly"
-                                          className="block font-bold text-corpo-orange underline pt-4">Clicca qui &gt;</Link>
+                                    <Link href="/en/discover/cycling/bike-friendly"
+                                          className="block font-bold text-corpo-orange underline pt-4">Click here &gt;</Link>
                                 </p>
                             </div>
                         </div>

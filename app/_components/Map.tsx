@@ -108,7 +108,7 @@ export default function Map({homepage, autoFilter = 0, fullPage, composers, page
                     </li>
                 </ul>
             </div>}
-            <MapContainer className={`${homepage || fullPage ? 'h-[600px]' : 'h-[532px] md:w-[800px]'} w-full rounded-xl z-100`}
+            <MapContainer className={`${homepage || fullPage ? 'h-[600px]' : 'h-[532px] md:w-[60dvw]'} w-full rounded-xl z-100`}
                           center={setCoordinates()}
                           zoom={composers ? 14 : 12}
                           scrollWheelZoom={false}>

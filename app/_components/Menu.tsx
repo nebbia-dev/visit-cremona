@@ -7,7 +7,7 @@ import {useUsageStore} from "@/app/_stores/usage";
 import {Usage} from "@/app/_types/types";
 import {usePathname} from "next/navigation";
 
-export default function Menu({links, lang} : {links:any, lang:string|undefined}) {
+export default function Menu({links, lang} : {links:any, lang?:string}) {
 
     const pathname = usePathname();
 

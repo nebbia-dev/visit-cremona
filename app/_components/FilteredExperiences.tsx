@@ -1,7 +1,7 @@
 import SingleExperienceCard from "@/app/_components/SingleExperienceCard";
 import Link from "next/link";
 
-export default function FilteredExperiences({type, pages}:{type:string, pages:any}) {
+export default function FilteredExperiences({type, pages, lang}:{type:string, pages:any, lang?:string}) {
     let expToDisplay;
     switch(type) {
         case 'luthiery':
@@ -27,7 +27,7 @@ export default function FilteredExperiences({type, pages}:{type:string, pages:an
                 })
             }
             <div className="w-full text-sm p-4 text-center rounded-xl border border-orange-500">
-                <Link href="/it/accessible-experiences" className="underline">Consulta tutte le esperienze</Link>
+                <Link href={`/${lang === 'en' ? 'en' : 'it'}/accessible-experiences`} className="underline">{lang === 'en' ? 'Discover all experiences' : 'Consulta tutte le esperienze'}</Link>
             </div>
         </div>
     )

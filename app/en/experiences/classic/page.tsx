@@ -28,20 +28,19 @@ export default async function ClassicExperiences() {
                 <div
                     className="flex flex-col gap-12 md:gap-20 w-[95vw] md:w-[80vw] mx-auto justify-center px-4 md:px-8 pt-20 pb-24">
                     <div className="flex flex-col gap-4 w-full">
-                        <p className="text-sm"><span className="font-semibold">Home / Esperienze /</span> Classiche</p>
+                        <p className="text-sm"><span className="font-semibold">Home / Experiences /</span> Classic</p>
 
                         <div className="flex flex-col md:flex-row gap-12 md:gap-20 my-8">
                             <div className="w-full md:w-[40%]">
-                                <h2 className="font-bold text-4xl break-title">Esperienze Classiche</h2>
+                                <h2 className="font-bold text-4xl break-title">Classic Experiences</h2>
                             </div>
 
                             <div className="w-full md:w-[60%] pl-2">
                                 <p>
-                                    <span className="font-semibold block pb-2">Proposte a partenza garantita</span>
-                                    Vuoi conoscere l’anima di Cremona? Parti dai suoi luoghi simbolo.
-                                    Visita i monumenti principali e i musei, entra nei palazzi e nelle dimore storiche della città. Scopri la musica e la liuteria che hanno reso Cremona famosa nel mondo.
-                                    Le visite guidate sono disponibili tutto l’anno e ti accompagnano in un percorso imperdibile, con un ritmo adatto a tutti.
-
+                                    <span className="font-semibold block pb-2">Guaranteed departure tours</span>
+                                    Do you want to discover the soul of Cremona? Start with its most iconic sites.
+                                    Visit the main monuments and museums, step inside the city’s palaces and historic residences. Discover the music and violin-making that have made Cremona famous throughout the world.
+                                    Guided tours are available all year round and take you on an unmissable journey, at a pace suitable for everyone.
                                 </p>
                             </div>
                         </div>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function Footer({links, contacts, lang} : {links:any, contacts:any, lang:string|undefined}) {
+export default function Footer({links, contacts, lang} : {links:any, contacts:any, lang?:string}) {
     return (
         <footer id="footer" className="min-h-[40vh] bg-corpo-blue w-full flex gap-4 py-16 text-white">
             <div className="w-[80vw] flex flex-col lg:flex-row gap-20 items-center lg:items-start mx-auto">
