@@ -144,7 +144,7 @@ export default async function Cycling() {
             <section className="w-full bg-corpo-blue text-white">
                 <div className="flex flex-col w-[95vw] md:w-[80vw] mx-auto px-4 md:px-8 pt-20 pb-20 md:pb-24">
                     <h2 className="font-bold text-3xl mb-8">Servizi utili al tuo itinerario in bici</h2>
-                    <div className="flex flex-col md:flex-row gap-4">
+                    <div className="flex flex-col md:flex-row gap-4 items-center">
                         <div className="w-full md:w-2/4">
                             <img
                                 className="rounded-xl w-full h-full object-cover"
