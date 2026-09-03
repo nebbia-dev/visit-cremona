@@ -36,7 +36,7 @@ export default async function ContemporaryExperiences() {
                             </div>
 
                             <div className="w-full md:w-[60%] pl-2">
-                                <p><span className="font-semibold block pb-2">Themed tours</span>
+                                <p><span className="font-semibold block pb-2">Themed tours by booking</span>
                                     Discover Cremona and its surroundings through intriguing and unique experiences.
                                     Choose from tastings, themed tours, cycling or boat trips, meetings with artisans and lesser-known spots.
                                     Activities are organized on specific dates, which can be viewed in the calendar.

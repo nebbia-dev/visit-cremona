@@ -75,7 +75,10 @@ export default function Event({event, locale = 'it'}:{event:EdtEvent, locale?:Ev
                                     </div>
                                 </div>
                             </div>
-                            <div className="text-sm md:h-[50%] w-full overflow-y-auto overflow-x-hidden" dangerouslySetInnerHTML={{ __html: description }}></div>
+                            <div
+                                className="text-sm line-clamp-12 text-ellipsis md:line-clamp-none md:h-[50%] w-full md:overflow-y-auto overflow-x-hidden"
+                                dangerouslySetInnerHTML={{ __html: description }}>
+                            </div>
                         </div>
 
 

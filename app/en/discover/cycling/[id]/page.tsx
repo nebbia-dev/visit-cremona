@@ -68,7 +68,7 @@ export default async function Story({params}: { params: Promise<{ id: string }> 
             }
 
             {content.data.related.length > 0 &&
-                <section className="w-[95vw] md:w-[80vw] mx-auto items-center justify-center px-4 md:px-8 pt-4 md:pt-16 pb-24">
+                <section className="w-[95vw] md:w-[80vw] mx-auto items-center justify-center px-4 md:px-8 pt-4 md:pt-8 pb-24">
                     <h2 className="font-bold text-4xl mb-8">Itinerari correlati</h2>
                     <div className="flex flex-col md:flex-row gap-4 w-full mt-4">
 

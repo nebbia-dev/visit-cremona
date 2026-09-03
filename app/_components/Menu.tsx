@@ -122,11 +122,7 @@ export default function Menu({links, lang} : {links:any, lang?:string}) {
                     <div className="flex gap-4 items-center">
                         <Link href={`/${lang === 'en' ? 'en' : 'it'}/experiences`} className="hidden md:block text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full px-4 py-3">{pathname.includes('/en') ? 'Experiences' : 'Esperienze'}</Link>
                         <Link href={`/${lang === 'en' ? 'en' : 'it'}/events`} className="hidden md:block text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full px-5 py-3">{pathname.includes('/en') ? 'Events' : 'Eventi'}</Link>
-                        {/*<div className="flex relative items-center">*/}
-                        {/*    <Search className="text-gray-600 absolute left-[16px] w-5 h-5"/>*/}
-                        {/*    <input type="text" placeholder="Cerca eventi o esperienze" className="w-[272px] py-3 pr-8 pl-12 rounded-full bg-white text-black"/>*/}
-                        {/*</div>*/}
-                        {/*<Cart className="hidden md:block cursor-pointer w-8 h-8"/>*/}
+
                         <button type="button"
                                 aria-controls="mainMenu" aria-expanded={showMenu === 'open'}
                                 aria-label="Apri il menu"
@@ -226,7 +222,7 @@ export default function Menu({links, lang} : {links:any, lang?:string}) {
                             >
                                 <span>{lang === 'en' ? 'Experiences' : 'Esperienze'}</span>
                                 <span
-                                    className={`${showExpMenu === 'open' ? 'rotate-90' : 'rotate-0'} transition-all duration-500 origin-center`}>&gt;</span>
+                                    className={`${showExpMenu === 'open' ? 'rotate-90' : 'rotate-0'} transition-all duration-500 origin-center text-xl`}>&gt;</span>
                             </button>
                             <ul id="expMenu"
                                 className={`${showExpMenu === 'open' ? 'max-h-[1000px]' : 'max-h-0'} pl-4 transition-all duration-500 overflow-hidden`}>
@@ -276,7 +272,7 @@ export default function Menu({links, lang} : {links:any, lang?:string}) {
                             >
                                 <span>Shop</span>
                                 <span
-                                    className={`${showCardsMenu === 'open' ? 'rotate-90' : 'rotate-0'} transition-all duration-500 origin-center`}>&gt;</span>
+                                    className={`${showCardsMenu === 'open' ? 'rotate-90' : 'rotate-0'} transition-all duration-500 origin-center text-xl`}>&gt;</span>
                             </button>
                             <ul id="cardsMenu"
                                 className={`${showCardsMenu === 'open' ? 'max-h-[1000px]' : 'max-h-0'} pl-4 transition-all duration-500 overflow-hidden`}>

@@ -36,7 +36,7 @@ export default async function ContemporaryExperiences() {
                             </div>
 
                             <div className="w-full md:w-[60%] pl-2">
-                                <p><span className="font-semibold block pb-2">Proposte tematiche</span>
+                                <p><span className="font-semibold block pb-2">Proposte tematiche a prenotazione</span>
                                     Scopri Cremona e il suo territorio attraverso esperienze curiose e particolari.
                                     Scegli tra degustazioni, visite tematiche, itinerari in bici o in barca, incontri con artigiani e luoghi meno noti.
                                     Le attività sono organizzate in date precise, consultabili in calendario.

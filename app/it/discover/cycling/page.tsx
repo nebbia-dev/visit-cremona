@@ -81,7 +81,7 @@ export default async function Cycling() {
                 <div
                     className="flex flex-col md:flex-row gap-20 w-[95vw] md:w-[80vw] mx-auto justify-center px-4 md:px-8 pb-4">
                     <div className="flex flex-col gap-2 w-full md:w-2/4">
-                        <h2 className="font-bold text-4xl mt-8">
+                        <h2 className="font-bold text-4xl">
                             {content.data.elements.titolo}
                         </h2>
                         <div className="w-full mt-4 pl-1 markdown">

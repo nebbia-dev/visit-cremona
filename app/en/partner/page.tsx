@@ -109,7 +109,7 @@ export default async function Who() {
               <h2 className="font-bold text-3xl mt-16">{content.data['diventa_partner_titolo']}</h2>
               <p className="w-full pl-1 mt-8 whitespace-pre-line">
                   {content.data.diventa_partner_descrizione}
-                  <a className="underline" href="mailto:info@visitcremona.com">Scrivici per saperne di più.</a>
+                  <a className="underline font-semibold text-corpo-blue" href="mailto:info@visitcremona.com">Scrivici per saperne di più.</a>
               </p>
               {/*<ContactForm newsletter={false}/>*/}
 

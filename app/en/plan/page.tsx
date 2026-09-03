@@ -30,7 +30,7 @@ export default async function Plan() {
 
             {/*auto*/}
             <section
-                className="w-[95vw] md:w-[80vw] mx-auto px-4 md:px-0 flex flex-col fadein-slower mb-20">
+                className="w-[95vw] md:w-[80vw] mx-auto flex flex-col fadein-slower mb-20">
                 <Accordion sx={{backgroundColor: 'transparent', boxShadow: 'none', borderBottom: '1px solid #000'}}>
                     <AccordionSummary
                         expandIcon={<Plus/>}
@@ -194,10 +194,16 @@ export default async function Plan() {
                         </div>
                     </AccordionSummary>
                     <AccordionDetails>
-                        <div className="p-4 w-fit">
-                            <p>Per consultare tutte le strutture dove dormire clicca al seguente <a target="_blank" rel="noopener noreferrer" href="https://www.turismocremona.it/it/dove-dormire"
-                                   className="underline">link</a>
-                            </p>
+                        <div className="p-4 w-full">
+                            <p>Per consultare tutte le strutture dove dormire clicca al seguente link.</p>
+                            <div className="w-full text-end my-4">
+                                <a href="https://www.turismocremona.it/it/dove-dormire"
+                                   target="_blank" rel="noopener noreferrer"
+                                   className="w-[164px] cursor-pointer font-medium text-base px-3 py-3 text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full text-center"
+                                >
+                                    Vai al sito &gt;
+                                </a>
+                            </div>
                         </div>
                     </AccordionDetails>
                 </Accordion>
