@@ -17,7 +17,7 @@ export default async function Rent() {
         <>
             <section className="mt-[79px] fadein-slower">
                 <div className="w-[95vw] md:w-[80vw] mx-auto items-center justify-center px-4 md:px-8 pt-20 pb-24">
-                    <p className="text-sm"><span className="font-semibold">Home / Discover the region / Cycle-tourism /</span> Strutture
+                    <p className="text-sm"><span className="font-semibold">Home / Discover the territory / Cycle-tourism /</span> Strutture
                         per il noleggio
                     </p>
                     <h2 className="font-bold text-4xl mt-10 mb-8">Vendita, noleggio e riparazione di biciclette</h2>

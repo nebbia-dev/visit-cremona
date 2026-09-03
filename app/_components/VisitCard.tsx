@@ -1,7 +1,8 @@
 'use client'
 import {usePathname} from "next/navigation";
+import Markdown from "react-markdown";
 
-export default function VisitCard({title, price, details} : {title:string|undefined, price:number|undefined, details:string[]|undefined}) {
+export default function VisitCard({title, price, details, intro} : {title:string|undefined, price:number|undefined, details:string[]|undefined, intro:any}) {
     const pathname = usePathname();
 
     return(
@@ -13,7 +14,12 @@ export default function VisitCard({title, price, details} : {title:string|undefi
                         <span>{title}</span>
                         <span>{price} €</span>
                     </h4>
-                    <ul className="mt-4 mb-8 text-sm">
+                    <div className="text-sm markdown">
+                        <Markdown>
+                            {intro}
+                        </Markdown>
+                    </div>
+                    <ul className="mt-4 mb-12 text-sm">
                         {
                             details.map((el, i) => {
                                 let image = '/globe.svg';

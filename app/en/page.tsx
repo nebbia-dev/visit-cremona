@@ -77,7 +77,7 @@ export default async function Home() {
                   <p className="w-full mt-2 pl-1 whitespace-pre-line">{content.data['sub_hero_descrizione']}</p>
                   <div className="w-full text-right mt-8">
                       <Link href="/en/discover" className="font-bold underline relative">
-                          <AnimatedHoverButton content="Discover the region"/>
+                          <AnimatedHoverButton content="Discover the territory"/>
                       </Link>
                   </div>
               </div>
@@ -123,6 +123,7 @@ export default async function Home() {
                   <VisitCard
                       title={content.data['card_1'][0]['nome']}
                       price={content.data['card_1'][0]['prezzo']}
+                      intro={content.data['card_1'][0]['intro']}
                       details={[
                           content.data['card_1'][0]['dettaglio_1'],
                           content.data['card_1'][0]['dettaglio_2'],
@@ -135,6 +136,7 @@ export default async function Home() {
                   <VisitCard
                       title={content.data['card_2'][0]['nome']}
                       price={content.data['card_2'][0]['prezzo']}
+                      intro={content.data['card_2'][0]['intro']}
                       details={[
                           content.data['card_2'][0]['dettaglio_1'],
                           content.data['card_2'][0]['dettaglio_2'],
@@ -192,7 +194,7 @@ export default async function Home() {
               <section className="w-full">
                   <div
                       className="flex flex-col gap-16 w-[95vw] md:w-[80vw] mx-auto justify-center px-4 md:px-8 pb-24 pt-20">
-                      <h2 className="font-bold text-4xl w-full text-left break-title">Events</h2>
+                      <h2 className="font-bold text-4xl w-full text-left">Main events</h2>
 
                       <Event event={dataEvents.events[0]} locale="en"/>
 
@@ -217,7 +219,7 @@ export default async function Home() {
                       <div
                           className="text-white text-3xl absolute top-0 z-12 font-bold w-[80vw] left-[10vw] h-full flex flex-col justify-center items-center md:items-start gap-8">
                           <p className="w-full md:w-[40%] text-center md:text-left">
-                              {content.data['banner_testo']}
+                              <span className="text-corpo-orange">Bus transfer</span> Bergamo Orio al Serio Airport – Cremona direct service, <span className="text-corpo-orange">operating daily</span>, free luggage transport
                           </p>
 
                           <Link href="/en/plan"

@@ -12,7 +12,7 @@ export default function InfoCard({name, address, phone, email, children, url, ho
                         {address}
                     </li>
                     <li className="mt-2">
-                        <span className="font-semibold">{lang === 'en' ? 'Phone:' : 'Telefono:'}Telefono:</span><br/>
+                        <span className="font-semibold">{lang === 'en' ? 'Phone:' : 'Telefono:'}</span><br/>
                         <a href={`tel:+39${phone}`} className="underline">{phone}</a>
                     </li>
                     {email && <li className="w-full mt-2">
@@ -32,7 +32,7 @@ export default function InfoCard({name, address, phone, email, children, url, ho
         {url ? <div className="w-full p-8 text-right bg-white rounded-b-xl">
             <a href={url} target="_blank" rel="noopener noreferrer"
                className="text-sm cursor-pointer w-full text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full px-4 py-3">
-                {lang === 'en' ? 'Go to website' : 'Vail al sito'} &gt;
+                {lang === 'en' ? 'Go to website' : 'Vai al sito'} &gt;
             </a>
         </div>
             : <div className="w-full p-8 text-right bg-white rounded-b-xl h-[87.99px]"></div>

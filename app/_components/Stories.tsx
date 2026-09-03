@@ -64,7 +64,7 @@ export default function Stories({gallery, description} : {description: string, g
                         <img aria-hidden={true} src="/icons/prev.svg" alt="Freccia a sinistra" width={48} height={48}/>
                     </button>
                     <div>
-                        <h2 className="font-bold text-3xl">{pathname.includes('/en') ? 'Local stories' : 'Le storie del territorio'}</h2>
+                        <h2 className="font-bold text-3xl">{pathname.includes('/en') ? 'Stories of the territory' : 'Le storie del territorio'}</h2>
                         <p className="mt-4">
                             {description}
                         </p>

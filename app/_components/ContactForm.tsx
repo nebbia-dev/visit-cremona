@@ -106,10 +106,10 @@ export default function ContactForm({newsletter} : {newsletter:boolean}) {
                         <div>
                             <label htmlFor="privacy">
                                 <input onChange={resetError} id="privacy" name="privacy" className="mr-2" type="checkbox"/>
-                                Ho preso visione e accetto la privacy policy.
+                                {pathname.includes('/en') ? 'Sign me up for the newsletter (you will receive an email with a confirmation link)' : 'Iscrivimi alla newsletter (ti verrà inviata una mail con un link di conferma)'}
                             </label>
-                            <span> Consulta la <a href="https://www.iubenda.com/privacy-policy/52538338"
-                                                 target="_blank" rel="noopener noreferrer" className="underline">privacy policy</a>.</span>
+                            <span> - <a href="https://www.iubenda.com/privacy-policy/52538338"
+                                                 target="_blank" rel="noopener noreferrer" className="underline">Privacy Policy</a>.</span>
                         </div>
 
                         <p id="errors" role="alert" aria-atomic="true"

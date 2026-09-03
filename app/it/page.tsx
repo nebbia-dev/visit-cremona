@@ -30,6 +30,7 @@ export default async function Home() {
             { next: { revalidate: 1000 }}
         );
         content = await data.json();
+        console.log(content)
 
         const dataLinks = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/link',
             { next: { revalidate: 1000 }});
@@ -38,7 +39,6 @@ export default async function Home() {
         const dataStories = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/stories?populate=*',
             { next: { revalidate: 1000 }});
         contentStories = await dataStories.json();
-        console.log(contentStories)
 
         let dataExpImages = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/experiences-images?populate=*',
             { next: { revalidate: 1000 }});
@@ -121,6 +121,7 @@ export default async function Home() {
                   <VisitCard
                       title={content.data['card_1'][0]['nome']}
                       price={content.data['card_1'][0]['prezzo']}
+                      intro={content.data['card_1'][0]['intro']}
                       details={[
                           content.data['card_1'][0]['dettaglio_1'],
                           content.data['card_1'][0]['dettaglio_2'],
@@ -133,6 +134,7 @@ export default async function Home() {
                   <VisitCard
                       title={content.data['card_2'][0]['nome']}
                       price={content.data['card_2'][0]['prezzo']}
+                      intro={content.data['card_2'][0]['intro']}
                       details={[
                           content.data['card_2'][0]['dettaglio_1'],
                           content.data['card_2'][0]['dettaglio_2'],
@@ -189,7 +191,7 @@ export default async function Home() {
               <section className="w-full">
                   <div
                       className="flex flex-col gap-16 w-[95vw] md:w-[80vw] mx-auto justify-center px-4 md:px-8 pb-24 pt-20">
-                      <h2 className="font-bold text-4xl w-full text-left break-title">Eventi</h2>
+                      <h2 className="font-bold text-4xl w-full text-left">Eventi in evidenza</h2>
 
                       <Event event={dataEvents.events[0]}/>
 
@@ -214,7 +216,7 @@ export default async function Home() {
                       <div
                           className="text-white text-3xl absolute top-0 z-12 font-bold w-[80vw] left-[10vw] h-full flex flex-col justify-center items-center md:items-start gap-8">
                           <p className="w-full md:w-[40%] text-center md:text-left">
-                              {content.data['banner_testo']}
+                              <span className="text-corpo-orange">Bus transfer</span> Aeroporto Bergamo Orio al Serio - Cremona servizio diretto, <span className="text-corpo-orange">attivo tutti i giorni</span>, trasporto bagagli gratuito
                           </p>
 
                           <Link href="/it/plan"

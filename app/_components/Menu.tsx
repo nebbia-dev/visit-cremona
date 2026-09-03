@@ -196,7 +196,7 @@ export default function Menu({links, lang} : {links:any, lang?:string}) {
                                 href={`/${lang === 'en' ? 'en' : 'it'}/discover`}
                                 onClick={() => toggleMenu('close')}
                             >
-                                {lang === 'en' ? 'Discover the region' : 'Scopri il territorio'}
+                                {lang === 'en' ? 'Discover the territory' : 'Scopri il territorio'}
                             </Link>
                         </li>
                         <li className="py-3">
