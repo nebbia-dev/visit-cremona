@@ -77,7 +77,7 @@ export default function Footer({links, contacts, lang} : {links:any, contacts:an
                     className="w-full lg:w-[45vw] flex justify-center lg:justify-start gap-6 underline text-corpo-orange">
                     <ul className="flex flex-col gap-6 text-center lg:text-left">
                         <li><a href="/Visit Cremona_Brand Guide_V6.pdf" download target="_blank" rel="noopener noreferrer">{lang === 'en' ? 'Brand guide' : 'Guida del brand'}</a></li>
-                        <li><Link href={`/${lang === 'en' ? 'en' : 'it'}/accessibility`}>{lang === 'en' ? 'Accesibility declaration' : 'Dichiarazione di accessibilità'}</Link></li>
+                        <li><Link href="https://form.agid.gov.it/c_d150/visitcremona.com/dichiarazione">{lang === 'en' ? 'Accessibility declaration' : 'Dichiarazione di accessibilità'}</Link></li>
                         <li><a target="_blank" rel="noopener noreferrer" href={links['amministrazione_trasparente']}>
                             {lang === 'en' ? 'Transparent administration' : 'Amministrazione trasparente'}</a></li>
                         <li><Link href="/it/partner">Partner</Link></li>

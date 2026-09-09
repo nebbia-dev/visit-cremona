@@ -345,7 +345,7 @@ export default function Menu({links, lang} : {links:any, lang?:string}) {
                         </li>
                         <li className="py-3">
                             <Link
-                                href={`/${lang === 'en' ? 'en' : 'it'}/accessibility`}
+                                href="https://form.agid.gov.it/c_d150/visitcremona.com/dichiarazione"
                                 onClick={() => toggleMenu('close')}
                             >
                                 {lang === 'en' ? 'Accessibility declaration' : 'Dichiarazione di accessibilità'}
