@@ -30,7 +30,6 @@ export default async function Home() {
             { next: { revalidate: 1000 }}
         );
         content = await data.json();
-        console.log(content)
 
         const dataLinks = await fetch(process.env.NEXT_PUBLIC_BASE_URL + '/api/link',
             { next: { revalidate: 1000 }});

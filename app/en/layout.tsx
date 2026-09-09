@@ -57,6 +57,22 @@ export default async function RootLayout({
             <Footer links={content.data} contacts={contactsContent.data} lang="en"/>
             <Iubenda/>
             <Script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer />
+            <Script id="matomo">
+                {
+                    `
+                        var _paq = window._paq = window._paq || [];
+                        _paq.push(['trackPageView']);
+                        _paq.push(['enableLinkTracking']);
+                        (function() {
+                            var u="https://ingestion.webanalytics.italia.it/";
+                            _paq.push(['setTrackerUrl', u+'matomo.php']);
+                            _paq.push(['setSiteId', '47316']);
+                            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+                            g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+                        })();
+                    `
+                }
+            </Script>
         </body>
     </html>
   );
