@@ -218,10 +218,11 @@ export default async function Home() {
                               <span className="text-corpo-orange">Bus transfer</span> Aeroporto Bergamo Orio al Serio - Cremona servizio diretto, <span className="text-corpo-orange">attivo tutti i giorni</span>, trasporto bagagli gratuito
                           </p>
 
-                          <Link href="/it/plan"
+                          <a href="https://shop.autostradale.it/qrcode/OBS?departureStopId=34801_padre&arrivalStopId=14901_padre&finalUserId=GY5PgHn7MAzuHEFZr"
+                             target="_blank" rel="noopener noreferrer"
                              className="w-[164px] cursor-pointer font-medium text-base px-3 py-3 text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full text-center">
                               Scopri di più &gt;
-                          </Link>
+                          </a>
 
                       </div>
                   </div>

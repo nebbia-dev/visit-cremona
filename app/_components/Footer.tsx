@@ -36,37 +36,46 @@ export default function Footer({links, contacts, lang} : {links:any, contacts:an
                     <p>{lang === 'en' ? 'Offices' : 'Sede'}: {contacts.indirizzo}</p>
                     <p><a className="hover:text-corpo-orange"
                           href={`tel:${contacts.telefono.split(' ').join('')}`}>Tel.: {contacts.telefono}</a></p>
+                    <p>Email: <a className="underline" href={`mailto:${contacts.email}`}>{contacts.email}</a></p>
                     <p>REA: {contacts.rea} | P.IVA {contacts.pIva}</p>
                     <p>Cap. Soc. {contacts.capitale_sociale}</p>
-                    <p>PEC: {contacts.pec}</p>
+                    <p>PEC: <a className="underline" href={`mailto:${contacts.pec}`}>{contacts.pec}</a></p>
                     <div className="mt-3 mb-2 flex gap-4 justify-center lg:justify-start">
                         {lang === 'en' ? 'Follow us:' : 'Seguici sui social:'}
                         <ul className="flex gap-4 items-center">
                             <li>
-                                <a aria-label="Vai al profilo Facebook di Visit Cremona" target="_blank" rel="noopener noreferrer" href={links.facebook}>
-                                    <img aria-hidden={true} src="/icons/hugeicons_facebook-02.webp" alt="facebook logo" width={24}
-                                           height={24}/>
+                                <a aria-label="Vai al profilo Facebook di Visit Cremona" target="_blank"
+                                   rel="noopener noreferrer" href={links.facebook}>
+                                    <img aria-hidden={true} src="/icons/hugeicons_facebook-02.webp" alt="facebook logo"
+                                         width={24}
+                                         height={24}/>
                                 </a>
                             </li>
                             <li>
-                                <a aria-label="Vai al profilo Instagram di Visit Cremona" target="_blank" rel="noopener noreferrer" href={links.instagram}>
-                                    <img aria-hidden={true} src="/icons/logo-instagram.webp" alt="instagram logo" width={24}
-                                           height={24}/>
+                                <a aria-label="Vai al profilo Instagram di Visit Cremona" target="_blank"
+                                   rel="noopener noreferrer" href={links.instagram}>
+                                    <img aria-hidden={true} src="/icons/logo-instagram.webp" alt="instagram logo"
+                                         width={24}
+                                         height={24}/>
                                 </a>
                             </li>
                             {links.whatsapp &&
                                 <li>
-                                    <a aria-label="Vai al profilo Whatsapp di Visit Cremona" target="_blank" rel="noopener noreferrer" href={links.whatsapp}>
-                                        <img aria-hidden={true} src="/icons/hugeicons_facebook-02.webp" alt="facebook logo" width={24}
-                                               height={24}/>
+                                    <a aria-label="Vai al profilo Whatsapp di Visit Cremona" target="_blank"
+                                       rel="noopener noreferrer" href={links.whatsapp}>
+                                        <img aria-hidden={true} src="/icons/hugeicons_facebook-02.webp"
+                                             alt="facebook logo" width={24}
+                                             height={24}/>
                                     </a>
                                 </li>
                             }
                             {links.youtube &&
                                 <li>
-                                    <a aria-label="Vai al profilo Youtube di Visit Cremona" target="_blank" rel="noopener noreferrer" href={links.youtube}>
-                                        <img aria-hidden={true} src="/icons/logo-youtube.svg" alt="instagram logo" width={24}
-                                               height={24}/>
+                                    <a aria-label="Vai al profilo Youtube di Visit Cremona" target="_blank"
+                                       rel="noopener noreferrer" href={links.youtube}>
+                                        <img aria-hidden={true} src="/icons/logo-youtube.svg" alt="instagram logo"
+                                             width={24}
+                                             height={24}/>
                                     </a>
                                 </li>
                             }

@@ -6,7 +6,8 @@ import {usePathname} from "next/navigation";
 
 type GalleryImage = {
     url: string,
-    alt: string
+    alt: string,
+    title: string
 }
 
 export default function Stories({gallery, description} : {description: string, gallery:any[]}) {
@@ -16,13 +17,17 @@ export default function Stories({gallery, description} : {description: string, g
     const [disabled, setDisabled] = useState<boolean>(false);
     const [images, setImages] = useState<GalleryImage[]>([
         {url: gallery[0].immagine.url,
-        alt: gallery[0].immagine.alternativeText},
+        alt: gallery[0].immagine.alternativeText,
+        title: gallery[0].titolo},
         {url: gallery[1].immagine.url,
-            alt: gallery[1].immagine.alternativeText},
+            alt: gallery[1].immagine.alternativeText,
+            title: gallery[1].titolo},
         {url: gallery[2].immagine.url,
-            alt: gallery[2].immagine.alternativeText},
+            alt: gallery[2].immagine.alternativeText,
+            title: gallery[2].titolo},
         {url: gallery[3].immagine.url,
-            alt: gallery[3].immagine.alternativeText},
+            alt: gallery[3].immagine.alternativeText,
+            title: gallery[3].titolo},
     ]);
     function slide(step:'prev'|'next') {
         setDisabled(true);
@@ -42,16 +47,23 @@ export default function Stories({gallery, description} : {description: string, g
 
     return (
         <div className="w-full md:pl-[12.5%] mt-4 flex gap-4">
-            <div className="hidden md:block w-[25%] h-auto">
+            <div className="relative hidden md:block w-[25%] h-auto">
                 <img id="col-img-now" className="rounded-xl w-full h-full object-cover"
                      src={process.env.NEXT_PUBLIC_BASE_URL + images[0].url} alt={images[0].alt}/>
+                <p className="absolute font-semibold bg-white bottom-5 px-2">{images[0].title}</p>
             </div>
             <div className="w-full md:w-[calc(75%-32px)] flex flex-col items-end bg-[#f0f8ff] relative z-10">
                 <div className="hidden md:flex gap-2">
-                    <img id="first-img" className="rounded-xl w-[45%] h-[400px] object-cover"
-                         src={process.env.NEXT_PUBLIC_BASE_URL + images[1].url} alt={images[1].alt}/>
-                    <img id="second-img" className="rounded-xl w-[45%] h-[400px] object-cover"
-                         src={process.env.NEXT_PUBLIC_BASE_URL + images[2].url} alt={images[2].alt}/>
+                    <div className="relative w-[45%] h-[400px]">
+                        <img id="first-img" className="rounded-xl w-full h-full object-cover"
+                             src={process.env.NEXT_PUBLIC_BASE_URL + images[1].url} alt={images[1].alt}/>
+                        <p className="absolute font-semibold bg-white bottom-5 px-2">{images[1].title}</p>
+                    </div>
+                    <div className="relative w-[45%] h-[400px]">
+                        <img id="second-img" className="rounded-xl w-full h-full object-cover"
+                             src={process.env.NEXT_PUBLIC_BASE_URL + images[2].url} alt={images[2].alt}/>
+                        <p className="absolute font-semibold bg-white bottom-5 px-2">{images[2].title}</p>
+                    </div>
                     <img id="third-img" className="rounded-l-xl w-[10%] h-[400px] object-cover"
                          src={process.env.NEXT_PUBLIC_BASE_URL + images[3].url} alt={images[3].alt}/>
                 </div>

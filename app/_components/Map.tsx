@@ -184,7 +184,7 @@ export default function Map({homepage, autoFilter = 0, fullPage, composers, page
             </MapContainer>
             <div className={`w-full ${autoFilter ? 'hidden' : 'text-right'} p-4`}>
                 <Link href={`/${pathname.includes('/en') ? 'en' : 'it'}/accessible-experiences`} className="underline">
-                    {pathname.includes('/en') ? 'Discover all experiences' : 'Consulta tutte le esperienze'}
+                    {pathname.includes('/en') ? 'Go to the accessible map' : 'Consulta la mappa accessibile'}
                 </Link>
             </div>
         </section>

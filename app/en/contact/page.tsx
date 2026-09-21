@@ -22,10 +22,13 @@ export default async function Contacts() {
                     <p className="w-full pl-1 mt-3">Phone: <a className="underline"
                                                             href={`tel:${content.data.telefono.split(' ').join('')}`}>{content.data.telefono}</a>
                     </p>
-                    <p className="w-full pl-1">PEC: {content.data.pec}</p>
+                    <p className="w-full pl-1">Email: <a className="underline"
+                                                         href={`mailto:${content.data.email}`}>{content.data.email}</a>
+                    </p>
+
                 </div>
                 <div className="w-full md:w-2/4">
-                <h2 className="font-bold text-4xl">Need more info?</h2>
+                    <h2 className="font-bold text-4xl">Need more info?</h2>
                     <ContactForm newsletter={false}/>
                 </div>
             </section>
