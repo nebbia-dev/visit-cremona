@@ -6,6 +6,8 @@ import DiscoverEventsSection from "@/app/_components/DiscoverEventsSection";
 import {getExperiences} from "@/app/_lib/domnia-experiences";
 import getEvents, {sortEventsByStartDate} from "@/app/_lib/edt-events";
 import Downloads from "@/app/_components/Downloads";
+import ConsentIframe from "@/app/_components/ConsentIframe";
+import VideoPlayer from "@/app/_components/VideoPlayer";
 
 type CyclingToursResponse = {
     data: Array<{
@@ -95,32 +97,38 @@ export default async function Cycling() {
                         </div>
                     </div>
 
-                    <div className="w-full h-[300px] md:w-2/4 md:h-auto relative">
-                        <iframe title="Video presentazione del progetto Tales of Cycling" width="100%" height="315"
-                                className="rounded-xl absolute bottom-0"
-                                src="https://www.youtube.com/embed/5PFbSF4gw4U?si=uky2Nd3dY5FiZFNj"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerPolicy="strict-origin-when-cross-origin" allowFullScreen>
-                        </iframe>
+                    <div className="flex w-full items-end md:w-2/4">
+                        <VideoPlayer
+                            title="Tales of Cycling presentation video"
+                            src="https://www.youtube.com/embed/5PFbSF4gw4U?si=uky2Nd3dY5FiZFNj"
+                            height={315}
+                        />
                     </div>
                 </div>
             </section>
 
             <section className="w-[95vw] md:w-[80vw] mx-auto items-center justify-center px-4 md:px-8 pt-8 pb-24">
-                <iframe title="Mappa del percorso 'Infinito Viaggiare'" src="https://www.komoot.com/it-it/collection/3284381/embed" width="100%" height="700"
-                        frameBorder="0" scrolling="no"></iframe>
+                <ConsentIframe
+                    title="Infinito Viaggiare route map"
+                    src="https://www.komoot.com/it-it/collection/3284381/embed"
+                    height={700}
+                    message="To view this map, please accept cookies for content from external platforms."
+                />
 
                 <div className="flex md:flex-row flex-col gap-4 w-full mt-4">
                     {contentTours.data.map((el) => {
                         if(el.ordine > 3) return;
                         else {
                             return (
-                                <div className="w-full md:w-1/3 bg-white" key={el.id}>
-                                    <iframe
-                                        title="Mappa del percorso"
-                                        src={el.link}
-                                        width="100%" height="400" frameBorder="0" scrolling="no"></iframe>
+                                <ConsentIframe
+                                    key={el.id}
+                                    title="Route map"
+                                    src={el.link}
+                                    height={400}
+                                    message="To view this map, please accept cookies for content from external platforms."
+                                    className="w-full bg-white md:w-1/3"
+                                    hideWhenBlocked
+                                >
                                     <div className="w-full text-right py-3 px-4">
                                         <Link
                                             className="text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full px-3 py-2 text-sm"
@@ -129,7 +137,7 @@ export default async function Cycling() {
                                             Guarda l&apos;itinerario
                                         </Link>
                                     </div>
-                                </div>
+                                </ConsentIframe>
                             )
                         }
                     })}

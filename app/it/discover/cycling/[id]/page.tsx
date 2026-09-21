@@ -1,5 +1,6 @@
 import Link from "next/link";
 import TalesLogo from "@/app/_components/TalesLogo";
+import ConsentIframe from "@/app/_components/ConsentIframe";
 
 export default async function Story({params}: { params: Promise<{ id: string }> }) {
 
@@ -26,11 +27,12 @@ export default async function Story({params}: { params: Promise<{ id: string }> 
                             <TalesLogo theme="cycling"/>
                         </div>
 
-                    <iframe
+                    <ConsentIframe
                         title="Mappa del percorso"
                         src={content.data.link + '&profile=1'}
-                        width="100%" height="800" frameBorder="0" scrolling="no">
-                    </iframe>
+                        height={800}
+                        message="Per visualizzare questa mappa, accetta i cookie per i contenuti provenienti da piattaforme esterne."
+                    />
                 </div>
             </section>
 
@@ -74,11 +76,15 @@ export default async function Story({params}: { params: Promise<{ id: string }> 
 
                         {content.data.related.map((el: any) => {
                                 return (
-                                    <div className="w-full md:w-1/3 bg-white" key={el.id}>
-                                        <iframe
-                                            title="Mappa del percorso"
-                                            src={el.link}
-                                            width="100%" height="200" frameBorder="0" scrolling="no"></iframe>
+                                    <ConsentIframe
+                                        key={el.id}
+                                        title="Mappa del percorso"
+                                        src={el.link}
+                                        height={200}
+                                        message="Per visualizzare questa mappa, accetta i cookie per i contenuti provenienti da piattaforme esterne."
+                                        className="w-full bg-white md:w-1/3"
+                                        hideWhenBlocked
+                                    >
                                         <div className="w-full text-right py-3 px-4">
                                             <Link
                                                 className="text-black transition duration-500 hover:bg-corpo-orange bg-soft-orange rounded-full px-3 py-2 text-sm"
@@ -87,7 +93,7 @@ export default async function Story({params}: { params: Promise<{ id: string }> 
                                                 Guarda l'itinerario
                                             </Link>
                                         </div>
-                                    </div>
+                                    </ConsentIframe>
                                 )
                         })}
 

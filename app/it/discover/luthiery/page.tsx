@@ -6,6 +6,7 @@ import DiscoverEventsSection from "@/app/_components/DiscoverEventsSection";
 import {getExperiences} from "@/app/_lib/domnia-experiences";
 import getEvents, {sortEventsByStartDate} from "@/app/_lib/edt-events";
 import Downloads from "@/app/_components/Downloads";
+import VideoPlayer from "@/app/_components/VideoPlayer";
 
 export default async function Luthiery() {
 
@@ -83,13 +84,13 @@ export default async function Luthiery() {
                         </div>
                     </div>
 
-                    <div id="luthieryVideo" className="w-full h-[300px] md:w-2/4 md:h-auto relative">
-                        <iframe title="Video presentazione del progetto Tales of Luthiery" width="100%" height="315"
-                                className="rounded-xl absolute bottom-0"
-                                src="https://www.youtube.com/embed/qZa1JT7oI2c?si=Xs8Yhbtzh8izTk8v"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                    <div id="luthieryVideo" className="flex w-full items-end md:w-2/4">
+                        <VideoPlayer
+                            title="Video di presentazione del progetto Tales of Luthiery"
+                            src="https://www.youtube.com/embed/qZa1JT7oI2c?si=Xs8Yhbtzh8izTk8v"
+                            height={315}
+                            message="Per visualizzare questo video, accetta i cookie per i contenuti provenienti da piattaforme esterne."
+                        />
                     </div>
                 </div>
             </section>

@@ -9,6 +9,7 @@ import ContactForm from "@/app/_components/ContactForm";
 import ExperienceSection from "@/app/_components/ExperienceSection";
 import {getExperiences} from "@/app/_lib/domnia-experiences";
 import getEvents from "@/app/_lib/edt-events";
+import VideoPlayer from "@/app/_components/VideoPlayer";
 // import Refresh from "@/app/_components/Refresh";
 
 export default async function Home() {
@@ -86,8 +87,11 @@ export default async function Home() {
                           alt={content.data['sub_hero_video'].alternativeText}
                           />
                       : content.data['sub_hero_video']
-                          ? <iframe title="Video presentazione del progetto Tales of Harmonies" className="rounded-xl" src={content.data['sub_hero_video']} width="100%" height="400"
-                                    frameBorder="0" scrolling="no"></iframe>
+                          ? <VideoPlayer
+                              src={content.data['sub_hero_video']}
+                              title="Video di presentazione del progetto Tales of Harmonies"
+                              message="Per visualizzare questo video, accetta i cookie per i contenuti provenienti da piattaforme esterne."
+                          />
                           : <></>
                   }
               </div>
