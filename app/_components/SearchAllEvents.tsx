@@ -5,6 +5,7 @@ import FilterEvents from "@/app/_components/FilterEvents";
 import Event from "@/app/_components/Event";
 import type {EdtEvent} from "@/app/_lib/edt-events";
 import {usePathname} from "next/navigation";
+import Link from "next/link";
 
 function getTimestamp(value?: string) {
     return value ? new Date(value).getTime() : Number.NaN;
@@ -80,7 +81,7 @@ export default function SearchAllEvents({events}:{events:EdtEvent[]}) {
         <div
             className="flex flex-col gap-20 w-[95vw] md:w-[80vw] mx-auto justify-center px-4 md:px-8 pt-20 pb-24">
             <div className="flex flex-col gap-2 w-full">
-                <p className="text-sm"><span className="font-semibold">Home /</span> {pathname.includes('/en') ? 'Events' : 'Eventi'}</p>
+                <p className="text-sm"><span className="font-semibold"><Link href={pathname.includes('/en') ? '/en' : '/it'}>Home</Link> /</span> {pathname.includes('/en') ? 'Events' : 'Eventi'}</p>
                 <h2 className="font-bold text-4xl my-8">{pathname.includes('/en') ? 'Events' : 'Eventi'}</h2>
 
                 <FilterEvents search={applyFilters}/>

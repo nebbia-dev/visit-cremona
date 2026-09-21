@@ -1,6 +1,7 @@
 import Markdown from "react-markdown";
 import SingleExperienceCard from "@/app/_components/SingleExperienceCard";
 import {getExperiences} from "@/app/_lib/domnia-experiences";
+import Link from "next/link";
 export default async function Story({params}: { params: Promise<{ slug: string }> }) {
 
     let content, contentExpImages;
@@ -34,7 +35,7 @@ export default async function Story({params}: { params: Promise<{ slug: string }
         <section className="mt-[79px] fadein-slower">
             <div className="w-[95vw] md:w-[80vw] mx-auto items-center justify-center px-4 md:px-8 pt-20 pb-24">
                 <p className="text-sm mb-10"><span
-                    className="font-semibold">Home / Stories /</span> {content.data.titolo}
+                    className="font-semibold"><Link href="/en">Home</Link> / <Link href="/en/stories">Stories</Link> /</span> {content.data.titolo}
                 </p>
 
                 <div className="flex flex-col md:flex-row gap-16">

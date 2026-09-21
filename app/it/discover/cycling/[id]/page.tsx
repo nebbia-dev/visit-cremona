@@ -20,7 +20,8 @@ export default async function Story({params}: { params: Promise<{ id: string }> 
         <>
             <section className="mt-[79px] fadein-slower">
                 <div className="w-[95vw] md:w-[80vw] mx-auto items-center justify-center px-4 md:px-8 pt-20 pb-24">
-                    <p className="text-sm mb-20"><span className="font-semibold">Home / Scopri il territorio / </span>Cicloturismo
+                    <p className="text-sm mb-20"><span className="font-semibold"><Link href="/it">Home</Link> /
+                        <Link href="/it/discover"> Scopri il territorio</Link> / Cicloturismo</span> / Itinerari
                     </p>
 
                         <div className="w-full h-auto md:w-2/4 mb-12">

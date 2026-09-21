@@ -1,4 +1,5 @@
 import StoryCard from "@/app/_components/StoryCard";
+import Link from "next/link";
 export default async function Stories() {
 
     let content;
@@ -15,7 +16,7 @@ export default async function Stories() {
     return(
         <section className="mt-[79px] fadein-slower">
             <div className="w-[95vw] md:w-[80vw] mx-auto items-center justify-center px-4 md:px-8 pt-20 pb-24">
-                <p className="text-sm"><span className="font-semibold">Home / </span> Stories</p>
+                <p className="text-sm"><span className="font-semibold"><Link href="/it">Home</Link> / </span> Stories</p>
                 <h2 className="font-bold text-4xl mt-10 mb-8">Storie del Territorio</h2>
 
 

@@ -23,7 +23,7 @@ export default async function Discover() {
             <section className="mt-[79px] bg-alt-blue fadein-slower">
                 <div className="flex flex-col md:flex-row gap-20 w-[95vw] md:w-[80vw] mx-auto justify-center px-4 md:px-8 pt-20 pb-24 text-white">
                     <div className="flex flex-col gap-2 w-full md:w-2/4">
-                        <p className="text-sm"><span className="font-semibold">Home /</span> Scopri il territorio</p>
+                        <p className="text-sm"><span className="font-semibold"><Link href="/it">Home</Link> /</span> Scopri il territorio</p>
                         <h2 className="font-bold text-4xl mt-8">{content.data['titolo_1']}</h2>
                         <p className="w-full mt-2 pl-1 whitespace-pre-line">{content.data['testo_1']}</p>
                     </div>

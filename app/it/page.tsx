@@ -5,7 +5,7 @@ import AnimatedHoverButton from "@/app/_components/AnimatedHoverButton";
 import LocalMap from "@/app/_components/LocalMap";
 import Event from "@/app/_components/Event";
 import Stories from "@/app/_components/Stories";
-import ContactForm from "@/app/_components/ContactForm";
+import NewsletterForm from "@/app/_components/NewsletterForm";
 import ExperienceSection from "@/app/_components/ExperienceSection";
 import {getExperiences} from "@/app/_lib/domnia-experiences";
 import getEvents from "@/app/_lib/edt-events";
@@ -277,7 +277,7 @@ export default async function Home() {
                   <h4 className="font-bold">Iscriviti alla newsletter<br/>
                       Ricevi consigli, eventi e novità via email</h4>
 
-                  <ContactForm newsletter={true}/>
+                  <NewsletterForm lang="it"/>
               </div>
           </section>
       </>

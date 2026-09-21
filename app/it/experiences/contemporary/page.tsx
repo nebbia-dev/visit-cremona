@@ -1,5 +1,6 @@
 import {getExperiences} from "@/app/_lib/domnia-experiences";
 import SearchTaggedExperiences from "@/app/_components/SearchTaggedExperiences";
+import Link from "next/link";
 
 export default async function ContemporaryExperiences() {
 
@@ -28,7 +29,7 @@ export default async function ContemporaryExperiences() {
                 <div
                     className="flex flex-col gap-12 md:gap-20 w-[95vw] md:w-[80vw] mx-auto justify-center px-4 md:px-8 pt-20 pb-24">
                     <div className="flex flex-col gap-4 w-full">
-                        <p className="text-sm"><span className="font-semibold">Home / Esperienze /</span> Contemporanee</p>
+                        <p className="text-sm"><span className="font-semibold"><Link href="/it">Home</Link> / <Link href="/it/experiences">Esperienze</Link> /</span> Contemporanee</p>
 
                         <div className="flex flex-col md:flex-row gap-12 md:gap-20 my-8">
                             <div className="w-full md:w-[40%]">

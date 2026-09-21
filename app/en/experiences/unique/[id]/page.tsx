@@ -2,6 +2,7 @@ import {notFound} from "next/navigation";
 
 import {getExperience} from "@/app/_lib/domnia-experiences";
 import ContactForm from "@/app/_components/ContactForm";
+import Link from "next/link";
 
 type ExperiencesImagesResponse = {
     data?: Array<{
@@ -97,7 +98,7 @@ export default async function UniqueExperience({params}: { params: Promise<{ id:
             </div>
             <div className="w-[95vw] md:w-[80vw] mx-auto items-center justify-center px-4 md:px-8 pt-20 pb-24">
                 <p className="text-sm mb-10">
-                    <span className="font-semibold">Home / Unique Experiences /</span> {experience.title}
+                    <span className="font-semibold"><Link href="/en">Home</Link> / <Link href="/en/experiences">Experiences</Link> / <Link href="/en/experiences/unique">Unique Experiences</Link> /</span> {experience.title}
                 </p>
 
                 <div>

@@ -16,6 +16,10 @@ dist/
 # Log files
 *.log
 
+# Local environment variables
+.env*
+!.env.example
+
 # Package files
 *.jar
 
@@ -47,4 +51,3 @@ Thumbs.db
 *.flv
 *.mov
 *.wmv
-

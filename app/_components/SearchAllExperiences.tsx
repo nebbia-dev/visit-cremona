@@ -5,6 +5,7 @@ import SingleExperienceCard from "@/app/_components/SingleExperienceCard";
 import {useFilterStore} from "@/app/_stores/filter";
 import type {ExperienceCardData, ProductResponse} from "@/app/_lib/domnia-types";
 import {usePathname} from "next/navigation";
+import Link from "next/link";
 
 type FilteredExperience = ExperienceCardData & {
     products?: ProductResponse[];
@@ -127,7 +128,7 @@ export default function SearchAllExperiences({pages}:{pages:ExperienceCardData[]
         <div
             className="flex flex-col md:flex-row gap-20 w-[95vw] md:w-[80vw] mx-auto justify-center px-4 md:px-8 pt-20 pb-24">
             <div className="flex flex-col gap-2 w-full md:w-[40%]">
-                <p className="text-sm"><span className="font-semibold">Home /</span> {pathname.includes('/en') ? 'Experiences' : 'Esperienze'}</p>
+                <p className="text-sm"><span className="font-semibold"><Link href={`${pathname.includes('/en') ? '/en' : '/it'}`}>Home</Link> /</span> {pathname.includes('/en') ? 'Experiences' : 'Esperienze'}</p>
                 <h2 className="font-bold text-4xl my-8">{pathname.includes('/en') ? 'Experiences' : 'Esperienze'}</h2>
 
                 <Filter exp={true} search={applyFilters}/>

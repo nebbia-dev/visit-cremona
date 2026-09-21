@@ -7,6 +7,7 @@ import {getExperiences} from "@/app/_lib/domnia-experiences";
 import getEvents, {sortEventsByStartDate} from "@/app/_lib/edt-events";
 import Downloads from "@/app/_components/Downloads";
 import VideoPlayer from "@/app/_components/VideoPlayer";
+import Link from "next/link";
 
 export default async function Luthiery() {
 
@@ -58,7 +59,8 @@ export default async function Luthiery() {
         <>
             <section className="mt-[79px] fadein-slower">
                 <div className="w-[95vw] md:w-[80vw] mx-auto items-center justify-center px-4 md:px-8 pt-20 pb-12 md:pb-24">
-                    <p className="text-sm mb-20"><span className="font-semibold">Home / Discover the territory / </span>Music and luthiery
+                    <p className="text-sm mb-20"><span className="font-semibold"><Link href="/en">Home</Link> /
+                        <Link href="/en/discover"> Discover the territory</Link> / </span>Music and luthiery
                     </p>
                     <div
                         className="flex flex-col md:flex-row gap-20">

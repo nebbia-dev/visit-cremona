@@ -67,7 +67,10 @@ export default async function Cycling() {
         <>
             <section className="mt-[79px] fadein-slower">
                 <div className="w-[95vw] md:w-[80vw] mx-auto items-center justify-center px-4 md:px-8 pt-20 pb-12 md:pb-24">
-                    <p className="text-sm mb-20"><span className="font-semibold">Home / Discover the territory / </span>Cycle-tourism
+                    <p className="text-sm mb-20"><span className="font-semibold">
+                        <Link href="/en">Home</Link> /
+                        <Link href="/en/discover"> Discover the territory</Link> /
+                    </span> Cycle-tourism
                     </p>
                     <div
                         className="flex flex-col md:flex-row gap-20">

@@ -1,6 +1,7 @@
 import Markdown from "react-markdown";
 import NewsCard from "@/app/_components/NewsCard";
 import {notFound} from "next/navigation";
+import Link from "next/link";
 
 type NewsTag = {
     id: number;
@@ -63,7 +64,7 @@ export default async function News({params}: { params: Promise<{ slug: string }>
         <section className="mt-[79px] fadein-slower">
             <div className="w-[95vw] md:w-[80vw] mx-auto items-center justify-center px-4 md:px-8 pt-20 pb-24">
                 <p className="text-sm mb-10"><span
-                    className="font-semibold">Home / News /</span> {content.data.titolo}
+                    className="font-semibold"><Link href="/en">Home</Link> / News /</span> {content.data.titolo}
                 </p>
 
                 <div className="flex flex-col md:flex-row gap-16">

@@ -1,4 +1,4 @@
-import ContactForm from "@/app/_components/ContactForm";
+import NewsletterForm from "@/app/_components/NewsletterForm";
 
 export default function Newsletter() {
 
@@ -10,7 +10,7 @@ export default function Newsletter() {
                     <h4 className="font-bold">Iscriviti alla newsletter<br/>
                         Ricevi consigli, eventi e novità via email</h4>
 
-                    <ContactForm newsletter={true}/>
+                    <NewsletterForm lang="it"/>
             </div>
         </section>
     )

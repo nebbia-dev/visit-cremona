@@ -1,4 +1,5 @@
 import InfoCard from "@/app/_components/InfoCard";
+import Link from "next/link";
 
 export default async function BikeFriendly() {
 
@@ -17,7 +18,9 @@ export default async function BikeFriendly() {
         <>
             <section className="mt-[79px] fadein-slower">
                 <div className="w-[95vw] md:w-[80vw] mx-auto items-center justify-center px-4 md:px-8 pt-20 pb-24">
-                    <p className="text-sm"><span className="font-semibold">Home / Scopri il territorio / Cicloturismo /</span> Strutture
+                    <p className="text-sm"><span className="font-semibold"><Link href="/it">Home</Link> /
+                        <Link href="/it/discover"> Scopri il territorio</Link> /
+                        <Link href="/it/discover/cycling"> Cicloturismo</Link> /</span> Strutture
                         Bike-friendly
                     </p>
                     <h2 className="font-bold text-4xl mt-10 mb-8">Strutture Bike-friendly</h2>
