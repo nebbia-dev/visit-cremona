@@ -9,6 +9,15 @@ type MailchimpConfig = {
     honeypotName: string;
 };
 
+const DEFAULT_MAILCHIMP_FORM_ACTION = "https://turismocremona.us18.list-manage.com/subscribe/post?u=87003c4ed791d1987b53f02be&id=9b8f87cea3&f_id=00eeb0e6f0";
+const DEFAULT_MAILCHIMP_FIELDS = {
+    email: "EMAIL",
+    firstName: "FNAME",
+    lastName: "LNAME",
+    privacy: "PRIVACY",
+    privacyValue: "Autorizzo",
+} as const;
+
 const copy = {
     it: {
         firstName: "Nome",
@@ -33,11 +42,8 @@ const copy = {
 } as const;
 
 function getMailchimpConfig(): MailchimpConfig | null {
-    const rawAction = process.env.MAILCHIMP_FORM_ACTION?.trim();
-
-    if (!rawAction) {
-        return null;
-    }
+    const rawAction = process.env.MAILCHIMP_FORM_ACTION?.trim()
+        || DEFAULT_MAILCHIMP_FORM_ACTION;
 
     try {
         const action = new URL(rawAction.replaceAll("&amp;", "&"));
@@ -75,16 +81,24 @@ export default function NewsletterForm({lang}: NewsletterFormProps) {
         );
     }
 
-    const emailField = process.env.MAILCHIMP_EMAIL_FIELD?.trim() || "EMAIL";
-    const firstNameField = process.env.MAILCHIMP_FIRST_NAME_FIELD?.trim() || "FNAME";
-    const lastNameField = process.env.MAILCHIMP_LAST_NAME_FIELD?.trim() || "LNAME";
-    const gdprField = process.env.MAILCHIMP_GDPR_FIELD?.trim() || undefined;
-    const gdprValue = process.env.MAILCHIMP_GDPR_VALUE?.trim() || "Y";
+    const emailField = process.env.MAILCHIMP_EMAIL_FIELD?.trim()
+        || DEFAULT_MAILCHIMP_FIELDS.email;
+    const firstNameField = process.env.MAILCHIMP_FIRST_NAME_FIELD?.trim()
+        || DEFAULT_MAILCHIMP_FIELDS.firstName;
+    const lastNameField = process.env.MAILCHIMP_LAST_NAME_FIELD?.trim()
+        || DEFAULT_MAILCHIMP_FIELDS.lastName;
+    const privacyField = process.env.MAILCHIMP_PRIVACY_FIELD?.trim()
+        || DEFAULT_MAILCHIMP_FIELDS.privacy;
+    const privacyValue = process.env.MAILCHIMP_PRIVACY_VALUE?.trim()
+        || DEFAULT_MAILCHIMP_FIELDS.privacyValue;
 
     return (
         <form
             action={config.action}
             method="post"
+            id="mc-embedded-subscribe-form"
+            name="mc-embedded-subscribe-form"
+            target="_blank"
             acceptCharset="UTF-8"
             className="mt-8 flex w-full flex-col gap-4 md:w-[55vw]"
         >
@@ -128,8 +142,8 @@ export default function NewsletterForm({lang}: NewsletterFormProps) {
             <label className="flex items-start gap-2">
                 <input
                     type="checkbox"
-                    name={gdprField}
-                    value={gdprValue}
+                    name={privacyField}
+                    value={privacyValue}
                     required
                     className="mt-1 shrink-0"
                 />
@@ -161,6 +175,7 @@ export default function NewsletterForm({lang}: NewsletterFormProps) {
             <div>
                 <button
                     type="submit"
+                    name="subscribe"
                     className="mt-2 w-fit cursor-pointer rounded-full bg-soft-orange px-4 py-2 text-sm text-black transition duration-500 hover:bg-corpo-orange"
                 >
                     {labels.submit} &gt;

@@ -20,12 +20,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 L'iscrizione usa il form pubblico di Mailchimp e non richiede username, password o API key.
 
-1. In Mailchimp apri **Forms**, scegli **Other forms** e crea un **Embedded form** per l'Audience desiderata.
-2. Copia dall'HTML generato il valore completo dell'attributo `action` del form.
-3. Inseriscilo in `MAILCHIMP_FORM_ACTION`, seguendo il modello presente in `.env.example`.
-4. Verifica che i nomi dei campi generati da Mailchimp siano `EMAIL`, `FNAME` e `LNAME`. Se sono diversi, configura le tre variabili `MAILCHIMP_*_FIELD` con i valori presenti nel codice embedded.
-5. Se il codice embedded contiene un campo consenso come `name="gdpr[123456]"`, copialo in `MAILCHIMP_GDPR_FIELD` e riporta il relativo valore in `MAILCHIMP_GDPR_VALUE`.
-6. Riavvia l'applicazione e prova un'iscrizione completa, inclusa l'eventuale conferma double opt-in.
+Il componente è già configurato con il form pubblico dell'Audience Visit Cremona e con questa mappatura: `EMAIL`, `FNAME`, `LNAME` e `PRIVACY=Autorizzo`. L'URL contiene inoltre gli identificativi pubblici `u`, `id` e `f_id` richiesti da Mailchimp.
+
+Le variabili `MAILCHIMP_*` presenti in `.env.example` sono override opzionali da usare soltanto se viene sostituito il form o vengono rinominati i campi dell'Audience. Dopo una modifica occorre riavviare l'applicazione e provare un'iscrizione completa, inclusa l'eventuale conferma double opt-in.
 
 Il form invia i dati direttamente a Mailchimp. Le impostazioni single/double opt-in, reCAPTCHA e le email di conferma si gestiscono dall'Audience di Mailchimp. Per il flusso con email di conferma va abilitato il double opt-in.
 
