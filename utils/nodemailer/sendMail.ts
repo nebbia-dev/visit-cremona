@@ -6,14 +6,14 @@ const SMTP_SERVER_PASSWORD = process.env.NEXT_SMTP_SERVER_PASSWORD;
 const SITE_MAIL_SENDER = process.env.NEXT_SITE_MAIL_SENDER;
 const transporter = nodemailer.createTransport({
     host: SMTP_SERVER_HOST,
-    port: 587,
-    secure: false,
+    port: 465,
+    secure: true,
     auth: {
         user: SMTP_SERVER_USERNAME,
         pass: SMTP_SERVER_PASSWORD,
     },
     tls: {
-        rejectUnauthorized: false,
+        rejectUnauthorized: true,
     }
 });
 
