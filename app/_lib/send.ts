@@ -10,14 +10,14 @@ export default async function send(formData:any) {
             const subject = formData.get('subject');
             const message = formData.get('message');
             await sendMail({
-                sendTo: 'sandrolini.barbara@nebbialab.it',
+                sendTo: 'info@visitcremona.com',
                 subject:'Nuova richiesta di informazioni: ' + subject,
                 text: fullName + ' ha mandato il seguente messaggio: ' + message,
                 replyTo: email
             });
         } else {
             await sendMail({
-                sendTo: 'sandrolini.barbara@nebbialab.it',
+                sendTo: 'info@visitcremona.com',
                 subject:'Nuova iscrizione alla newsletter',
                 text: fullName + ' si è iscritto alla newsletter ',
                 replyTo: email

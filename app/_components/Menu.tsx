@@ -375,7 +375,7 @@ export default function Menu({links, lang} : {links:any, lang?:string}) {
                                 href={`/${lang === 'en' ? 'en' : 'it'}/contact`}
                                 onClick={() => toggleMenu('close')}
                             >
-                                {lang === 'en' ? 'Contacts' : 'Contacts'}
+                                {lang === 'en' ? 'Contacts' : 'Contatti'}
                             </Link>
                         </li>
 
